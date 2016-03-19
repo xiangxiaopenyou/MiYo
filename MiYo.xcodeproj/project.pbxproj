@@ -7,8 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D712B211C99BA8B00687ED9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B201C99BA8B00687ED9 /* ViewController.m */; };
-		3D712B231C99BA9900687ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B221C99BA9900687ED9 /* Main.storyboard */; };
+		2B4046FF1176D49BA3366E3D /* libPods-MiYo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC04742678FCF017A8421A7 /* libPods-MiYo.a */; };
+		3D712B351C9A7CC800687ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B301C9A7CC800687ED9 /* Main.storyboard */; };
+		3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B321C9A7CC800687ED9 /* MainViewController.m */; };
+		3D712B3D1C9A7DB200687ED9 /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */; };
+		3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3E1C9A7DBF00687ED9 /* Message.storyboard */; };
+		3D712B411C9A7DD700687ED9 /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B401C9A7DD700687ED9 /* Personal.storyboard */; };
+		3D712B431C9A7DE400687ED9 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B421C9A7DE400687ED9 /* Homepage.storyboard */; };
+		3D712B461C9A7F5900687ED9 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B451C9A7F5900687ED9 /* CollectionViewController.m */; };
+		3D712B491C9A7F6E00687ED9 /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B481C9A7F6E00687ED9 /* HomepageViewController.m */; };
+		3D712B4C1C9A7F7900687ED9 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B4B1C9A7F7900687ED9 /* MessageViewController.m */; };
+		3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B4E1C9A7F8B00687ED9 /* PersonalViewController.m */; };
+		3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B521C9A8BD500687ED9 /* RequestManager.m */; };
+		3D712B561C9A8E7100687ED9 /* RequestCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B551C9A8E7100687ED9 /* RequestCacher.m */; };
+		3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B581C9A8EA200687ED9 /* BaseRequest.m */; };
+		3D712B5E1C9B009000687ED9 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B5D1C9B009000687ED9 /* BaseModel.m */; };
+		3D712B611C9BAEE600687ED9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B601C9BAEE600687ED9 /* Login.storyboard */; };
+		3D712B641C9BFF7300687ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B631C9BFF7300687ED9 /* LoginViewController.m */; };
+		3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B661C9BFF8C00687ED9 /* RegisterViewController.m */; };
+		3D712B6A1C9C3A7400687ED9 /* CommonsDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B691C9C3A7400687ED9 /* CommonsDefines.m */; };
+		3D712B7C1C9DBBF000687ED9 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B7B1C9DBBF000687ED9 /* LoginRequest.m */; };
 		3DDD8BAB1C99258100C7296A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAA1C99258100C7296A /* main.m */; };
 		3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAD1C99258100C7296A /* AppDelegate.m */; };
 		3DDD8BB61C99258100C7296A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD8BB51C99258100C7296A /* Assets.xcassets */; };
@@ -35,9 +53,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D712B1F1C99BA8B00687ED9 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D712B201C99BA8B00687ED9 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3D712B221C99BA9900687ED9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0A85385FF1E9EE51935FA343 /* Pods-MiYo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYo/Pods-MiYo.debug.xcconfig"; sourceTree = "<group>"; };
+		3D712B301C9A7CC800687ED9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3D712B311C9A7CC800687ED9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3D712B321C9A7CC800687ED9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
+		3D712B3E1C9A7DBF00687ED9 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		3D712B401C9A7DD700687ED9 /* Personal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
+		3D712B421C9A7DE400687ED9 /* Homepage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
+		3D712B441C9A7F5900687ED9 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		3D712B451C9A7F5900687ED9 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		3D712B471C9A7F6E00687ED9 /* HomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
+		3D712B481C9A7F6E00687ED9 /* HomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
+		3D712B4A1C9A7F7900687ED9 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		3D712B4B1C9A7F7900687ED9 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		3D712B4D1C9A7F8B00687ED9 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		3D712B4E1C9A7F8B00687ED9 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		3D712B511C9A8BD500687ED9 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
+		3D712B521C9A8BD500687ED9 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
+		3D712B541C9A8E7100687ED9 /* RequestCacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestCacher.h; sourceTree = "<group>"; };
+		3D712B551C9A8E7100687ED9 /* RequestCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCacher.m; sourceTree = "<group>"; };
+		3D712B571C9A8EA200687ED9 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		3D712B581C9A8EA200687ED9 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		3D712B5C1C9B009000687ED9 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		3D712B5D1C9B009000687ED9 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		3D712B601C9BAEE600687ED9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3D712B621C9BFF7300687ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3D712B631C9BFF7300687ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3D712B651C9BFF8C00687ED9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		3D712B661C9BFF8C00687ED9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		3D712B681C9C3A7400687ED9 /* CommonsDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonsDefines.h; sourceTree = "<group>"; };
+		3D712B691C9C3A7400687ED9 /* CommonsDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonsDefines.m; sourceTree = "<group>"; };
+		3D712B7A1C9DBBF000687ED9 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRequest.h; sourceTree = "<group>"; };
+		3D712B7B1C9DBBF000687ED9 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
 		3DDD8BA61C99258100C7296A /* MiYo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDD8BAA1C99258100C7296A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DDD8BAC1C99258100C7296A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +99,8 @@
 		3DDD8BCA1C99258200C7296A /* MiYoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiYoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDD8BCE1C99258200C7296A /* MiYoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiYoUITests.m; sourceTree = "<group>"; };
 		3DDD8BD01C99258200C7296A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7EDB2E5F18E711773AAE029 /* Pods-MiYo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiYo/Pods-MiYo.release.xcconfig"; sourceTree = "<group>"; };
+		AFC04742678FCF017A8421A7 /* libPods-MiYo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4046FF1176D49BA3366E3D /* libPods-MiYo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,9 +129,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03BAA54629D8D0AECAC2FCF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A85385FF1E9EE51935FA343 /* Pods-MiYo.debug.xcconfig */,
+				A7EDB2E5F18E711773AAE029 /* Pods-MiYo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		31004756D496A1B94A0FD55E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFC04742678FCF017A8421A7 /* libPods-MiYo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D712B191C99B83600687ED9 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				3D712B6B1C9C3C7400687ED9 /* Login */,
+				3D712B501C9A8BAA00687ED9 /* BaseRequest */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -88,6 +158,8 @@
 		3D712B1A1C99B89100687ED9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D712B7D1C9DBC1A00687ED9 /* Login */,
+				3D712B5B1C9AFEF900687ED9 /* BaseModel */,
 			);
 			name = Models;
 			path = Requests/Models;
@@ -96,7 +168,12 @@
 		3D712B1B1C99B8D200687ED9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				3D712B1E1C99B96A00687ED9 /* Homepage */,
+				3D712B2F1C9A7CC800687ED9 /* Main */,
+				3D712B381C9A7CFA00687ED9 /* Homepage */,
+				3D712B3B1C9A7D9000687ED9 /* Collection */,
+				3D712B3A1C9A7D8600687ED9 /* Message */,
+				3D712B391C9A7D7100687ED9 /* Personal */,
+				3D712B5F1C9BAEB500687ED9 /* Login */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -104,19 +181,113 @@
 		3D712B1C1C99B8EA00687ED9 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3D712B681C9C3A7400687ED9 /* CommonsDefines.h */,
+				3D712B691C9C3A7400687ED9 /* CommonsDefines.m */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
 		};
-		3D712B1E1C99B96A00687ED9 /* Homepage */ = {
+		3D712B2F1C9A7CC800687ED9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3D712B221C99BA9900687ED9 /* Main.storyboard */,
-				3D712B1F1C99BA8B00687ED9 /* ViewController.h */,
-				3D712B201C99BA8B00687ED9 /* ViewController.m */,
+				3D712B301C9A7CC800687ED9 /* Main.storyboard */,
+				3D712B311C9A7CC800687ED9 /* MainViewController.h */,
+				3D712B321C9A7CC800687ED9 /* MainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3D712B381C9A7CFA00687ED9 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B421C9A7DE400687ED9 /* Homepage.storyboard */,
+				3D712B471C9A7F6E00687ED9 /* HomepageViewController.h */,
+				3D712B481C9A7F6E00687ED9 /* HomepageViewController.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
+		};
+		3D712B391C9A7D7100687ED9 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B401C9A7DD700687ED9 /* Personal.storyboard */,
+				3D712B4D1C9A7F8B00687ED9 /* PersonalViewController.h */,
+				3D712B4E1C9A7F8B00687ED9 /* PersonalViewController.m */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		3D712B3A1C9A7D8600687ED9 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B3E1C9A7DBF00687ED9 /* Message.storyboard */,
+				3D712B4A1C9A7F7900687ED9 /* MessageViewController.h */,
+				3D712B4B1C9A7F7900687ED9 /* MessageViewController.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		3D712B3B1C9A7D9000687ED9 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */,
+				3D712B441C9A7F5900687ED9 /* CollectionViewController.h */,
+				3D712B451C9A7F5900687ED9 /* CollectionViewController.m */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		3D712B501C9A8BAA00687ED9 /* BaseRequest */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B511C9A8BD500687ED9 /* RequestManager.h */,
+				3D712B521C9A8BD500687ED9 /* RequestManager.m */,
+				3D712B541C9A8E7100687ED9 /* RequestCacher.h */,
+				3D712B551C9A8E7100687ED9 /* RequestCacher.m */,
+				3D712B571C9A8EA200687ED9 /* BaseRequest.h */,
+				3D712B581C9A8EA200687ED9 /* BaseRequest.m */,
+			);
+			path = BaseRequest;
+			sourceTree = "<group>";
+		};
+		3D712B5B1C9AFEF900687ED9 /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B5C1C9B009000687ED9 /* BaseModel.h */,
+				3D712B5D1C9B009000687ED9 /* BaseModel.m */,
+			);
+			name = BaseModel;
+			path = MiYo/Models/BaseModel;
+			sourceTree = SOURCE_ROOT;
+		};
+		3D712B5F1C9BAEB500687ED9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B601C9BAEE600687ED9 /* Login.storyboard */,
+				3D712B621C9BFF7300687ED9 /* LoginViewController.h */,
+				3D712B631C9BFF7300687ED9 /* LoginViewController.m */,
+				3D712B651C9BFF8C00687ED9 /* RegisterViewController.h */,
+				3D712B661C9BFF8C00687ED9 /* RegisterViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3D712B6B1C9C3C7400687ED9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B7A1C9DBBF000687ED9 /* LoginRequest.h */,
+				3D712B7B1C9DBBF000687ED9 /* LoginRequest.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3D712B7D1C9DBC1A00687ED9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
+			path = MiYo/Models/Login;
+			sourceTree = SOURCE_ROOT;
 		};
 		3DDD8B9D1C99258100C7296A = {
 			isa = PBXGroup;
@@ -125,6 +296,8 @@
 				3DDD8BC21C99258100C7296A /* MiYoTests */,
 				3DDD8BCD1C99258200C7296A /* MiYoUITests */,
 				3DDD8BA71C99258100C7296A /* Products */,
+				03BAA54629D8D0AECAC2FCF3 /* Pods */,
+				31004756D496A1B94A0FD55E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,9 +361,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DDD8BD31C99258200C7296A /* Build configuration list for PBXNativeTarget "MiYo" */;
 			buildPhases = (
+				B39B0FD344F180CCD37FD573 /* Check Pods Manifest.lock */,
 				3DDD8BA21C99258100C7296A /* Sources */,
 				3DDD8BA31C99258100C7296A /* Frameworks */,
 				3DDD8BA41C99258100C7296A /* Resources */,
+				0929354325EF68A9F9DB6015 /* Embed Pods Frameworks */,
+				7AA186CADDE5C8EBC83D4C71 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,9 +460,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D712B611C9BAEE600687ED9 /* Login.storyboard in Resources */,
+				3D712B411C9A7DD700687ED9 /* Personal.storyboard in Resources */,
+				3D712B3D1C9A7DB200687ED9 /* Collection.storyboard in Resources */,
 				3DDD8BB91C99258100C7296A /* LaunchScreen.storyboard in Resources */,
+				3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */,
+				3D712B351C9A7CC800687ED9 /* Main.storyboard in Resources */,
 				3DDD8BB61C99258100C7296A /* Assets.xcassets in Resources */,
-				3D712B231C99BA9900687ED9 /* Main.storyboard in Resources */,
+				3D712B431C9A7DE400687ED9 /* Homepage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,14 +487,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0929354325EF68A9F9DB6015 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYo/Pods-MiYo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AA186CADDE5C8EBC83D4C71 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiYo/Pods-MiYo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B39B0FD344F180CCD37FD573 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3DDD8BA21C99258100C7296A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D712B4C1C9A7F7900687ED9 /* MessageViewController.m in Sources */,
+				3D712B561C9A8E7100687ED9 /* RequestCacher.m in Sources */,
+				3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */,
+				3D712B5E1C9B009000687ED9 /* BaseModel.m in Sources */,
+				3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */,
+				3D712B461C9A7F5900687ED9 /* CollectionViewController.m in Sources */,
 				3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */,
-				3D712B211C99BA8B00687ED9 /* ViewController.m in Sources */,
+				3D712B491C9A7F6E00687ED9 /* HomepageViewController.m in Sources */,
+				3D712B641C9BFF7300687ED9 /* LoginViewController.m in Sources */,
+				3D712B6A1C9C3A7400687ED9 /* CommonsDefines.m in Sources */,
+				3D712B7C1C9DBBF000687ED9 /* LoginRequest.m in Sources */,
+				3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */,
 				3DDD8BAB1C99258100C7296A /* main.m in Sources */,
+				3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */,
+				3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +685,7 @@
 		};
 		3DDD8BD41C99258200C7296A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A85385FF1E9EE51935FA343 /* Pods-MiYo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MiYo/Info.plist;
@@ -455,6 +697,7 @@
 		};
 		3DDD8BD51C99258200C7296A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7EDB2E5F18E711773AAE029 /* Pods-MiYo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MiYo/Info.plist;
