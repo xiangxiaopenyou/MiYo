@@ -7,3 +7,5 @@
 //
 
 #import "CommonsDefines.h"
+
+NSString *const UserId = @"UserId";

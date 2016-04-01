@@ -7,8 +7,20 @@
 //
 
 #import "RegisterViewController.h"
+#import "GetCodeRequest.h"
+#import "Util.h"
+#import "XLNoticeHelper.h"
+#import "LoginModel.h"
 
 @interface RegisterViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
+@property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
+@property (copy, nonatomic) NSString *receivedCode;
 
 @end
 
@@ -17,6 +29,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _getCodeButton.layer.masksToBounds = YES;
+    _getCodeButton.layer.cornerRadius = 5.0;
+    _getCodeButton.layer.borderWidth = 0.5;
+    _getCodeButton.layer.borderColor = [Util turnToRGBColor:@"C9C9C9"].CGColor;
+    
+    _registerButton.layer.masksToBounds = YES;
+    _registerButton.layer.cornerRadius = 2.0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +52,56 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)getCodeClick:(id)sender {
+    if (![Util validatePhone:_phoneNumTextField.text]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"请先输入正确的手机号"];
+        return;
+    }
+    [[GetCodeRequest new] request:^BOOL(GetCodeRequest *request) {
+        request.phoneNumber = _phoneNumTextField.text;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            [XLNoticeHelper showNoticeAtViewController:self message:@"发送验证码失败"];
+        } else {
+            NSLog(@"发送验证码成功");
+            _receivedCode = object[@"vcode"];
+            NSLog(@"%@", _receivedCode);
+        }
+    }];
+}
+- (IBAction)registerClick:(id)sender {
+    if (![Util validatePhone:_phoneNumTextField.text]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"请先输入正确的手机号"];
+        return;
+    }
+    if (!_receivedCode) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"请先获取验证码"];
+        return;
+    }
+    if ([Util isEmpty:_codeTextField.text]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"请先输入收到的验证码"];
+        return;
+    }
+    if (![_codeTextField.text isEqual:_receivedCode]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"验证码错误"];
+        return;
+    }
+    if ([Util isEmpty:_nicknameTextField.text]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"请输入你的昵称"];
+        return;
+    }
+    if ([Util isEmpty:_passwordTextField.text]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"请输入你的用户密码"];
+        return;
+    }
+    [LoginModel registerWith:_phoneNumTextField.text nickname:_nicknameTextField.text password:_passwordTextField.text handler:^(id object, NSString *msg) {
+        if (msg) {
+            [XLNoticeHelper showNoticeAtViewController:self message:msg];
+        } else {
+            NSLog(@"注册成功");
+        }
+    }];
+}
 
 @end

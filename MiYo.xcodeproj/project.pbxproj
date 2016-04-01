@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B4046FF1176D49BA3366E3D /* libPods-MiYo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC04742678FCF017A8421A7 /* libPods-MiYo.a */; };
-		3D712B351C9A7CC800687ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B301C9A7CC800687ED9 /* Main.storyboard */; };
 		3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B321C9A7CC800687ED9 /* MainViewController.m */; };
 		3D712B3D1C9A7DB200687ED9 /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */; };
 		3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3E1C9A7DBF00687ED9 /* Message.storyboard */; };
@@ -27,6 +26,13 @@
 		3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B661C9BFF8C00687ED9 /* RegisterViewController.m */; };
 		3D712B6A1C9C3A7400687ED9 /* CommonsDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B691C9C3A7400687ED9 /* CommonsDefines.m */; };
 		3D712B7C1C9DBBF000687ED9 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B7B1C9DBBF000687ED9 /* LoginRequest.m */; };
+		3D712B801C9DBDAD00687ED9 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B7F1C9DBDAD00687ED9 /* LoginModel.m */; };
+		3D712B851C9E66CB00687ED9 /* XLNoticeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B841C9E66CB00687ED9 /* XLNoticeHelper.m */; };
+		3D712B891C9FA82200687ED9 /* RegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B881C9FA82200687ED9 /* RegisterRequest.m */; };
+		3D712B8C1C9FACD900687ED9 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B8B1C9FACD900687ED9 /* Util.m */; };
+		3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */; };
+		3D712B981CA1A6E600687ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B971CA1A6E600687ED9 /* Main.storyboard */; };
+		3D712BE01CA1AE4900687ED9 /* XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */; };
 		3DDD8BAB1C99258100C7296A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAA1C99258100C7296A /* main.m */; };
 		3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAD1C99258100C7296A /* AppDelegate.m */; };
 		3DDD8BB61C99258100C7296A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD8BB51C99258100C7296A /* Assets.xcassets */; };
@@ -54,7 +60,6 @@
 
 /* Begin PBXFileReference section */
 		0A85385FF1E9EE51935FA343 /* Pods-MiYo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYo/Pods-MiYo.debug.xcconfig"; sourceTree = "<group>"; };
-		3D712B301C9A7CC800687ED9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3D712B311C9A7CC800687ED9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		3D712B321C9A7CC800687ED9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
@@ -86,6 +91,19 @@
 		3D712B691C9C3A7400687ED9 /* CommonsDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonsDefines.m; sourceTree = "<group>"; };
 		3D712B7A1C9DBBF000687ED9 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRequest.h; sourceTree = "<group>"; };
 		3D712B7B1C9DBBF000687ED9 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
+		3D712B7E1C9DBDAD00687ED9 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
+		3D712B7F1C9DBDAD00687ED9 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
+		3D712B831C9E66CB00687ED9 /* XLNoticeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLNoticeHelper.h; sourceTree = "<group>"; };
+		3D712B841C9E66CB00687ED9 /* XLNoticeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLNoticeHelper.m; sourceTree = "<group>"; };
+		3D712B871C9FA82200687ED9 /* RegisterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterRequest.h; sourceTree = "<group>"; };
+		3D712B881C9FA82200687ED9 /* RegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterRequest.m; sourceTree = "<group>"; };
+		3D712B8A1C9FACD900687ED9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		3D712B8B1C9FACD900687ED9 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		3D712B8D1CA03D3F00687ED9 /* GetCodeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCodeRequest.h; sourceTree = "<group>"; };
+		3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCodeRequest.m; sourceTree = "<group>"; };
+		3D712B971CA1A6E600687ED9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3D712BDE1CA1AE4900687ED9 /* XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMTabbarExtension.h; sourceTree = "<group>"; };
+		3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMTabbarExtension.m; sourceTree = "<group>"; };
 		3DDD8BA61C99258100C7296A /* MiYo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDD8BAA1C99258100C7296A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DDD8BAC1C99258100C7296A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,8 +199,12 @@
 		3D712B1C1C99B8EA00687ED9 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3D712B901CA195E900687ED9 /* TabBarExtension */,
+				3D712B811C9E661000687ED9 /* XLKit */,
 				3D712B681C9C3A7400687ED9 /* CommonsDefines.h */,
 				3D712B691C9C3A7400687ED9 /* CommonsDefines.m */,
+				3D712B8A1C9FACD900687ED9 /* Util.h */,
+				3D712B8B1C9FACD900687ED9 /* Util.m */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -190,7 +212,7 @@
 		3D712B2F1C9A7CC800687ED9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3D712B301C9A7CC800687ED9 /* Main.storyboard */,
+				3D712B971CA1A6E600687ED9 /* Main.storyboard */,
 				3D712B311C9A7CC800687ED9 /* MainViewController.h */,
 				3D712B321C9A7CC800687ED9 /* MainViewController.m */,
 			);
@@ -277,6 +299,10 @@
 			children = (
 				3D712B7A1C9DBBF000687ED9 /* LoginRequest.h */,
 				3D712B7B1C9DBBF000687ED9 /* LoginRequest.m */,
+				3D712B871C9FA82200687ED9 /* RegisterRequest.h */,
+				3D712B881C9FA82200687ED9 /* RegisterRequest.m */,
+				3D712B8D1CA03D3F00687ED9 /* GetCodeRequest.h */,
+				3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -284,10 +310,46 @@
 		3D712B7D1C9DBC1A00687ED9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3D712B7E1C9DBDAD00687ED9 /* LoginModel.h */,
+				3D712B7F1C9DBDAD00687ED9 /* LoginModel.m */,
 			);
 			name = Login;
 			path = MiYo/Models/Login;
 			sourceTree = SOURCE_ROOT;
+		};
+		3D712B811C9E661000687ED9 /* XLKit */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B861C9E6BFD00687ED9 /* XLBlockAlert&ActionSheet */,
+				3D712B821C9E662800687ED9 /* XLNoticeHelper */,
+			);
+			path = XLKit;
+			sourceTree = "<group>";
+		};
+		3D712B821C9E662800687ED9 /* XLNoticeHelper */ = {
+			isa = PBXGroup;
+			children = (
+				3D712B831C9E66CB00687ED9 /* XLNoticeHelper.h */,
+				3D712B841C9E66CB00687ED9 /* XLNoticeHelper.m */,
+			);
+			path = XLNoticeHelper;
+			sourceTree = "<group>";
+		};
+		3D712B861C9E6BFD00687ED9 /* XLBlockAlert&ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "XLBlockAlert&ActionSheet";
+			sourceTree = "<group>";
+		};
+		3D712B901CA195E900687ED9 /* TabBarExtension */ = {
+			isa = PBXGroup;
+			children = (
+				3D712BDE1CA1AE4900687ED9 /* XZMTabbarExtension.h */,
+				3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */,
+			);
+			path = TabBarExtension;
+			sourceTree = "<group>";
 		};
 		3DDD8B9D1C99258100C7296A = {
 			isa = PBXGroup;
@@ -463,9 +525,9 @@
 				3D712B611C9BAEE600687ED9 /* Login.storyboard in Resources */,
 				3D712B411C9A7DD700687ED9 /* Personal.storyboard in Resources */,
 				3D712B3D1C9A7DB200687ED9 /* Collection.storyboard in Resources */,
+				3D712B981CA1A6E600687ED9 /* Main.storyboard in Resources */,
 				3DDD8BB91C99258100C7296A /* LaunchScreen.storyboard in Resources */,
 				3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */,
-				3D712B351C9A7CC800687ED9 /* Main.storyboard in Resources */,
 				3DDD8BB61C99258100C7296A /* Assets.xcassets in Resources */,
 				3D712B431C9A7DE400687ED9 /* Homepage.storyboard in Resources */,
 			);
@@ -541,19 +603,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D712B4C1C9A7F7900687ED9 /* MessageViewController.m in Sources */,
+				3D712B801C9DBDAD00687ED9 /* LoginModel.m in Sources */,
 				3D712B561C9A8E7100687ED9 /* RequestCacher.m in Sources */,
 				3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */,
 				3D712B5E1C9B009000687ED9 /* BaseModel.m in Sources */,
 				3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */,
 				3D712B461C9A7F5900687ED9 /* CollectionViewController.m in Sources */,
+				3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */,
+				3D712BE01CA1AE4900687ED9 /* XZMTabbarExtension.m in Sources */,
 				3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */,
+				3D712B891C9FA82200687ED9 /* RegisterRequest.m in Sources */,
 				3D712B491C9A7F6E00687ED9 /* HomepageViewController.m in Sources */,
+				3D712B851C9E66CB00687ED9 /* XLNoticeHelper.m in Sources */,
 				3D712B641C9BFF7300687ED9 /* LoginViewController.m in Sources */,
 				3D712B6A1C9C3A7400687ED9 /* CommonsDefines.m in Sources */,
 				3D712B7C1C9DBBF000687ED9 /* LoginRequest.m in Sources */,
 				3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */,
 				3DDD8BAB1C99258100C7296A /* main.m in Sources */,
 				3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */,
+				3D712B8C1C9FACD900687ED9 /* Util.m in Sources */,
 				3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
