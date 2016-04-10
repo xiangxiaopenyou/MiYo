@@ -8,9 +8,11 @@
 
 #import "MainViewController.h"
 #import "XZMTabbarExtension.h"
+#import "CommonsDefines.h"
 
-@interface MainViewController ()
+@interface MainViewController ()<UITabBarControllerDelegate>
 @property (strong, nonatomic) UIButton *dashboardButton;
+@property (assign, nonatomic) NSInteger newIndex;
 
 @end
 
@@ -20,6 +22,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //[self.tabBar setTintColor:[UIColor whiteColor]];
+    self.delegate = self;
+    _newIndex = 0;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(turnToNewView) name:@"NewView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TurnToMainView) name:@"LogoutSuccess" object:nil];
     
     UIImage *homepageImage = [UIImage imageNamed:@"tab_homepage"];
     UIImage *homepageImageSelected = [UIImage imageNamed:@"tab_homepage_selected"];
@@ -93,7 +99,20 @@
 
 #pragma mark - UITabBar Delegate
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    
+    NSInteger index = [self.tabBar.items indexOfObject:item];
+    _newIndex = index;
+}
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:UserId]) {
+        if (viewController != [tabBarController.viewControllers objectAtIndex:0]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"HaveNotLogin" object:nil];
+            return NO;
+        } else {
+            return YES;
+        }
+    } else {
+        return YES;
+    }
 }
 
 /*
@@ -108,6 +127,12 @@
 - (void)chickCenterButton
 {
     NSLog(@"点击了中间按钮");
+}
+- (void)turnToNewView {
+    self.selectedIndex = _newIndex;
+}
+- (void)TurnToMainView {
+    self.selectedIndex = 0;
 }
 
 @end

@@ -50,12 +50,18 @@
     [LoginModel loginWith:_usernameTextField.text password:_passwordTextField.text handler:^(id object, NSString *msg) {
         if (msg) {
             [XLNoticeHelper showNoticeAtViewController:self message:@"登录失败"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFail" object:nil];
         } else {
             NSLog(@"成功");
-            
-            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:UserId];
+            [[NSUserDefaults standardUserDefaults] setValue:object[@"userid"] forKey:UserId];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            [self performSelector:@selector(turnToView) withObject:nil afterDelay:0.1];
         }
     }];
+}
+- (void)turnToView {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewView" object:nil];
 }
 - (IBAction)forgetPasswordClick:(id)sender {
 }

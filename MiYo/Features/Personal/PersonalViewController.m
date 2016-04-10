@@ -9,6 +9,7 @@
 #import "PersonalViewController.h"
 #import "CommonsDefines.h"
 #import "Util.h"
+#import "SettingViewController.h"
 
 @interface PersonalViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headBackgroundImage;
@@ -30,7 +31,7 @@
                                                                        NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                        NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
                                                                        }];
-    _informationArray = @[@"完善信息", @"我的收藏", @"我的发布"];
+    _informationArray = @[@"完善信息", @"我的发布", @"设置"];
     _becomeOwnerButton.layer.masksToBounds = YES;
     _becomeOwnerButton.layer.cornerRadius = 2.0;
 }
@@ -40,7 +41,12 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 #pragma mark - UITableView Delegate DataSource
@@ -63,8 +69,26 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.row) {
+        case 0:{
+            UIViewController *informationEditViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];
+            [self.navigationController pushViewController:informationEditViewController animated:YES];
+        }
+
+            break;
+        case 1:{
+        }
+            break;
+        case 2:{
+            UIViewController *settingViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"SettingView"];
+            [self.navigationController pushViewController:settingViewController animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 /*

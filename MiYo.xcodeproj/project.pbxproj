@@ -33,6 +33,16 @@
 		3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */; };
 		3D712B981CA1A6E600687ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B971CA1A6E600687ED9 /* Main.storyboard */; };
 		3D712BE01CA1AE4900687ED9 /* XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */; };
+		3DC7DC4A1CAE19D900D483B4 /* HousingResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC491CAE19D900D483B4 /* HousingResourceCell.m */; };
+		3DC7DC561CB0DC1300D483B4 /* HousingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC551CB0DC1300D483B4 /* HousingModel.m */; };
+		3DC7DC591CB0E0AD00D483B4 /* HousingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC581CB0E0AD00D483B4 /* HousingDetailViewController.m */; };
+		3DC7DC5C1CB4D17A00D483B4 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC5B1CB4D17A00D483B4 /* SettingViewController.m */; };
+		3DC7DC5F1CB4E9E100D483B4 /* XLBlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC5E1CB4E9E100D483B4 /* XLBlockAlertView.m */; };
+		3DC7DC621CB4F45400D483B4 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC611CB4F45400D483B4 /* FeedbackViewController.m */; };
+		3DC7DC651CB75A2F00D483B4 /* InformationEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC641CB75A2F00D483B4 /* InformationEditViewController.m */; };
+		3DC7DC691CB8C1EC00D483B4 /* SystemMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC681CB8C1EC00D483B4 /* SystemMessageCell.m */; };
+		3DC7DC6D1CBA255E00D483B4 /* ChooseHousingTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC6C1CBA255E00D483B4 /* ChooseHousingTypeViewController.m */; };
+		3DC7DC701CBA383B00D483B4 /* FixHousingStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC6F1CBA383B00D483B4 /* FixHousingStyleViewController.m */; };
 		3DDD8BAB1C99258100C7296A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAA1C99258100C7296A /* main.m */; };
 		3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAD1C99258100C7296A /* AppDelegate.m */; };
 		3DDD8BB61C99258100C7296A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD8BB51C99258100C7296A /* Assets.xcassets */; };
@@ -104,6 +114,26 @@
 		3D712B971CA1A6E600687ED9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3D712BDE1CA1AE4900687ED9 /* XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMTabbarExtension.h; sourceTree = "<group>"; };
 		3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMTabbarExtension.m; sourceTree = "<group>"; };
+		3DC7DC481CAE19D900D483B4 /* HousingResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingResourceCell.h; sourceTree = "<group>"; };
+		3DC7DC491CAE19D900D483B4 /* HousingResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingResourceCell.m; sourceTree = "<group>"; };
+		3DC7DC541CB0DC1300D483B4 /* HousingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingModel.h; sourceTree = "<group>"; };
+		3DC7DC551CB0DC1300D483B4 /* HousingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingModel.m; sourceTree = "<group>"; };
+		3DC7DC571CB0E0AD00D483B4 /* HousingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingDetailViewController.h; sourceTree = "<group>"; };
+		3DC7DC581CB0E0AD00D483B4 /* HousingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingDetailViewController.m; sourceTree = "<group>"; };
+		3DC7DC5A1CB4D17A00D483B4 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		3DC7DC5B1CB4D17A00D483B4 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		3DC7DC5D1CB4E9E100D483B4 /* XLBlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBlockAlertView.h; sourceTree = "<group>"; };
+		3DC7DC5E1CB4E9E100D483B4 /* XLBlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBlockAlertView.m; sourceTree = "<group>"; };
+		3DC7DC601CB4F45400D483B4 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		3DC7DC611CB4F45400D483B4 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		3DC7DC631CB75A2F00D483B4 /* InformationEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationEditViewController.h; sourceTree = "<group>"; };
+		3DC7DC641CB75A2F00D483B4 /* InformationEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationEditViewController.m; sourceTree = "<group>"; };
+		3DC7DC671CB8C1EC00D483B4 /* SystemMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessageCell.h; sourceTree = "<group>"; };
+		3DC7DC681CB8C1EC00D483B4 /* SystemMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageCell.m; sourceTree = "<group>"; };
+		3DC7DC6B1CBA255E00D483B4 /* ChooseHousingTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseHousingTypeViewController.h; sourceTree = "<group>"; };
+		3DC7DC6C1CBA255E00D483B4 /* ChooseHousingTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseHousingTypeViewController.m; sourceTree = "<group>"; };
+		3DC7DC6E1CBA383B00D483B4 /* FixHousingStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixHousingStyleViewController.h; sourceTree = "<group>"; };
+		3DC7DC6F1CBA383B00D483B4 /* FixHousingStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixHousingStyleViewController.m; sourceTree = "<group>"; };
 		3DDD8BA61C99258100C7296A /* MiYo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDD8BAA1C99258100C7296A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DDD8BAC1C99258100C7296A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -176,6 +206,7 @@
 		3D712B1A1C99B89100687ED9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7DC501CB0DBE600D483B4 /* Homepage */,
 				3D712B7D1C9DBC1A00687ED9 /* Login */,
 				3D712B5B1C9AFEF900687ED9 /* BaseModel */,
 			);
@@ -222,9 +253,12 @@
 		3D712B381C9A7CFA00687ED9 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7DC471CAE198000D483B4 /* Views */,
 				3D712B421C9A7DE400687ED9 /* Homepage.storyboard */,
 				3D712B471C9A7F6E00687ED9 /* HomepageViewController.h */,
 				3D712B481C9A7F6E00687ED9 /* HomepageViewController.m */,
+				3DC7DC571CB0E0AD00D483B4 /* HousingDetailViewController.h */,
+				3DC7DC581CB0E0AD00D483B4 /* HousingDetailViewController.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -232,9 +266,16 @@
 		3D712B391C9A7D7100687ED9 /* Personal */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7DC6A1CBA252500D483B4 /* PublishHousingViews */,
 				3D712B401C9A7DD700687ED9 /* Personal.storyboard */,
 				3D712B4D1C9A7F8B00687ED9 /* PersonalViewController.h */,
 				3D712B4E1C9A7F8B00687ED9 /* PersonalViewController.m */,
+				3DC7DC5A1CB4D17A00D483B4 /* SettingViewController.h */,
+				3DC7DC5B1CB4D17A00D483B4 /* SettingViewController.m */,
+				3DC7DC601CB4F45400D483B4 /* FeedbackViewController.h */,
+				3DC7DC611CB4F45400D483B4 /* FeedbackViewController.m */,
+				3DC7DC631CB75A2F00D483B4 /* InformationEditViewController.h */,
+				3DC7DC641CB75A2F00D483B4 /* InformationEditViewController.m */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -242,6 +283,7 @@
 		3D712B3A1C9A7D8600687ED9 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7DC661CB8C1D000D483B4 /* Views */,
 				3D712B3E1C9A7DBF00687ED9 /* Message.storyboard */,
 				3D712B4A1C9A7F7900687ED9 /* MessageViewController.h */,
 				3D712B4B1C9A7F7900687ED9 /* MessageViewController.m */,
@@ -338,6 +380,8 @@
 		3D712B861C9E6BFD00687ED9 /* XLBlockAlert&ActionSheet */ = {
 			isa = PBXGroup;
 			children = (
+				3DC7DC5D1CB4E9E100D483B4 /* XLBlockAlertView.h */,
+				3DC7DC5E1CB4E9E100D483B4 /* XLBlockAlertView.m */,
 			);
 			path = "XLBlockAlert&ActionSheet";
 			sourceTree = "<group>";
@@ -349,6 +393,45 @@
 				3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */,
 			);
 			path = TabBarExtension;
+			sourceTree = "<group>";
+		};
+		3DC7DC471CAE198000D483B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DC7DC481CAE19D900D483B4 /* HousingResourceCell.h */,
+				3DC7DC491CAE19D900D483B4 /* HousingResourceCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DC7DC501CB0DBE600D483B4 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				3DC7DC541CB0DC1300D483B4 /* HousingModel.h */,
+				3DC7DC551CB0DC1300D483B4 /* HousingModel.m */,
+			);
+			name = Homepage;
+			path = MiYo/Models/Homepage;
+			sourceTree = SOURCE_ROOT;
+		};
+		3DC7DC661CB8C1D000D483B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DC7DC671CB8C1EC00D483B4 /* SystemMessageCell.h */,
+				3DC7DC681CB8C1EC00D483B4 /* SystemMessageCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DC7DC6A1CBA252500D483B4 /* PublishHousingViews */ = {
+			isa = PBXGroup;
+			children = (
+				3DC7DC6B1CBA255E00D483B4 /* ChooseHousingTypeViewController.h */,
+				3DC7DC6C1CBA255E00D483B4 /* ChooseHousingTypeViewController.m */,
+				3DC7DC6E1CBA383B00D483B4 /* FixHousingStyleViewController.h */,
+				3DC7DC6F1CBA383B00D483B4 /* FixHousingStyleViewController.m */,
+			);
+			path = PublishHousingViews;
 			sourceTree = "<group>";
 		};
 		3DDD8B9D1C99258100C7296A = {
@@ -603,26 +686,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D712B4C1C9A7F7900687ED9 /* MessageViewController.m in Sources */,
+				3DC7DC5F1CB4E9E100D483B4 /* XLBlockAlertView.m in Sources */,
+				3DC7DC4A1CAE19D900D483B4 /* HousingResourceCell.m in Sources */,
 				3D712B801C9DBDAD00687ED9 /* LoginModel.m in Sources */,
+				3DC7DC701CBA383B00D483B4 /* FixHousingStyleViewController.m in Sources */,
 				3D712B561C9A8E7100687ED9 /* RequestCacher.m in Sources */,
 				3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */,
 				3D712B5E1C9B009000687ED9 /* BaseModel.m in Sources */,
 				3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */,
+				3DC7DC621CB4F45400D483B4 /* FeedbackViewController.m in Sources */,
+				3DC7DC6D1CBA255E00D483B4 /* ChooseHousingTypeViewController.m in Sources */,
 				3D712B461C9A7F5900687ED9 /* CollectionViewController.m in Sources */,
+				3DC7DC561CB0DC1300D483B4 /* HousingModel.m in Sources */,
 				3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */,
 				3D712BE01CA1AE4900687ED9 /* XZMTabbarExtension.m in Sources */,
 				3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */,
 				3D712B891C9FA82200687ED9 /* RegisterRequest.m in Sources */,
 				3D712B491C9A7F6E00687ED9 /* HomepageViewController.m in Sources */,
+				3DC7DC691CB8C1EC00D483B4 /* SystemMessageCell.m in Sources */,
+				3DC7DC5C1CB4D17A00D483B4 /* SettingViewController.m in Sources */,
 				3D712B851C9E66CB00687ED9 /* XLNoticeHelper.m in Sources */,
 				3D712B641C9BFF7300687ED9 /* LoginViewController.m in Sources */,
 				3D712B6A1C9C3A7400687ED9 /* CommonsDefines.m in Sources */,
 				3D712B7C1C9DBBF000687ED9 /* LoginRequest.m in Sources */,
+				3DC7DC651CB75A2F00D483B4 /* InformationEditViewController.m in Sources */,
 				3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */,
 				3DDD8BAB1C99258100C7296A /* main.m in Sources */,
 				3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */,
 				3D712B8C1C9FACD900687ED9 /* Util.m in Sources */,
 				3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */,
+				3DC7DC591CB0E0AD00D483B4 /* HousingDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

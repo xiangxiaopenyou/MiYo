@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Message View Controller-->
+        <!--消息-->
         <scene sceneID="sS9-oD-9Tv">
             <objects>
-                <viewController storyboardIdentifier="MessageView" id="JZN-ZU-sbc" customClass="MessageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessageView" automaticallyAdjustsScrollViewInsets="NO" id="JZN-ZU-sbc" customClass="MessageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ksq-kA-kBa"/>
                         <viewControllerLayoutGuide type="bottom" id="ZuE-Mn-6dc"/>
@@ -16,9 +16,62 @@
                     <view key="view" contentMode="scaleToFill" id="uIb-vQ-0jl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OEQ-8W-rpB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SystemMessageCell" textLabel="mZq-If-Neh" detailTextLabel="ffM-aS-3t9" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="Dbk-MU-uwd" customClass="SystemMessageCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dbk-MU-uwd" id="cnJ-Cw-iD9">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="系统消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mZq-If-Neh">
+                                                    <rect key="frame" x="15" y="19" width="64" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="您有一条来自系统的消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ffM-aS-3t9">
+                                                    <rect key="frame" x="15" y="39" width="143" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="HV5-Bx-NqO">
+                                        <rect key="frame" x="0.0" y="102" width="600" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HV5-Bx-NqO" id="7sc-cE-Zan">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JZN-ZU-sbc" id="SxU-zi-LsV"/>
+                                    <outlet property="delegate" destination="JZN-ZU-sbc" id="4Td-ON-e4a"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OEQ-8W-rpB" firstAttribute="top" secondItem="ksq-kA-kBa" secondAttribute="bottom" id="2Uw-wP-O0T"/>
+                            <constraint firstAttribute="trailing" secondItem="OEQ-8W-rpB" secondAttribute="trailing" id="HRX-1i-PLP"/>
+                            <constraint firstItem="OEQ-8W-rpB" firstAttribute="leading" secondItem="uIb-vQ-0jl" secondAttribute="leading" id="J2e-Cg-lht"/>
+                            <constraint firstItem="ZuE-Mn-6dc" firstAttribute="top" secondItem="OEQ-8W-rpB" secondAttribute="bottom" id="xlP-W1-Bh5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="V8s-Qw-VDj"/>
+                    <navigationItem key="navigationItem" title="消息" id="V8s-Qw-VDj"/>
+                    <connections>
+                        <outlet property="messageTableView" destination="OEQ-8W-rpB" id="l7g-58-4Rx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozr-SE-K70" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

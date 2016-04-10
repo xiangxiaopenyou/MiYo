@@ -7,8 +7,11 @@
 //
 
 #import "CollectionViewController.h"
+#import "HousingResourceCell.h"
+#import "HousingModel.h"
+#import "Util.h"
 
-@interface CollectionViewController ()
+@interface CollectionViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -17,11 +20,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes: @{
+                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                       NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
+                                                                       }];
+    self.navigationItem.title = @"收藏";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark - UITableView Delegate DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 130;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"HousingSourceCell";
+    HousingResourceCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[HousingResourceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setupDataWith:[HousingModel new]];
+    return cell;
 }
 
 /*

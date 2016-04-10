@@ -16,7 +16,7 @@
     NSDictionary *param = @{@"account" : _username, @"password" : _password};
     [[RequestManager shareInstance] POST:@"loginAPI.aspx" parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
-            !resultHandler ?: resultHandler(responseObject[@"resultMsg"], nil);
+            !resultHandler ?: resultHandler(responseObject[@"data"], nil);
         } else {
             !resultHandler ?: resultHandler(nil, responseObject[@"resultMsg"]);
         }

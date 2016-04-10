@@ -10,6 +10,9 @@
 #import "LoginRequest.h"
 #import "LoginViewController.h"
 #import "CommonsDefines.h"
+#import "HousingResourceCell.h"
+#import "HousingModel.h"
+#import "Util.h"
 
 @interface HomepageViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *topScrollView;
@@ -23,10 +26,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes: @{
+                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                       NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
+                                                                       }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needLogin) name:@"HaveNotLogin" object:nil];
     _topScrollView.delegate = self;
     _pageControl.numberOfPages = 5;
     _pageControl.currentPage = 0;
     
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidAppear:(BOOL)animated {
     for (NSInteger i = 0; i < 5; i ++) {
@@ -81,15 +99,31 @@
     return 5;
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 130;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"RecommendedCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"HousingSourceCell";
+    HousingResourceCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[HousingResourceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    [cell setupDataWith:[HousingModel new]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 25;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 25)];
+    headView.backgroundColor = kRGBColor(250, 250, 250, 1.0);
+    UILabel *headLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH, 25)];
+    headLabel.text = @"推荐房源";
+    headLabel.font = kSystemFont(14);
+    headLabel.textColor = kRGBColor(144, 144, 144, 1.0);
+    [headView addSubview:headLabel];
+    return headView;
+    
 }
 
 /*
@@ -102,6 +136,11 @@
 }
 */
 - (IBAction)login:(id)sender {
+    LoginViewController *loginView = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginView"];
+    loginView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:loginView animated:YES];
+}
+- (void)needLogin {
     LoginViewController *loginView = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginView"];
     loginView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:loginView animated:YES];
