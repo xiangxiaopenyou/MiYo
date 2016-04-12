@@ -53,7 +53,9 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFail" object:nil];
         } else {
             NSLog(@"成功");
-            [[NSUserDefaults standardUserDefaults] setValue:object[@"userid"] forKey:UserId];
+            [[NSUserDefaults standardUserDefaults] setValue:object[@"userid"] forKey:USERID];
+            [[NSUserDefaults standardUserDefaults] setValue:object[@"nickname"] forKey:NICKNAME];
+            [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%@", object[@"headphoto"]] forKey:PORTRAIT];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [self.navigationController popToRootViewControllerAnimated:NO];
             [self performSelector:@selector(turnToView) withObject:nil afterDelay:0.1];

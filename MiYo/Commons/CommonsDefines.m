@@ -8,4 +8,6 @@
 
 #import "CommonsDefines.h"
 
-NSString *const UserId = @"UserId";
+NSString *const USERID = @"UserId";
+NSString *const NICKNAME = @"NickName";
+NSString *const PORTRAIT = @"Portrait";

@@ -13,5 +13,7 @@
 + (BOOL)isEmpty:(id)sender;
 + (BOOL)validatePhone:(NSString *)phone;
 + (UIColor *)turnToRGBColor:(NSString *)hexColor;
++ (NSString *)urlPhoto:(NSString*)key;
++ (NSString *)urlZoomPhoto:(NSString*)key;
 
 @end

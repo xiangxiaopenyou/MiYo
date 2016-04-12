@@ -11,6 +11,7 @@
 #import "Util.h"
 #import "XLNoticeHelper.h"
 #import "LoginModel.h"
+#import "CommonsDefines.h"
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
@@ -100,8 +101,17 @@
             [XLNoticeHelper showNoticeAtViewController:self message:msg];
         } else {
             NSLog(@"注册成功");
+            [[NSUserDefaults standardUserDefaults] setValue:object[@"userid"] forKey:USERID];
+            [[NSUserDefaults standardUserDefaults] setValue:object[@"nickname"] forKey:NICKNAME];
+            [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%@", object[@"headphoto"]] forKey:PORTRAIT];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            [self performSelector:@selector(turnToView) withObject:nil afterDelay:0.1];
         }
     }];
+}
+- (void)turnToView {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewView" object:nil];
 }
 
 @end

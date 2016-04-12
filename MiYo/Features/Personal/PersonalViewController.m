@@ -10,11 +10,13 @@
 #import "CommonsDefines.h"
 #import "Util.h"
 #import "SettingViewController.h"
+#import <UIImageView+AFNetworking.h>
 
 @interface PersonalViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headBackgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UIButton *becomeOwnerButton;
+@property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 
 @property (copy, nonatomic) NSArray *informationArray;
 
@@ -32,8 +34,24 @@
                                                                        NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
                                                                        }];
     _informationArray = @[@"完善信息", @"我的发布", @"设置"];
+    
     _becomeOwnerButton.layer.masksToBounds = YES;
     _becomeOwnerButton.layer.cornerRadius = 2.0;
+    
+    _headImage.layer.masksToBounds = YES;
+    _headImage.layer.cornerRadius = 29.0;
+    _headImage.layer.borderWidth = 2.0;
+    _headImage.layer.borderColor = kRGBColor(255, 255, 255, 0.4).CGColor;
+    
+    
+    [self setupContent];
+}
+- (void)setupContent {
+    NSString *nicknameString = [[NSUserDefaults standardUserDefaults] stringForKey:NICKNAME];
+    self.nicknameLabel.text = [NSString stringWithFormat:@"%@", nicknameString];
+    
+    NSString *portraitString = [[NSUserDefaults standardUserDefaults] stringForKey:PORTRAIT];
+    [self.headImage setImageWithURL:[NSURL URLWithString:[Util urlZoomPhoto:portraitString]] placeholderImage:[UIImage imageNamed:@"default_portrait"]];
 }
 
 - (void)didReceiveMemoryWarning {

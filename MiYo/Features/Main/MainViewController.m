@@ -103,7 +103,7 @@
     _newIndex = index;
 }
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:UserId]) {
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:USERID]) {
         if (viewController != [tabBarController.viewControllers objectAtIndex:0]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"HaveNotLogin" object:nil];
             return NO;
@@ -113,6 +113,9 @@
     } else {
         return YES;
     }
+}
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 /*

@@ -40,5 +40,28 @@
     
     return [UIColor colorWithRed:(float)(red/255.0f) green:(float)(green / 255.0f) blue:(float)(blue / 255.0f) alpha:1.0f];
 }
++ (NSString *)urlPhoto:(NSString*)key {
+    if ([self isEmpty:key]) {
+        return [NSString stringWithFormat:@"%@%@", BaseImageURL,@"1.png?imageView/5/w/320/h/480"];
+    } else {
+        NSArray *urlComps = [key componentsSeparatedByString:@"://"];
+        if([urlComps count] && ( [[urlComps objectAtIndex:0] isEqualToString:@"http"]||[[urlComps objectAtIndex:0] isEqualToString:@"https"] )) {
+            return key;
+        }
+        return [NSString stringWithFormat:@"%@%@", BaseImageURL, key];
+    }
+}
+
++ (NSString *)urlZoomPhoto:(NSString*)key {
+    if ([self isEmpty:key]) {
+        return [NSString stringWithFormat:@"%@%@", BaseImageURL, @"1.png?imageView/5/w/160/h/160"];
+    } else {
+        NSArray *urlComps = [key componentsSeparatedByString:@"://"];
+        if([urlComps count] && ([[urlComps objectAtIndex:0] isEqualToString:@"http"]||[[urlComps objectAtIndex:0] isEqualToString:@"https"])) {
+            return [NSString stringWithFormat:@"%@?imageView/5/w/160/h/160", key];
+        }
+        return [NSString stringWithFormat:@"%@%@?imageView/5/w/160/h/160",BaseImageURL,key];
+    }
+}
 
 @end

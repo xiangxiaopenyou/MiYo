@@ -71,7 +71,9 @@
     [[[XLBlockAlertView alloc] initWithTitle:@"提示" message:@"确定要退出登录吗？" block:^(NSInteger buttonIndex) {
         if (buttonIndex == 1) {
             if (buttonIndex == 1) {
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:UserId];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:USERID];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:NICKNAME];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:PORTRAIT];
                 [self.navigationController popViewControllerAnimated:YES];
                 [self performSelector:@selector(postInformation) withObject:nil afterDelay:0.5];
             }
