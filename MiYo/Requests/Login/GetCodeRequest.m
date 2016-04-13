@@ -14,7 +14,7 @@
         return;
     }
     NSDictionary *param = @{@"phone" : _phoneNumber};
-    [[RequestManager shareInstance] POST:@"sendVCodeAPI.aspx" parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[RequestManager shareInstance] POST:@"sendVCodeAPI.aspx" parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
             !resultHandler ?: resultHandler(responseObject[@"data"], nil);
         } else {

@@ -14,7 +14,7 @@
         return;
     }
     NSDictionary *param = @{@"userid" : _userId};
-    [[RequestManager shareInstance] POST:@"getUserInfo.aspx" parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[RequestManager shareInstance] POST:@"getUserInfo.aspx" parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
             !resultHandler ?: resultHandler(responseObject[@"data"], nil);
         } else {

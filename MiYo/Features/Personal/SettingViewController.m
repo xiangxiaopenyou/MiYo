@@ -46,7 +46,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_setting0%@", @(indexPath.row + 1)]];
-    cell.textLabel.text = indexPath.row == 0 ? @"用户反馈" : @"检查更新";
+    cell.textLabel.text = indexPath.row == 0 ? @"用户反馈" : @"修改密码";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

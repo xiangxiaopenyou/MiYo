@@ -11,6 +11,7 @@
 #import "XLNoticeHelper.h"
 #import "LoginModel.h"
 #import "CommonsDefines.h"
+#import <MBProgressHUD.h>
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -39,18 +40,24 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)loginClick:(id)sender {
-    if ([Util isEmpty:_usernameTextField.text]) {
-        [XLNoticeHelper showNoticeAtViewController:self message:@"请先输入手机号"];
+    [_usernameTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+    if (![Util validatePhone:_usernameTextField.text]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"请输入正确的手机号"];
         return;
     }
     if ([Util isEmpty:_passwordTextField.text]) {
         [XLNoticeHelper showNoticeAtViewController:self message:@"请输入密码"];
         return;
     }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.removeFromSuperViewOnHide = YES;
+    hud.labelText = @"正在登录...";
     [LoginModel loginWith:_usernameTextField.text password:_passwordTextField.text handler:^(id object, NSString *msg) {
+        [hud setHidden:YES];
         if (msg) {
             [XLNoticeHelper showNoticeAtViewController:self message:@"登录失败"];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFail" object:nil];
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"LoginFail" object:nil];
         } else {
             NSLog(@"成功");
             [[NSUserDefaults standardUserDefaults] setValue:object[@"userid"] forKey:USERID];

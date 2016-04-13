@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2B4046FF1176D49BA3366E3D /* libPods-MiYo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC04742678FCF017A8421A7 /* libPods-MiYo.a */; };
+		3D153D151CBDE6F6006A5313 /* UploadImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D141CBDE6F6006A5313 /* UploadImageRequest.m */; };
+		3D153D181CBDF0DE006A5313 /* UIImage+ResizeMagick.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D161CBDF0DE006A5313 /* UIImage+ResizeMagick.m */; };
+		3D153D1B1CBDF7E0006A5313 /* ModifyInformationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D1A1CBDF7E0006A5313 /* ModifyInformationRequest.m */; };
+		3D153D1E1CBE111B006A5313 /* FindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D1D1CBE111B006A5313 /* FindPasswordViewController.m */; };
+		3D153D211CBE1710006A5313 /* FindPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D201CBE1710006A5313 /* FindPasswordRequest.m */; };
+		3D153D321CBE193A006A5313 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D241CBE193A006A5313 /* MBProgressHUD+Add.m */; };
+		3D153D331CBE193A006A5313 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D261CBE193A006A5313 /* MJPhoto.m */; };
+		3D153D341CBE193A006A5313 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3D153D271CBE193A006A5313 /* MJPhotoBrowser.bundle */; };
+		3D153D351CBE193A006A5313 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D291CBE193A006A5313 /* MJPhotoBrowser.m */; };
+		3D153D361CBE193A006A5313 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D2B1CBE193A006A5313 /* MJPhotoLoadingView.m */; };
+		3D153D371CBE193A006A5313 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D2D1CBE193A006A5313 /* MJPhotoProgressView.m */; };
+		3D153D381CBE193A006A5313 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D2F1CBE193A006A5313 /* MJPhotoToolbar.m */; };
+		3D153D391CBE193A006A5313 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D311CBE193A006A5313 /* MJPhotoView.m */; };
+		3D153D3C1CBE23F0006A5313 /* HousingFacilitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D3B1CBE23F0006A5313 /* HousingFacilitiesViewController.m */; };
 		3D38FE8A1CBCE8BB001AF04F /* XLBlockActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE891CBCE8BB001AF04F /* XLBlockActionSheet.m */; };
 		3D38FE911CBCF533001AF04F /* AreaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE8D1CBCF533001AF04F /* AreaObject.m */; };
 		3D38FE921CBCF533001AF04F /* AddressChoicePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE8F1CBCF533001AF04F /* AddressChoicePickerView.m */; };
@@ -77,6 +91,33 @@
 
 /* Begin PBXFileReference section */
 		0A85385FF1E9EE51935FA343 /* Pods-MiYo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYo/Pods-MiYo.debug.xcconfig"; sourceTree = "<group>"; };
+		3D153D131CBDE6F6006A5313 /* UploadImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImageRequest.h; sourceTree = "<group>"; };
+		3D153D141CBDE6F6006A5313 /* UploadImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImageRequest.m; sourceTree = "<group>"; };
+		3D153D161CBDF0DE006A5313 /* UIImage+ResizeMagick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeMagick.m"; sourceTree = "<group>"; };
+		3D153D171CBDF0DE006A5313 /* UIImage+ResizeMagick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeMagick.h"; sourceTree = "<group>"; };
+		3D153D191CBDF7E0006A5313 /* ModifyInformationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyInformationRequest.h; sourceTree = "<group>"; };
+		3D153D1A1CBDF7E0006A5313 /* ModifyInformationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyInformationRequest.m; sourceTree = "<group>"; };
+		3D153D1C1CBE111B006A5313 /* FindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordViewController.h; sourceTree = "<group>"; };
+		3D153D1D1CBE111B006A5313 /* FindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordViewController.m; sourceTree = "<group>"; };
+		3D153D1F1CBE1710006A5313 /* FindPasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordRequest.h; sourceTree = "<group>"; };
+		3D153D201CBE1710006A5313 /* FindPasswordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordRequest.m; sourceTree = "<group>"; };
+		3D153D231CBE193A006A5313 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		3D153D241CBE193A006A5313 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		3D153D251CBE193A006A5313 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
+		3D153D261CBE193A006A5313 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
+		3D153D271CBE193A006A5313 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
+		3D153D281CBE193A006A5313 /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		3D153D291CBE193A006A5313 /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
+		3D153D2A1CBE193A006A5313 /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
+		3D153D2B1CBE193A006A5313 /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
+		3D153D2C1CBE193A006A5313 /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
+		3D153D2D1CBE193A006A5313 /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
+		3D153D2E1CBE193A006A5313 /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
+		3D153D2F1CBE193A006A5313 /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
+		3D153D301CBE193A006A5313 /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
+		3D153D311CBE193A006A5313 /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
+		3D153D3A1CBE23F0006A5313 /* HousingFacilitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingFacilitiesViewController.h; sourceTree = "<group>"; };
+		3D153D3B1CBE23F0006A5313 /* HousingFacilitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingFacilitiesViewController.m; sourceTree = "<group>"; };
 		3D38FE881CBCE8BB001AF04F /* XLBlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBlockActionSheet.h; sourceTree = "<group>"; };
 		3D38FE891CBCE8BB001AF04F /* XLBlockActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBlockActionSheet.m; sourceTree = "<group>"; };
 		3D38FE8C1CBCF533001AF04F /* AreaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaObject.h; sourceTree = "<group>"; };
@@ -213,6 +254,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3D153D0F1CBDE57D006A5313 /* ImageUpload */ = {
+			isa = PBXGroup;
+			children = (
+				3D153D131CBDE6F6006A5313 /* UploadImageRequest.h */,
+				3D153D141CBDE6F6006A5313 /* UploadImageRequest.m */,
+			);
+			path = ImageUpload;
+			sourceTree = "<group>";
+		};
+		3D153D221CBE1916006A5313 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				3D153D231CBE193A006A5313 /* MBProgressHUD+Add.h */,
+				3D153D241CBE193A006A5313 /* MBProgressHUD+Add.m */,
+				3D153D251CBE193A006A5313 /* MJPhoto.h */,
+				3D153D261CBE193A006A5313 /* MJPhoto.m */,
+				3D153D271CBE193A006A5313 /* MJPhotoBrowser.bundle */,
+				3D153D281CBE193A006A5313 /* MJPhotoBrowser.h */,
+				3D153D291CBE193A006A5313 /* MJPhotoBrowser.m */,
+				3D153D2A1CBE193A006A5313 /* MJPhotoLoadingView.h */,
+				3D153D2B1CBE193A006A5313 /* MJPhotoLoadingView.m */,
+				3D153D2C1CBE193A006A5313 /* MJPhotoProgressView.h */,
+				3D153D2D1CBE193A006A5313 /* MJPhotoProgressView.m */,
+				3D153D2E1CBE193A006A5313 /* MJPhotoToolbar.h */,
+				3D153D2F1CBE193A006A5313 /* MJPhotoToolbar.m */,
+				3D153D301CBE193A006A5313 /* MJPhotoView.h */,
+				3D153D311CBE193A006A5313 /* MJPhotoView.m */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
 		3D38FE8B1CBCF523001AF04F /* AddressPickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +301,7 @@
 		3D712B191C99B83600687ED9 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				3D153D0F1CBDE57D006A5313 /* ImageUpload */,
 				3D9162A81CBC8AE80032A28C /* Personal */,
 				3D712B6B1C9C3C7400687ED9 /* Login */,
 				3D712B501C9A8BAA00687ED9 /* BaseRequest */,
@@ -257,6 +330,8 @@
 				3D712B811C9E661000687ED9 /* XLKit */,
 				3D712B681C9C3A7400687ED9 /* CommonsDefines.h */,
 				3D712B691C9C3A7400687ED9 /* CommonsDefines.m */,
+				3D153D161CBDF0DE006A5313 /* UIImage+ResizeMagick.m */,
+				3D153D171CBDF0DE006A5313 /* UIImage+ResizeMagick.h */,
 				3D712B8A1C9FACD900687ED9 /* Util.h */,
 				3D712B8B1C9FACD900687ED9 /* Util.m */,
 			);
@@ -345,6 +420,8 @@
 				3D712B631C9BFF7300687ED9 /* LoginViewController.m */,
 				3D712B651C9BFF8C00687ED9 /* RegisterViewController.h */,
 				3D712B661C9BFF8C00687ED9 /* RegisterViewController.m */,
+				3D153D1C1CBE111B006A5313 /* FindPasswordViewController.h */,
+				3D153D1D1CBE111B006A5313 /* FindPasswordViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -358,6 +435,8 @@
 				3D712B881C9FA82200687ED9 /* RegisterRequest.m */,
 				3D712B8D1CA03D3F00687ED9 /* GetCodeRequest.h */,
 				3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */,
+				3D153D1F1CBE1710006A5313 /* FindPasswordRequest.h */,
+				3D153D201CBE1710006A5313 /* FindPasswordRequest.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -452,6 +531,8 @@
 			children = (
 				3D9162A91CBC8AFF0032A28C /* FetchUserInformationRequest.h */,
 				3D9162AA1CBC8AFF0032A28C /* FetchUserInformationRequest.m */,
+				3D153D191CBDF7E0006A5313 /* ModifyInformationRequest.h */,
+				3D153D1A1CBDF7E0006A5313 /* ModifyInformationRequest.m */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -481,6 +562,8 @@
 				3DC7DC6C1CBA255E00D483B4 /* ChooseHousingTypeViewController.m */,
 				3DC7DC6E1CBA383B00D483B4 /* FixHousingStyleViewController.h */,
 				3DC7DC6F1CBA383B00D483B4 /* FixHousingStyleViewController.m */,
+				3D153D3A1CBE23F0006A5313 /* HousingFacilitiesViewController.h */,
+				3D153D3B1CBE23F0006A5313 /* HousingFacilitiesViewController.m */,
 			);
 			path = PublishHousingViews;
 			sourceTree = "<group>";
@@ -510,6 +593,7 @@
 		3DDD8BA81C99258100C7296A /* MiYo */ = {
 			isa = PBXGroup;
 			children = (
+				3D153D221CBE1916006A5313 /* PhotoBrowser */,
 				3D712B1C1C99B8EA00687ED9 /* Commons */,
 				3D712B1B1C99B8D200687ED9 /* Features */,
 				3D712B191C99B83600687ED9 /* Requests */,
@@ -660,6 +744,7 @@
 				3D712B411C9A7DD700687ED9 /* Personal.storyboard in Resources */,
 				3D38FE951CBCF547001AF04F /* AreaPlist.plist in Resources */,
 				3D712B3D1C9A7DB200687ED9 /* Collection.storyboard in Resources */,
+				3D153D341CBE193A006A5313 /* MJPhotoBrowser.bundle in Resources */,
 				3D712B981CA1A6E600687ED9 /* Main.storyboard in Resources */,
 				3DDD8BB91C99258100C7296A /* LaunchScreen.storyboard in Resources */,
 				3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */,
@@ -739,11 +824,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D712B4C1C9A7F7900687ED9 /* MessageViewController.m in Sources */,
+				3D153D321CBE193A006A5313 /* MBProgressHUD+Add.m in Sources */,
 				3DC7DC5F1CB4E9E100D483B4 /* XLBlockAlertView.m in Sources */,
 				3D38FE921CBCF533001AF04F /* AddressChoicePickerView.m in Sources */,
+				3D153D391CBE193A006A5313 /* MJPhotoView.m in Sources */,
 				3DC7DC4A1CAE19D900D483B4 /* HousingResourceCell.m in Sources */,
 				3DC7DC701CBA383B00D483B4 /* FixHousingStyleViewController.m in Sources */,
 				3D712B561C9A8E7100687ED9 /* RequestCacher.m in Sources */,
+				3D153D361CBE193A006A5313 /* MJPhotoLoadingView.m in Sources */,
 				3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */,
 				3D38FE911CBCF533001AF04F /* AreaObject.m in Sources */,
 				3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */,
@@ -753,26 +841,36 @@
 				3D712B461C9A7F5900687ED9 /* CollectionViewController.m in Sources */,
 				3D9162AB1CBC8AFF0032A28C /* FetchUserInformationRequest.m in Sources */,
 				3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */,
+				3D153D371CBE193A006A5313 /* MJPhotoProgressView.m in Sources */,
 				3D38FE8A1CBCE8BB001AF04F /* XLBlockActionSheet.m in Sources */,
 				3D712BE01CA1AE4900687ED9 /* XZMTabbarExtension.m in Sources */,
+				3D153D1B1CBDF7E0006A5313 /* ModifyInformationRequest.m in Sources */,
 				3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */,
 				3D712B891C9FA82200687ED9 /* RegisterRequest.m in Sources */,
+				3D153D181CBDF0DE006A5313 /* UIImage+ResizeMagick.m in Sources */,
 				3D712B491C9A7F6E00687ED9 /* HomepageViewController.m in Sources */,
 				3DC7DC691CB8C1EC00D483B4 /* SystemMessageCell.m in Sources */,
 				3DC7DC5C1CB4D17A00D483B4 /* SettingViewController.m in Sources */,
+				3D153D331CBE193A006A5313 /* MJPhoto.m in Sources */,
 				3D712B851C9E66CB00687ED9 /* XLNoticeHelper.m in Sources */,
 				3D712B641C9BFF7300687ED9 /* LoginViewController.m in Sources */,
+				3D153D1E1CBE111B006A5313 /* FindPasswordViewController.m in Sources */,
 				3D712B6A1C9C3A7400687ED9 /* CommonsDefines.m in Sources */,
+				3D153D381CBE193A006A5313 /* MJPhotoToolbar.m in Sources */,
 				3D712B7C1C9DBBF000687ED9 /* LoginRequest.m in Sources */,
 				3DC7DC651CB75A2F00D483B4 /* InformationEditViewController.m in Sources */,
 				3D9162A11CBC85A30032A28C /* BaseModel.m in Sources */,
+				3D153D211CBE1710006A5313 /* FindPasswordRequest.m in Sources */,
 				3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */,
 				3DDD8BAB1C99258100C7296A /* main.m in Sources */,
 				3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */,
 				3D712B8C1C9FACD900687ED9 /* Util.m in Sources */,
 				3D9162A21CBC85A30032A28C /* HousingModel.m in Sources */,
+				3D153D3C1CBE23F0006A5313 /* HousingFacilitiesViewController.m in Sources */,
 				3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */,
+				3D153D351CBE193A006A5313 /* MJPhotoBrowser.m in Sources */,
 				3DC7DC591CB0E0AD00D483B4 /* HousingDetailViewController.m in Sources */,
+				3D153D151CBDE6F6006A5313 /* UploadImageRequest.m in Sources */,
 				3D9162A71CBC85EF0032A28C /* PersonalModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

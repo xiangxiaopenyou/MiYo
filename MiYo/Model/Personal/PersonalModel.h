@@ -24,5 +24,6 @@
 @property (copy, nonatomic) NSString<Optional> *headphoto;
 
 + (void)fetchUserInformationWith:(NSString *)userId handler:(RequestResultHandler)handler;
++ (void)modifyInformationWith:(NSDictionary *)param handler:(RequestResultHandler)handler;
 
 @end

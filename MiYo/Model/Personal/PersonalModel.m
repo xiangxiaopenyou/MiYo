@@ -8,6 +8,7 @@
 
 #import "PersonalModel.h"
 #import "FetchUserInformationRequest.h"
+#import "ModifyInformationRequest.h"
 
 @implementation PersonalModel
 + (void)fetchUserInformationWith:(NSString *)userId handler:(RequestResultHandler)handler {
@@ -20,6 +21,18 @@
         } else {
             PersonalModel *model = [[PersonalModel alloc] initWithDictionary:object error:nil];
             !handler ?: handler(model, nil);
+        }
+    }];
+}
++ (void)modifyInformationWith:(NSDictionary *)param handler:(RequestResultHandler)handler {
+    [[ModifyInformationRequest new] request:^BOOL(ModifyInformationRequest *request) {
+        request.param = param;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(object, nil);
+        } else {
+            !handler ?: handler(nil, msg);
         }
     }];
 }

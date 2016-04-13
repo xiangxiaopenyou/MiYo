@@ -13,6 +13,7 @@
 #import <UIImageView+AFNetworking.h>
 #import "XLBlockActionSheet.h"
 #import "AddressChoicePickerView.h"
+#import "UploadImageRequest.h"
 
 @interface InformationEditViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *informationTableView;
@@ -30,6 +31,7 @@
 @property (strong, nonatomic) UILabel *livePlaceLabel;
 @property (strong, nonatomic) PersonalModel *model;
 @property (strong, nonatomic) UIImage *selectedHeadImage;
+@property (copy, nonatomic) NSString *imageName;
 
 @end
 
@@ -391,6 +393,19 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     _selectedHeadImage = [info objectForKey:UIImagePickerControllerEditedImage];
     _headImage.image = _selectedHeadImage;
+    NSString *tempName = @(ceil([[NSDate date] timeIntervalSince1970])).stringValue;
+    [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
+        request.images = [NSArray arrayWithObject:_selectedHeadImage];
+        request.keys = [NSArray arrayWithObject:tempName];
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (!msg) {
+            NSLog(@"上传成功");
+            _imageName = object[0];
+        } else {
+            NSLog(@"上传失败");
+        }
+    }];
 }
 
 #pragma mark - UITextField Delegate
@@ -472,6 +487,24 @@
     [UIView commitAnimations];
 }
 - (void)saveClick {
+    NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
+    NSMutableDictionary *param = [@{@"userid" : userId} mutableCopy];
+    if (![Util isEmpty:_imageName]) {
+        [param setObject:_imageName forKey:@"headphoto"];
+    }
+    if (![Util isEmpty:_model.nickname]) {
+        [param setObject:_model.nickname forKey:@"nickname"];
+    }
+    if (param.count > 1) {
+        [PersonalModel modifyInformationWith:param handler:^(id object, NSString *msg) {
+            if (!msg) {
+                NSLog(@"修改成功");
+            } else {
+                NSLog(@"修改失败");
+            }
+        }];
+    }
+    
 }
 - (void)hideKeyboard {
     [_nicknameTextField resignFirstResponder];

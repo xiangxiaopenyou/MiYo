@@ -7,6 +7,7 @@
 //
 
 #import "FixHousingStyleViewController.h"
+#import "HousingFacilitiesViewController.h"
 
 @interface FixHousingStyleViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *roomNumberTextField;
@@ -46,6 +47,8 @@
 }
 */
 - (void)nextStep {
+    HousingFacilitiesViewController *viewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingFacilitiesView"];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 - (IBAction)minusClick:(id)sender {
     UIButton *button = (UIButton *)sender;
