@@ -101,7 +101,7 @@
                                 </state>
                                 <connections>
                                     <action selector="forgetPasswordClick:" destination="kTC-D1-pO9" eventType="touchUpInside" id="FuK-B6-T5d"/>
-                                    <segue destination="BiZ-eE-ci0" kind="show" id="hqp-ui-0c1"/>
+                                    <segue destination="BiZ-eE-ci0" kind="show" identifier="FindPasswordSegue" id="hqp-ui-0c1"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_background" translatesAutoresizingMaskIntoConstraints="NO" id="X68-gP-rf1">
@@ -552,7 +552,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0OC-9g-TV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1289" y="-87"/>
+            <point key="canvasLocation" x="1622" y="-88"/>
         </scene>
     </scenes>
     <resources>

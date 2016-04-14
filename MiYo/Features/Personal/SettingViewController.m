@@ -9,6 +9,7 @@
 #import "SettingViewController.h"
 #import "XLBlockAlertView.h"
 #import "CommonsDefines.h"
+#import "FindPasswordViewController.h"
 
 @interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
@@ -55,6 +56,10 @@
     if (indexPath.row == 0) {
         UIViewController *feedbackViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil  ] instantiateViewControllerWithIdentifier:@"FeedbackView"];
         [self.navigationController pushViewController:feedbackViewController animated:YES];
+    } else {
+        FindPasswordViewController *viewController = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"FindPasswordView"];
+        viewController.viewTitle = @"修改密码";
+        [self.navigationController pushViewController:viewController animated:YES];
     }
 }
 

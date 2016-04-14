@@ -394,6 +394,7 @@
     _selectedHeadImage = [info objectForKey:UIImagePickerControllerEditedImage];
     _headImage.image = _selectedHeadImage;
     NSString *tempName = @(ceil([[NSDate date] timeIntervalSince1970])).stringValue;
+    _imageName = tempName;
     [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
         request.images = [NSArray arrayWithObject:_selectedHeadImage];
         request.keys = [NSArray arrayWithObject:tempName];
@@ -401,7 +402,6 @@
     } result:^(id object, NSString *msg) {
         if (!msg) {
             NSLog(@"上传成功");
-            _imageName = object[0];
         } else {
             NSLog(@"上传失败");
         }
@@ -487,6 +487,7 @@
     [UIView commitAnimations];
 }
 - (void)saveClick {
+    [self hideKeyboard];
     NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
     NSMutableDictionary *param = [@{@"userid" : userId} mutableCopy];
     if (![Util isEmpty:_imageName]) {
@@ -499,6 +500,9 @@
         [PersonalModel modifyInformationWith:param handler:^(id object, NSString *msg) {
             if (!msg) {
                 NSLog(@"修改成功");
+                [[NSUserDefaults standardUserDefaults] setValue:_model.nickname forKey:NICKNAME];
+                [[NSUserDefaults standardUserDefaults] setValue:_model.headphoto forKey:PORTRAIT];
+                [[NSUserDefaults standardUserDefaults] synchronize];
             } else {
                 NSLog(@"修改失败");
             }

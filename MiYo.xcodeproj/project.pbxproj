@@ -22,6 +22,9 @@
 		3D153D381CBE193A006A5313 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D2F1CBE193A006A5313 /* MJPhotoToolbar.m */; };
 		3D153D391CBE193A006A5313 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D311CBE193A006A5313 /* MJPhotoView.m */; };
 		3D153D3C1CBE23F0006A5313 /* HousingFacilitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D3B1CBE23F0006A5313 /* HousingFacilitiesViewController.m */; };
+		3D153D3F1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D3E1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m */; };
+		3D153D451CBF3FA4006A5313 /* HousingAddressChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D441CBF3FA4006A5313 /* HousingAddressChooseViewController.m */; };
+		3D153D4A1CBF665B006A5313 /* HousingPictureAndContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D491CBF665B006A5313 /* HousingPictureAndContentViewController.m */; };
 		3D38FE8A1CBCE8BB001AF04F /* XLBlockActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE891CBCE8BB001AF04F /* XLBlockActionSheet.m */; };
 		3D38FE911CBCF533001AF04F /* AreaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE8D1CBCF533001AF04F /* AreaObject.m */; };
 		3D38FE921CBCF533001AF04F /* AddressChoicePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE8F1CBCF533001AF04F /* AddressChoicePickerView.m */; };
@@ -118,6 +121,13 @@
 		3D153D311CBE193A006A5313 /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
 		3D153D3A1CBE23F0006A5313 /* HousingFacilitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingFacilitiesViewController.h; sourceTree = "<group>"; };
 		3D153D3B1CBE23F0006A5313 /* HousingFacilitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingFacilitiesViewController.m; sourceTree = "<group>"; };
+		3D153D3D1CBF2F92006A5313 /* HousingAddressAndPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingAddressAndPriceViewController.h; sourceTree = "<group>"; };
+		3D153D3E1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingAddressAndPriceViewController.m; sourceTree = "<group>"; };
+		3D153D431CBF3FA4006A5313 /* HousingAddressChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingAddressChooseViewController.h; sourceTree = "<group>"; };
+		3D153D441CBF3FA4006A5313 /* HousingAddressChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingAddressChooseViewController.m; sourceTree = "<group>"; };
+		3D153D461CBF40CA006A5313 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3D153D481CBF665B006A5313 /* HousingPictureAndContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingPictureAndContentViewController.h; sourceTree = "<group>"; };
+		3D153D491CBF665B006A5313 /* HousingPictureAndContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingPictureAndContentViewController.m; sourceTree = "<group>"; };
 		3D38FE881CBCE8BB001AF04F /* XLBlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBlockActionSheet.h; sourceTree = "<group>"; };
 		3D38FE891CBCE8BB001AF04F /* XLBlockActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBlockActionSheet.m; sourceTree = "<group>"; };
 		3D38FE8C1CBCF533001AF04F /* AreaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaObject.h; sourceTree = "<group>"; };
@@ -249,6 +259,7 @@
 		31004756D496A1B94A0FD55E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D153D461CBF40CA006A5313 /* WebKit.framework */,
 				AFC04742678FCF017A8421A7 /* libPods-MiYo.a */,
 			);
 			name = Frameworks;
@@ -564,6 +575,12 @@
 				3DC7DC6F1CBA383B00D483B4 /* FixHousingStyleViewController.m */,
 				3D153D3A1CBE23F0006A5313 /* HousingFacilitiesViewController.h */,
 				3D153D3B1CBE23F0006A5313 /* HousingFacilitiesViewController.m */,
+				3D153D3D1CBF2F92006A5313 /* HousingAddressAndPriceViewController.h */,
+				3D153D3E1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m */,
+				3D153D431CBF3FA4006A5313 /* HousingAddressChooseViewController.h */,
+				3D153D441CBF3FA4006A5313 /* HousingAddressChooseViewController.m */,
+				3D153D481CBF665B006A5313 /* HousingPictureAndContentViewController.h */,
+				3D153D491CBF665B006A5313 /* HousingPictureAndContentViewController.m */,
 			);
 			path = PublishHousingViews;
 			sourceTree = "<group>";
@@ -836,7 +853,9 @@
 				3D38FE911CBCF533001AF04F /* AreaObject.m in Sources */,
 				3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */,
 				3D9162A31CBC85A30032A28C /* LoginModel.m in Sources */,
+				3D153D4A1CBF665B006A5313 /* HousingPictureAndContentViewController.m in Sources */,
 				3DC7DC621CB4F45400D483B4 /* FeedbackViewController.m in Sources */,
+				3D153D451CBF3FA4006A5313 /* HousingAddressChooseViewController.m in Sources */,
 				3DC7DC6D1CBA255E00D483B4 /* ChooseHousingTypeViewController.m in Sources */,
 				3D712B461C9A7F5900687ED9 /* CollectionViewController.m in Sources */,
 				3D9162AB1CBC8AFF0032A28C /* FetchUserInformationRequest.m in Sources */,
@@ -868,6 +887,7 @@
 				3D9162A21CBC85A30032A28C /* HousingModel.m in Sources */,
 				3D153D3C1CBE23F0006A5313 /* HousingFacilitiesViewController.m in Sources */,
 				3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */,
+				3D153D3F1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m in Sources */,
 				3D153D351CBE193A006A5313 /* MJPhotoBrowser.m in Sources */,
 				3DC7DC591CB0E0AD00D483B4 /* HousingDetailViewController.m in Sources */,
 				3D153D151CBDE6F6006A5313 /* UploadImageRequest.m in Sources */,

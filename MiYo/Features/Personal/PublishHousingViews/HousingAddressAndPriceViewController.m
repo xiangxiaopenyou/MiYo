@@ -1,26 +1,27 @@
 //
-//  HousingFacilitiesViewController.m
+//  HousingAddressAndPriceViewController.m
 //  MiYo
 //
-//  Created by 项小盆友 on 16/4/13.
+//  Created by 项小盆友 on 16/4/14.
 //  Copyright © 2016年 项小盆友. All rights reserved.
 //
 
-#import "HousingFacilitiesViewController.h"
 #import "HousingAddressAndPriceViewController.h"
+#import "HousingPictureAndContentViewController.h"
 
-@interface HousingFacilitiesViewController ()
+@interface HousingAddressAndPriceViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end
 
-@implementation HousingFacilitiesViewController
+@implementation HousingAddressAndPriceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"设施";
+    self.navigationItem.title = @"价格和地址";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextStep)];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,16 +38,10 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)facilityButtonClick:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    if (button.selected) {
-        button.selected = NO;
-    } else {
-        button.selected = YES;
-    }
+- (IBAction)addressButtonClick:(id)sender {
 }
 - (void)nextStep {
-    HousingAddressAndPriceViewController *viewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"AddressAndPriceView"];
+    HousingPictureAndContentViewController *viewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingPictureView"];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

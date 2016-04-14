@@ -43,8 +43,6 @@
     _headImage.layer.borderWidth = 2.0;
     _headImage.layer.borderColor = kRGBColor(255, 255, 255, 0.4).CGColor;
     
-    
-    [self setupContent];
 }
 - (void)setupContent {
     NSString *nicknameString = [[NSUserDefaults standardUserDefaults] stringForKey:NICKNAME];
@@ -61,6 +59,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    [self setupContent];
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

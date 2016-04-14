@@ -13,7 +13,7 @@
     if (!paramsBlock(self)) {
         return;
     }
-    [[RequestManager shareInstance] POST:@"setUserInfo.aspx" parameters:self.param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [[RequestManager shareInstance] POST:@"setUserInfoAPI.aspx" parameters:self.param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
             !resultHandler ?: resultHandler(@"success", nil);
         } else {

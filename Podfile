@@ -8,5 +8,6 @@ pod 'Masonry’
 pod 'JSONModel'
 pod 'Qiniu', '~> 7.0'
 pod 'TRWebImage', '~> 0.4'
+pod 'CTAssetsPickerController',  '~> 3.2.0'
 end
 

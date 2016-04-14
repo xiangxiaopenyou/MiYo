@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FindPasswordViewController : UIViewController
+@property (copy, nonatomic) NSString *viewTitle;
 
 @end

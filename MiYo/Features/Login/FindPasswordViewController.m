@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = self.viewTitle;
+    
     _getCodeButton.layer.masksToBounds = YES;
     _getCodeButton.layer.cornerRadius = 5.0;
     _getCodeButton.layer.borderWidth = 0.5;
