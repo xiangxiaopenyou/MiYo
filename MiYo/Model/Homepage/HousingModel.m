@@ -7,7 +7,21 @@
 //
 
 #import "HousingModel.h"
+#import "FetchHousingDetailRequest.h"
 
 @implementation HousingModel
++ (void)fetchHousingDetailWith:(NSString *)housingId handler:(RequestResultHandler)handler {
+    [[FetchHousingDetailRequest new] request:^BOOL(FetchHousingDetailRequest *request) {
+        request.housingId = housingId;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(nil, msg);
+        } else {
+            HousingModel *model = [[HousingModel alloc] initWithDictionary:object error:nil];
+            !handler ?: handler(model, nil);
+        }
+    }];
+}
 
 @end

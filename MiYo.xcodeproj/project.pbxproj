@@ -30,6 +30,10 @@
 		3D38FE921CBCF533001AF04F /* AddressChoicePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE8F1CBCF533001AF04F /* AddressChoicePickerView.m */; };
 		3D38FE931CBCF533001AF04F /* AddressChoicePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D38FE901CBCF533001AF04F /* AddressChoicePickerView.xib */; };
 		3D38FE951CBCF547001AF04F /* AreaPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D38FE941CBCF547001AF04F /* AreaPlist.plist */; };
+		3D4C1D021CC08B6E00EF15B3 /* HousingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D011CC08B6E00EF15B3 /* HousingTitleCell.m */; };
+		3D4C1D051CC08BB200EF15B3 /* HousingSituationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D041CC08BB200EF15B3 /* HousingSituationCell.m */; };
+		3D4C1D081CC08BDB00EF15B3 /* HousingFacilityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D071CC08BDB00EF15B3 /* HousingFacilityCell.m */; };
+		3D4C1D0C1CC097C900EF15B3 /* FetchHousingDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D0B1CC097C900EF15B3 /* FetchHousingDetailRequest.m */; };
 		3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B321C9A7CC800687ED9 /* MainViewController.m */; };
 		3D712B3D1C9A7DB200687ED9 /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */; };
 		3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3E1C9A7DBF00687ED9 /* Message.storyboard */; };
@@ -136,6 +140,14 @@
 		3D38FE8F1CBCF533001AF04F /* AddressChoicePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressChoicePickerView.m; sourceTree = "<group>"; };
 		3D38FE901CBCF533001AF04F /* AddressChoicePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressChoicePickerView.xib; sourceTree = "<group>"; };
 		3D38FE941CBCF547001AF04F /* AreaPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaPlist.plist; sourceTree = "<group>"; };
+		3D4C1D001CC08B6E00EF15B3 /* HousingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingTitleCell.h; sourceTree = "<group>"; };
+		3D4C1D011CC08B6E00EF15B3 /* HousingTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingTitleCell.m; sourceTree = "<group>"; };
+		3D4C1D031CC08BB200EF15B3 /* HousingSituationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingSituationCell.h; sourceTree = "<group>"; };
+		3D4C1D041CC08BB200EF15B3 /* HousingSituationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingSituationCell.m; sourceTree = "<group>"; };
+		3D4C1D061CC08BDB00EF15B3 /* HousingFacilityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingFacilityCell.h; sourceTree = "<group>"; };
+		3D4C1D071CC08BDB00EF15B3 /* HousingFacilityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingFacilityCell.m; sourceTree = "<group>"; };
+		3D4C1D0A1CC097C900EF15B3 /* FetchHousingDetailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchHousingDetailRequest.h; sourceTree = "<group>"; };
+		3D4C1D0B1CC097C900EF15B3 /* FetchHousingDetailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchHousingDetailRequest.m; sourceTree = "<group>"; };
 		3D712B311C9A7CC800687ED9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		3D712B321C9A7CC800687ED9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
@@ -309,9 +321,19 @@
 			path = AddressPickerView;
 			sourceTree = "<group>";
 		};
+		3D4C1D091CC097AB00EF15B3 /* Housing */ = {
+			isa = PBXGroup;
+			children = (
+				3D4C1D0A1CC097C900EF15B3 /* FetchHousingDetailRequest.h */,
+				3D4C1D0B1CC097C900EF15B3 /* FetchHousingDetailRequest.m */,
+			);
+			path = Housing;
+			sourceTree = "<group>";
+		};
 		3D712B191C99B83600687ED9 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				3D4C1D091CC097AB00EF15B3 /* Housing */,
 				3D153D0F1CBDE57D006A5313 /* ImageUpload */,
 				3D9162A81CBC8AE80032A28C /* Personal */,
 				3D712B6B1C9C3C7400687ED9 /* Login */,
@@ -553,6 +575,12 @@
 			children = (
 				3DC7DC481CAE19D900D483B4 /* HousingResourceCell.h */,
 				3DC7DC491CAE19D900D483B4 /* HousingResourceCell.m */,
+				3D4C1D001CC08B6E00EF15B3 /* HousingTitleCell.h */,
+				3D4C1D011CC08B6E00EF15B3 /* HousingTitleCell.m */,
+				3D4C1D031CC08BB200EF15B3 /* HousingSituationCell.h */,
+				3D4C1D041CC08BB200EF15B3 /* HousingSituationCell.m */,
+				3D4C1D061CC08BDB00EF15B3 /* HousingFacilityCell.h */,
+				3D4C1D071CC08BDB00EF15B3 /* HousingFacilityCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -849,8 +877,11 @@
 				3DC7DC701CBA383B00D483B4 /* FixHousingStyleViewController.m in Sources */,
 				3D712B561C9A8E7100687ED9 /* RequestCacher.m in Sources */,
 				3D153D361CBE193A006A5313 /* MJPhotoLoadingView.m in Sources */,
+				3D4C1D0C1CC097C900EF15B3 /* FetchHousingDetailRequest.m in Sources */,
 				3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */,
 				3D38FE911CBCF533001AF04F /* AreaObject.m in Sources */,
+				3D4C1D021CC08B6E00EF15B3 /* HousingTitleCell.m in Sources */,
+				3D4C1D051CC08BB200EF15B3 /* HousingSituationCell.m in Sources */,
 				3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */,
 				3D9162A31CBC85A30032A28C /* LoginModel.m in Sources */,
 				3D153D4A1CBF665B006A5313 /* HousingPictureAndContentViewController.m in Sources */,
@@ -887,6 +918,7 @@
 				3D9162A21CBC85A30032A28C /* HousingModel.m in Sources */,
 				3D153D3C1CBE23F0006A5313 /* HousingFacilitiesViewController.m in Sources */,
 				3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */,
+				3D4C1D081CC08BDB00EF15B3 /* HousingFacilityCell.m in Sources */,
 				3D153D3F1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m in Sources */,
 				3D153D351CBE193A006A5313 /* MJPhotoBrowser.m in Sources */,
 				3DC7DC591CB0E0AD00D483B4 /* HousingDetailViewController.m in Sources */,

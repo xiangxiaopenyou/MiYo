@@ -11,8 +11,8 @@
 @interface PersonalModel : BaseModel
 @property (copy, nonatomic) NSString *nickname;
 @property (copy, nonatomic) NSString<Optional> *name;
-@property (copy, nonatomic) NSNumber<Optional> *sex;
-@property (copy, nonatomic) NSNumber<Optional> *age;
+@property (strong, nonatomic) NSNumber<Optional> *sex;
+@property (strong, nonatomic) NSNumber<Optional> *age;
 @property (copy, nonatomic) NSString<Optional> *birthday;
 @property (copy, nonatomic) NSString<Optional> *phone;
 @property (copy, nonatomic) NSString<Optional> *qq;
