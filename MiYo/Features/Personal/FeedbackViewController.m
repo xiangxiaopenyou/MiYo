@@ -8,6 +8,9 @@
 
 #import "FeedbackViewController.h"
 #import "XLNoticeHelper.h"
+#import "Util.h"
+#import "FeedbackRequest.h"
+#import "MBProgressHUD+Add.h"
 
 @interface FeedbackViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *feedbackTextView;
@@ -60,6 +63,27 @@
 }
 */
 - (IBAction)submitButtonClick:(id)sender {
+    if ([Util isEmpty:_feedbackTextView.text]) {
+        [XLNoticeHelper showNoticeAtViewController:self message:@"写点反馈内容吧"];
+        return;
+    }
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *phoneString = [_phoneTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    if (![Util validatePhone:phoneString]) {
+//        []
+//    }
+    [[FeedbackRequest new] request:^BOOL(FeedbackRequest *request) {
+        request.content = _feedbackTextView.text;
+        request.mobile = phoneString;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (!msg) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [MBProgressHUD showError:@"反馈失败" toView:self.view];
+        }
+    }];
 }
 
 @end

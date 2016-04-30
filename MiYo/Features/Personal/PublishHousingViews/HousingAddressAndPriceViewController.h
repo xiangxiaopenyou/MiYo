@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HousingAddressAndPriceViewController : UIViewController
+@property (strong, nonatomic) NSMutableDictionary *informationDictionary;
 
 @end

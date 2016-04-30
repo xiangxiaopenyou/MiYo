@@ -16,4 +16,8 @@
 + (NSString *)urlPhoto:(NSString*)key;
 + (NSString *)urlZoomPhoto:(NSString*)key;
 
++ (NSString*)getDateString:(NSDate *)date;
++ (NSString *)compareDate:(NSDate *)date;
++ (NSDate *)getTimeDate:(NSString *)timeString;
+
 @end

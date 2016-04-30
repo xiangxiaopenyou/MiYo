@@ -7,6 +7,8 @@
 //
 
 #import "HousingResourceCell.h"
+#import "Util.h"
+#import <UIImageView+AFNetworking.h>
 
 @implementation HousingResourceCell
 - (void)setupDataWith:(HousingModel *)model {
@@ -18,6 +20,15 @@
         _hosingSourseImage.layer.masksToBounds = YES;
         _hosingSourseImage.layer.cornerRadius = 4.0;
     }
+    if (_ownerHeadImage.layer.cornerRadius != 20.0) {
+        _ownerHeadImage.layer.masksToBounds = YES;
+        _ownerHeadImage.layer.cornerRadius = 20.0;
+    }
+    [_ownerHeadImage setImageWithURL:[NSURL URLWithString:[Util urlPhoto:model.headphoto]] placeholderImage:nil];
+    [_hosingSourseImage setImageWithURL:[NSURL URLWithString:[Util urlPhoto:model.image]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    _priceLabel.text = [NSString stringWithFormat:@"￥%@", model.price];
+    _placeLabel.text = [NSString stringWithFormat:@"%@", model.title];
+    
 }
 
 - (void)awakeFromNib {

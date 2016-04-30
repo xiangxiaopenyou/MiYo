@@ -8,8 +8,14 @@
 
 #import "HousingModel.h"
 #import "FetchHousingDetailRequest.h"
+#import "FetchRecommendedHousingRequest.h"
+#import "IndexReulstModel.h"
+#import "HousingDeleteRequest.h"
 
 @implementation HousingModel
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"description" : @"descirption"}];
+}
 + (void)fetchHousingDetailWith:(NSString *)housingId handler:(RequestResultHandler)handler {
     [[FetchHousingDetailRequest new] request:^BOOL(FetchHousingDetailRequest *request) {
         request.housingId = housingId;
@@ -23,5 +29,29 @@
         }
     }];
 }
-
++ (void)fetchRecommendedHousingWith:(NSInteger)index handler:(RequestResultHandler)handler {
+    [[FetchRecommendedHousingRequest new] request:^BOOL(FetchRecommendedHousingRequest *request) {
+        request.index = index;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(nil, msg);
+        } else {
+            IndexReulstModel *tempModel = [[IndexReulstModel alloc] initWithResultDictionary:object modelKey:@"data" modelClass:[HousingModel new]];
+            !handler ?: handler(tempModel, nil);
+        }
+    }];
+}
++ (void)deleteHousingWith:(NSString *)housingId handler:(RequestResultHandler)handler {
+    [[HousingDeleteRequest new] request:^BOOL(HousingDeleteRequest *request) {
+        request.housingId = housingId;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(nil, msg);
+        } else {
+            !handler ?: handler(object, nil);
+        }
+    }];
+}
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FixHousingStyleViewController : UIViewController
+@property (assign, nonatomic) NSInteger housingType;
 
 @end

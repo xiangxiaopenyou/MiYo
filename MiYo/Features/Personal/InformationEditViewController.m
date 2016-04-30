@@ -14,6 +14,8 @@
 #import "XLBlockActionSheet.h"
 #import "AddressChoicePickerView.h"
 #import "UploadImageRequest.h"
+#import "HousingExpectationsViewController.h"
+#import "MBProgressHUD+Add.h"
 
 @interface InformationEditViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *informationTableView;
@@ -32,6 +34,7 @@
 @property (strong, nonatomic) PersonalModel *model;
 @property (strong, nonatomic) UIImage *selectedHeadImage;
 @property (copy, nonatomic) NSString *imageName;
+@property (strong, nonatomic) UISwitch *shareSwitch;
 
 @end
 
@@ -40,16 +43,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _titleArray = @[@"昵称", @"微信号", @"QQ", @"姓名", @"性别", @"年龄", @"籍贯", @"居住地", @"工作"];
+    _titleArray = @[@"昵称", @"微信号", @"QQ", @"姓名", @"性别", @"年龄", @"籍贯", @"居住地", @"工作", @"是否同意合租"];
     self.navigationItem.title = @"完善信息";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveClick)];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     _informationTableView.tableFooterView = [UIView new];
     
     
     [self fetchUserInformation];
     
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 - (void)fetchUserInformation {
     NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
@@ -71,7 +77,7 @@
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? 4 : 6;
+    return section == 0 ? 4 : 7;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -224,7 +230,7 @@
                     _ageTextField.keyboardType = UIKeyboardTypeNumberPad;
                     _ageTextField.font = kSystemFont(13);
                 }
-                _ageTextField.text = [NSString stringWithFormat:@"%@岁", @([_model.age integerValue])];
+                _ageTextField.text = [NSString stringWithFormat:@"%@", @([_model.age integerValue])];
                 _ageTextField.delegate = self;
                 [cell.contentView addSubview:_ageTextField];
             }
@@ -277,6 +283,26 @@
                 }
                 _jobTextField.delegate = self;
                 [cell.contentView addSubview:_jobTextField];
+            }
+                break;
+            case 6:{
+                if (!_shareSwitch) {
+                    _shareSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65, 5, 50, 30)];
+                    _shareSwitch.tintColor = [Util turnToRGBColor:@"12c1e8"];
+                    _shareSwitch.onTintColor = [Util turnToRGBColor:@"12c1e8"];
+                    [_shareSwitch addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
+                }
+                [cell.contentView addSubview:_shareSwitch];
+                if ([_model.isallowsharehouse integerValue] == 1) {
+                    _shareSwitch.on = YES;
+                } else {
+                    _shareSwitch.on = NO;
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                }
+//                if (!_shareSwitch.on) {
+//                    
+//                }
+                cell.accessoryType = UITableViewCellAccessoryNone;
             }
                 break;
                 
@@ -353,8 +379,14 @@
                 [self hideKeyboard];
                 AddressChoicePickerView *addressPickerView = [[AddressChoicePickerView alloc] init];
                 addressPickerView.block = ^(AddressChoicePickerView *view, UIButton *button, AreaObject *locate) {
-                    _model.nativeplace = [NSString stringWithFormat:@"%@", locate.city];
-                    _birthPlaceLabel.text = [NSString stringWithFormat:@"%@", locate.city];
+                    if (![Util isEmpty:locate.city]) {
+                        _model.nativeplace = [NSString stringWithFormat:@"%@", locate.city];
+                        _birthPlaceLabel.text = [NSString stringWithFormat:@"%@", locate.city];
+                    } else {
+                        _model.nativeplace = [NSString stringWithFormat:@"%@", locate.province];
+                        _birthPlaceLabel.text = [NSString stringWithFormat:@"%@", locate.province];
+                    }
+                    
                 };
                 [addressPickerView show];
             }
@@ -373,6 +405,17 @@
                 [_jobTextField becomeFirstResponder];
             }
                 break;
+            case 6: {
+                if (_shareSwitch.on) {
+                    HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
+                    housingExpectaionController.personalModel = _model;
+                    [housingExpectaionController editFinished:^(PersonalModel *model) {
+                        _model = model;
+                        
+                    }];
+                    [self.navigationController pushViewController:housingExpectaionController animated:YES];
+                }
+            }
                 
             default:
                 break;
@@ -395,6 +438,7 @@
     _headImage.image = _selectedHeadImage;
     NSString *tempName = @(ceil([[NSDate date] timeIntervalSince1970])).stringValue;
     _imageName = tempName;
+    _model.headphoto = tempName;
     [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
         request.images = [NSArray arrayWithObject:_selectedHeadImage];
         request.keys = [NSArray arrayWithObject:tempName];
@@ -410,28 +454,27 @@
 
 #pragma mark - UITextField Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    CGFloat viewHeight = CGRectGetHeight(self.view.frame);
-    CGFloat viewWidth = CGRectGetWidth(self.view.frame);
-    NSInteger offset;
+    NSInteger offsetY = 0;
     if (textField == _nameTextField) {
-        offset = 245 - (viewHeight - 320.0);
-    } else if (textField == _ageTextField) {
-        offset = 325 - (viewHeight - 285.0);
-    } else if (textField == _jobTextField) {
-        if (SCREEN_HEIGHT > 480) {
-            offset = 445 - (viewHeight - 320.0);
+        if (SCREEN_HEIGHT <= 480) {
+            offsetY = 100;
         } else {
-            offset = 445 - (viewHeight - 285.0);
+            offsetY = 50;
         }
-    } else {
-        offset = 0;
+    } else if (textField == _ageTextField) {
+        if (SCREEN_HEIGHT <= 480) {
+            offsetY = 150;
+        } else {
+            offsetY = 120;
+        }
+    } else if (textField == _jobTextField) {
+        if (SCREEN_HEIGHT <= 480) {
+            offsetY = 300;
+        } else {
+            offsetY = 200;
+        }
     }
-    [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
-    [UIView setAnimationDuration:0.2f];
-    if (offset > 0) {
-        self.view.frame = CGRectMake(0, - offset, viewWidth, viewHeight);
-    }
-    [UIView commitAnimations];
+    [_informationTableView setContentOffset:CGPointMake(0, offsetY) animated:YES];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField == _nicknameTextField) {
@@ -460,7 +503,7 @@
             _model.age = [NSNumber numberWithInteger:[_ageTextField.text integerValue]];
         } else {
             _model.age = [NSNumber numberWithInt:0];
-            _ageTextField.text = [NSString stringWithFormat:@"%@岁", @([_model.age integerValue])];
+            _ageTextField.text = [NSString stringWithFormat:@"%@", @([_model.age integerValue])];
         }
     } else {
         _model.job = [NSString stringWithFormat:@"%@", _jobTextField.text];
@@ -478,31 +521,97 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (void)keyboardWillHide:(NSNotification *)notification {
-    CGFloat viewHeight = CGRectGetHeight(self.view.frame);
-    CGFloat viewWidth = CGRectGetWidth(self.view.frame);
-    [UIView beginAnimations:@"HideForKeyBoard" context:nil];
-    [UIView setAnimationDuration:0.2f];
-    self.view.frame = CGRectMake(0, 0, viewWidth, viewHeight);
-    [UIView commitAnimations];
+- (void)switchValueChanged:(id)sender {
+    UISwitch *tempSwitch = (UISwitch *)sender;
+    if (tempSwitch.on) {
+        _model.isallowsharehouse = @(1);
+        HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
+        housingExpectaionController.personalModel = _model;
+        [housingExpectaionController editFinished:^(PersonalModel *model) {
+            _model = model;
+            
+        }];
+        [self.navigationController pushViewController:housingExpectaionController animated:YES];
+    } else {
+        _model.isallowsharehouse = @(0);
+        
+    }
+    [_informationTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:6 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
 }
+
 - (void)saveClick {
     [self hideKeyboard];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
     NSMutableDictionary *param = [@{@"userid" : userId} mutableCopy];
-    if (![Util isEmpty:_imageName]) {
-        [param setObject:_imageName forKey:@"headphoto"];
+    if (![Util isEmpty:_model.headphoto]) {
+        [param setObject:_model.headphoto forKey:@"headphoto"];
     }
-    if (![Util isEmpty:_model.nickname]) {
-        [param setObject:_model.nickname forKey:@"nickname"];
+    [param setObject:_model.nickname forKey:@"nickname"];
+    if ([Util isEmpty:_model.weichat]) {
+        [param setObject:@"" forKey:@"weichat"];
+    } else {
+        [param setObject:_model.weichat forKey:@"weichat"];
     }
+    if ([Util isEmpty:_model.qq]) {
+        [param setObject:@"" forKey:@"qq"];
+    } else {
+        [param setObject:_model.qq forKey:@"qq"];
+    }
+    if ([Util isEmpty:_model.name]) {
+        [param setObject:@"" forKey:@"name"];
+    } else {
+        [param setObject:_model.name forKey:@"name"];
+    }
+    [param setObject:_model.sex forKey:@"sex"];
+    [param setObject:_model.age forKey:@"age"];
+    if ([Util isEmpty:_model.nativeplace]) {
+        [param setObject:@"" forKey:@"nativeplace"];
+    } else {
+        [param setObject:_model.nativeplace forKey:@"nativeplace"];
+    }
+    if ([Util isEmpty:_model.liveplace]) {
+        [param setObject:@"" forKey:@"liveplace"];
+    } else {
+        [param setObject:_model.liveplace forKey:@"liveplace"];
+    }
+    if ([Util isEmpty:_model.job]) {
+        [param setObject:@"" forKey:@"job"];
+    } else {
+        [param setObject:_model.job forKey:@"job"];
+    }
+    [param setObject:_model.isallowsharehouse forKey:@"isallowsharehouse"];
+    if (![Util isEmpty:_model.hopeaddress]) {
+        [param setObject:_model.hopeaddress forKey:@"hopeaddress"];
+    }
+    [param setObject:_model.hopepricemin forKey:@"hopepricemin"];
+    [param setObject:_model.hoppricemax forKey:@"hoppricemax"];
+    [param setObject:_model.hoperenovation forKey:@"hoperenovation"];
+    [param setObject:_model.wifi forKey:@"wifi"];
+    [param setObject:_model.washingmachine forKey:@"washingmachine"];
+    [param setObject:_model.television forKey:@"television"];
+    [param setObject:_model.refrigerator forKey:@"refrigerator"];
+    [param setObject:_model.heater forKey:@"heater"];
+    [param setObject:_model.airconditioner forKey:@"airconditioner"];
+    [param setObject:_model.accesscontrol forKey:@"accesscontrol"];
+    [param setObject:_model.elevator forKey:@"elevator"];
+    [param setObject:_model.parkingspace forKey:@"parkingspace"];
+    [param setObject:_model.bathtub forKey:@"bathtub"];
+    [param setObject:_model.keepingpets forKey:@"keepingpets"];
+    [param setObject:_model.smoking forKey:@"smoking"];
+    [param setObject:_model.paty forKey:@"paty"];
+    [param setObject:_model.hoperenovation forKey:@"hoperenovation"];
     if (param.count > 1) {
         [PersonalModel modifyInformationWith:param handler:^(id object, NSString *msg) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (!msg) {
                 NSLog(@"修改成功");
                 [[NSUserDefaults standardUserDefaults] setValue:_model.nickname forKey:NICKNAME];
                 [[NSUserDefaults standardUserDefaults] setValue:_model.headphoto forKey:PORTRAIT];
                 [[NSUserDefaults standardUserDefaults] synchronize];
+                [self.navigationController popViewControllerAnimated:YES];
+                //NSDictionary *tempDictionary = @{@""}
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"EditInformationSuccess" object:nil];
             } else {
                 NSLog(@"修改失败");
             }

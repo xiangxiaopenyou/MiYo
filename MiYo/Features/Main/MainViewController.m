@@ -9,10 +9,14 @@
 #import "MainViewController.h"
 #import "XZMTabbarExtension.h"
 #import "CommonsDefines.h"
+#import "MessageModel.h"
+#import "SearchViewController.h"
 
 @interface MainViewController ()<UITabBarControllerDelegate>
 @property (strong, nonatomic) UIButton *dashboardButton;
 @property (assign, nonatomic) NSInteger newIndex;
+@property (strong, nonatomic) NSTimer *messageTimer;
+
 
 @end
 
@@ -26,6 +30,7 @@
     _newIndex = 0;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(turnToNewView) name:@"NewView" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TurnToMainView) name:@"LogoutSuccess" object:nil];
+    
     
     UIImage *homepageImage = [UIImage imageNamed:@"tab_homepage"];
     UIImage *homepageImageSelected = [UIImage imageNamed:@"tab_homepage_selected"];
@@ -80,6 +85,14 @@
     [_dashboardButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
     [self.tabBar addSubview:_dashboardButton];
     
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:USERID]) {
+        _messageTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(fetchUnreadMessage) userInfo:nil repeats:YES];
+    }
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"NewView" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"LogoutSuccess" object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,12 +143,25 @@
 - (void)chickCenterButton
 {
     NSLog(@"点击了中间按钮");
+    SearchViewController *searchViewController = [[UIStoryboard storyboardWithName:@"Search" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchView"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:searchViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 - (void)turnToNewView {
     self.selectedIndex = _newIndex;
 }
 - (void)TurnToMainView {
     self.selectedIndex = 0;
+}
+- (void)fetchUnreadMessage {
+    [MessageModel fetchUnreadQualityWith:^(id object, NSString *msg) {
+        if (!msg) {
+            NSInteger quality = [object[@"count"] integerValue];
+            if (quality > 0) {
+                self.tabBar.items[2].badgeValue = [NSString stringWithFormat:@"%@", @(quality)];
+            }
+        }
+    }];
 }
 
 @end

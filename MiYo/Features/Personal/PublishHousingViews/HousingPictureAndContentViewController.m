@@ -11,6 +11,7 @@
 #import <Photos/Photos.h>
 #import "UploadImageRequest.h"
 #import "CommonsDefines.h"
+#import "Util.h"
 
 @interface HousingPictureAndContentViewController ()<UITextViewDelegate, CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewOfPicture;
@@ -218,6 +219,7 @@
     [UIView commitAnimations];
 }
 - (IBAction)deleteButtonClick:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)sendButton:(id)sender {
 }

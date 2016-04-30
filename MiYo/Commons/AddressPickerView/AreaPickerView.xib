@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AreaPickerView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RlE-Jp-Uci">
+                    <rect key="frame" x="0.0" y="350" width="600" height="250"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFf-Sp-oEF">
+                            <rect key="frame" x="8" y="8" width="67" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="67" id="a29-G0-TtI"/>
+                                <constraint firstAttribute="height" constant="40" id="fKO-w3-wjs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="dissmissBtnPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="nHP-4z-9fQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMj-hA-j75">
+                            <rect key="frame" x="525" y="8" width="67" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="67" id="wfJ-81-Xhv"/>
+                                <constraint firstAttribute="height" constant="40" id="yPs-Vv-Y1H"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" red="0.070588235289999995" green="0.75686274509999996" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="finishBtnPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="KYh-v5-oxK"/>
+                            </connections>
+                        </button>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-Ku-LYx">
+                            <rect key="frame" x="0.0" y="40" width="600" height="210"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="210" id="M1s-dw-zBW"/>
+                            </constraints>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vFf-Sp-oEF" firstAttribute="leading" secondItem="RlE-Jp-Uci" secondAttribute="leading" constant="8" id="GTa-N0-4oA"/>
+                        <constraint firstAttribute="bottom" secondItem="MQZ-Ku-LYx" secondAttribute="bottom" id="KYD-dC-UQA"/>
+                        <constraint firstItem="MQZ-Ku-LYx" firstAttribute="top" secondItem="MMj-hA-j75" secondAttribute="bottom" id="LIj-WV-o6K"/>
+                        <constraint firstItem="MQZ-Ku-LYx" firstAttribute="leading" secondItem="RlE-Jp-Uci" secondAttribute="leading" id="Nv5-1g-QBF"/>
+                        <constraint firstItem="vFf-Sp-oEF" firstAttribute="top" secondItem="RlE-Jp-Uci" secondAttribute="top" constant="8" id="Z9x-HV-VZl"/>
+                        <constraint firstAttribute="trailing" secondItem="MQZ-Ku-LYx" secondAttribute="trailing" id="fbK-wL-eoQ"/>
+                        <constraint firstItem="MMj-hA-j75" firstAttribute="top" secondItem="RlE-Jp-Uci" secondAttribute="top" constant="8" id="l2x-bH-s9F"/>
+                        <constraint firstAttribute="height" constant="250" id="p5K-mx-MK9"/>
+                        <constraint firstAttribute="trailing" secondItem="MMj-hA-j75" secondAttribute="trailing" constant="8" id="tJz-xt-20e"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="LIj-WV-o6K"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RlE-Jp-Uci" secondAttribute="trailing" id="Mhz-YM-sTP"/>
+                <constraint firstAttribute="bottom" secondItem="RlE-Jp-Uci" secondAttribute="bottom" id="QkE-n6-lwE"/>
+                <constraint firstItem="RlE-Jp-Uci" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WDk-sQ-bjH"/>
+            </constraints>
+            <connections>
+                <outlet property="contentViewHegithCons" destination="p5K-mx-MK9" id="U3u-dl-6TJ"/>
+                <outlet property="pickView" destination="MQZ-Ku-LYx" id="qRg-Qu-YyH"/>
+            </connections>
+        </view>
+    </objects>
+</document>

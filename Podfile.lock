@@ -20,6 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AMap2DMap (3.3.0)
+  - AMapSearch (3.3.0)
   - CTAssetsPickerController (3.2.4):
     - PureLayout (~> 3.0.0)
   - HappyDNS (0.2.3)
@@ -38,6 +40,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - AMap2DMap
+  - AMapSearch
   - CTAssetsPickerController (~> 3.2.0)
   - JSONModel
   - Masonry
@@ -48,6 +52,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AMap2DMap: e53461cdc345375e514579db17dbd721ff9ed9eb
+  AMapSearch: cff4faf59c007f7d1f2bae2d7170c3912783981a
   CTAssetsPickerController: bc7264c9bc40064b7de4a66bf9948c2c5ce3f355
   HappyDNS: 6d85942e64c28b4fa61f8c76580398f52d6d1d11
   JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HousingModel.h"
 
 @interface HousingDetailViewController : UIViewController
+@property (copy, nonatomic) NSString *housingId;
+@property (strong, nonatomic) HousingModel *simpleModel;
 
 @end

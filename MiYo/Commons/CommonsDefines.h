@@ -10,6 +10,7 @@
 extern NSString *const USERID;
 extern NSString *const NICKNAME;
 extern NSString *const PORTRAIT;
+extern NSString *const MAPKEY;
 
 
 #define SCREEN_WIDTH UIScreen.mainScreen.bounds.size.width

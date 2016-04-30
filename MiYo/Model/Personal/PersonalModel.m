@@ -9,6 +9,10 @@
 #import "PersonalModel.h"
 #import "FetchUserInformationRequest.h"
 #import "ModifyInformationRequest.h"
+#import "FetchMyHousingRequest.h"
+#import "HousingModel.h"
+#import "IndexReulstModel.h"
+#import "FetchMyCollectionRequest.h"
 
 @implementation PersonalModel
 + (void)fetchUserInformationWith:(NSString *)userId handler:(RequestResultHandler)handler {
@@ -33,6 +37,32 @@
             !handler ?: handler(object, nil);
         } else {
             !handler ?: handler(nil, msg);
+        }
+    }];
+}
++ (void)fetchMyHousingWith:(NSInteger)index handler:(RequestResultHandler)handler {
+    [[FetchMyHousingRequest new] request:^BOOL(FetchMyHousingRequest *request) {
+        request.index = index;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(nil, msg);
+        } else {
+            IndexReulstModel *tempModel = [[IndexReulstModel alloc] initWithResultDictionary:object modelKey:@"data" modelClass:[HousingModel new]];
+            !handler ?: handler(tempModel, nil);
+        }
+    }];
+}
++ (void)fetchMyCollectionWith:(NSInteger)index handler:(RequestResultHandler)handler {
+    [[FetchMyCollectionRequest new] request:^BOOL(FetchMyCollectionRequest *request) {
+        request.index = index;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(nil, msg);
+        } else {
+            IndexReulstModel *tempModel = [[IndexReulstModel alloc] initWithResultDictionary:object modelKey:@"data" modelClass:[HousingModel new]];
+            !handler ?: handler(tempModel, nil);
         }
     }];
 }

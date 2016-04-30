@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RequestManager.h"
+#import "CommonsDefines.h"
 
 typedef BOOL(^ParamsBlock)(id request);
 typedef void(^RequestResultHandler)(id object, NSString *msg);

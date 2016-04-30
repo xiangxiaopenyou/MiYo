@@ -64,4 +64,57 @@
     }
 }
 
++ (NSString *)compareDate:(NSDate *)date {
+    
+    NSTimeInterval secondsPerDay = 24 * 60 * 60;
+    NSDate *today = [[NSDate alloc] init];
+    NSDate *tomorrow, *yesterday, *aftertomorrow;
+    
+    tomorrow = [today dateByAddingTimeInterval: secondsPerDay];
+    yesterday = [today dateByAddingTimeInterval: -secondsPerDay];
+    aftertomorrow = [tomorrow dateByAddingTimeInterval:secondsPerDay];
+    
+    // 10 first characters of description is the calendar date:
+    NSString * todayString = [[today description] substringToIndex:10];
+    NSString * yesterdayString = [[yesterday description] substringToIndex:10];
+    NSString * tomorrowString = [[tomorrow description] substringToIndex:10];
+    NSString *afterTomorrowString = [[aftertomorrow description] substringToIndex:10];
+    NSString *dateS = [self getDateString:date];
+    NSString * dateString = [dateS substringToIndex:10];
+    
+    if ([dateString isEqualToString:todayString])
+    {
+        return @"今天";
+    } else if ([dateString isEqualToString:yesterdayString])
+    {
+        return @"昨天";
+    }else if ([dateString isEqualToString:tomorrowString])
+    {
+        return @"明天";
+    }
+    else if([dateString isEqualToString:afterTomorrowString])
+    {
+        return @"后天";
+    }
+    else{
+        return dateString;
+    }
+}
++ (NSString*)getDateString:(NSDate *)date {
+    NSLog(@"date %@",date);
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
+    NSString *dateString = [formatter stringFromDate:date];
+    NSLog(@"datestring %@",dateString);
+    return dateString;
+}
++ (NSDate *)getTimeDate:(NSString *)timeString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
+    NSDate *date  = [dateFormatter dateFromString:timeString];
+    return date;
+}
+
+
 @end

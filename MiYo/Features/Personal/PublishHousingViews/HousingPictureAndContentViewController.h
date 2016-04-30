@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HousingPictureAndContentViewController : UIViewController
+@property (strong, nonatomic) NSMutableDictionary *informationDictionary;
 
 @end

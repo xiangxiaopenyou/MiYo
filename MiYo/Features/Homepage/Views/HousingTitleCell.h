@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HousingModel.h"
 
 @interface HousingTitleCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+
+- (void)setupContentWith:(HousingModel *)model;
+- (CGFloat)heightOfCell:(HousingModel *)model;
 
 @end

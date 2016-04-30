@@ -25,12 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                            NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                            NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
-                                                            }];
+//    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
+//    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+//    [self.navigationController.navigationBar setTitleTextAttributes: @{
+//                                                            NSForegroundColorAttributeName: [UIColor whiteColor],
+//                                                            NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
+//                                                            }];
     _loginButton.layer.masksToBounds = YES;
     _loginButton.layer.cornerRadius = 2.0;
 }
@@ -38,6 +38,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 - (IBAction)loginClick:(id)sender {
     [_usernameTextField resignFirstResponder];

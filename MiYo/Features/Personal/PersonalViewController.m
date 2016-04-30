@@ -11,6 +11,7 @@
 #import "Util.h"
 #import "SettingViewController.h"
 #import <UIImageView+AFNetworking.h>
+#import "MyHousingViewController.h"
 
 @interface PersonalViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headBackgroundImage;
@@ -27,12 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes: @{
-                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                                       NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
-                                                                       }];
+//    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
+//    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+//    [self.navigationController.navigationBar setTitleTextAttributes: @{
+//                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
+//                                                                       NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
+//                                                                       }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editInformationSuccess) name:@"EditInformationSuccess" object:nil];
     _informationArray = @[@"完善信息", @"我的发布", @"设置"];
     
     _becomeOwnerButton.layer.masksToBounds = YES;
@@ -43,6 +45,9 @@
     _headImage.layer.borderWidth = 2.0;
     _headImage.layer.borderColor = kRGBColor(255, 255, 255, 0.4).CGColor;
     
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"EditInformationSuccess" object:nil];
 }
 - (void)setupContent {
     NSString *nicknameString = [[NSUserDefaults standardUserDefaults] stringForKey:NICKNAME];
@@ -61,8 +66,8 @@
     self.navigationController.navigationBarHidden = YES;
     [self setupContent];
 }
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -96,6 +101,8 @@
 
             break;
         case 1:{
+            MyHousingViewController *myHousingViewControlelr = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"MyHousingView"];
+            [self.navigationController pushViewController:myHousingViewControlelr animated:YES];
         }
             break;
         case 2:{
@@ -117,6 +124,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)editInformationSuccess {
+    [self setupContent];
+}
 - (IBAction)becomeOwnerClick:(id)sender {
 }
 

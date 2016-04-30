@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessageModel.h"
 
 @interface SystemMessageCell : UITableViewCell
+@property (strong, nonatomic) UILabel *timeLabel;
+@property (strong, nonatomic) UILabel *tipLabel;
+
+- (void)setupContentWithModel:(MessageModel *)model;
 
 @end

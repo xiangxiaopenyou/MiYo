@@ -13,7 +13,9 @@
     if (!paramsBlock(self)) {
         return;
     }
-    NSDictionary *param = @{@"houseid" : self.housingId};
+    NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
+    NSDictionary *param = @{@"houseid" : self.housingId,
+                            @"userid" : userId};
     [[RequestManager shareInstance] POST:@"getHouseInfoAPI.aspx" parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
             !resultHandler ?: resultHandler(responseObject[@"data"], nil);

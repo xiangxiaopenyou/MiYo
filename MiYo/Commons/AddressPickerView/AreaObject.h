@@ -17,7 +17,7 @@
 //城市名
 @property (copy, nonatomic) NSString *city;
 ////区县名
-//@property (copy, nonatomic) NSString *area;
+@property (copy, nonatomic) NSString *area;
 
 @end
 // 版权属于原作者
