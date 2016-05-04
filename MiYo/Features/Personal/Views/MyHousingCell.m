@@ -17,11 +17,18 @@
     _addressLabel.text = [NSString stringWithFormat:@"%@", model.addressname];
     if ([model.isflatshare integerValue] == 1) {
         _housingTypeLabel.text = @"整租";
-    } else {
+    } else if ([model.isflatshare integerValue] == 2) {
         _housingTypeLabel.text = @"合租";
+    } else {
+        _housingTypeLabel.text = @"整租&合租";
     }
     _housingPriceLabel.text = [NSString stringWithFormat:@"￥%@/月", model.price];
-    [_housingImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:model.image]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    NSArray *imageArray = [Util toArray:model.image];
+    if (imageArray.count > 0) {
+        [_housingImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:imageArray[0]]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    } else {
+        _housingImageView.image = [UIImage imageNamed:@"default_housing_image"];
+    }
 }
 
 - (void)awakeFromNib {

@@ -18,6 +18,8 @@
 #import "MJPhoto.h"
 #import "HousingCollectRequest.h"
 #import "HousingCancelCollectRequest.h"
+#import "MatchingViewController.h"
+#import "UserCardViewController.h"
 
 
 @interface HousingDetailViewController ()<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate>
@@ -40,9 +42,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupHeaderView];
+    self.navigationItem.title = @"房源";
+    if (self.simpleModel) {
+        [self setupHeaderView];
+    }
     [self fetchHousingDetail];
-    [self fetchHousingImages];
+    //[self fetchHousingImages];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,18 +58,17 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
 }
-//- (void)viewDidLayoutSubviews {
-//    if ([self.mainTableView respondsToSelector:@selector(setSeparatorInset:)]) {
-//        [self.mainTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
-//    }
-//    if ([self.mainTableView respondsToSelector:@selector(setLayoutMargins:)]) {
-//        [self.mainTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
-//    }
-//}
 - (void)setupHeaderView {
     _viewNumberLabel.text = [NSString stringWithFormat:@"%@", self.simpleModel.clickcount];
-    [_mainImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:self.simpleModel.image]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+//    [_mainImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:self.simpleModel.image]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
     _priceLabel.text = [NSString stringWithFormat:@"￥%@/月", self.simpleModel.price];
+    _imageArray = [Util toArray:self.simpleModel.image];
+    if (_imageArray.count > 0) {
+        [_mainImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:_imageArray[0]]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    } else {
+        _mainImageView.image = [UIImage imageNamed:@"default_housing_image"];
+    }
+    
 }
 - (void)showLocation {
     self.mapView.showsUserLocation = YES;
@@ -84,7 +88,7 @@
     self.collectButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.collectButton.frame = CGRectMake(0, 0, 30, 30);
     [self.collectButton setImage:[UIImage imageNamed:@"collected"] forState:UIControlStateSelected];
-    [self.collectButton setImage:[UIImage imageNamed:@"collect"] forState:UIControlStateNormal];
+    [self.collectButton setImage:[UIImage imageNamed:@"colloct"] forState:UIControlStateNormal];
     if ([_housingModel.iscollect integerValue] == 1) {
         self.collectButton.selected = YES;
     } else {
@@ -97,19 +101,25 @@
     [HousingModel fetchHousingDetailWith:self.housingId handler:^(id object, NSString *msg) {
         if (!msg) {
             _housingModel = [object copy];
+            _zhengzuButton.enabled = YES;
+            if ([_housingModel.isflatshare integerValue] == 1) {
+                _hezuButton.enabled = NO;
+            } else {
+                _hezuButton.enabled = YES;
+            }
             [_mainTableView reloadData];
             [self addCollectButton];
             [self showLocation];
-        }
-    }];
-}
-- (void)fetchHousingImages {
-    [[FetchHousingImagesRequest new] request:^BOOL(FetchHousingImagesRequest *request) {
-        request.houseId = _housingId;
-        return YES;
-    } result:^(id object, NSString *msg) {
-        if (!msg) {
-            _imageArray = [object copy];
+            if (!_simpleModel) {
+                _viewNumberLabel.text = [NSString stringWithFormat:@"%@", _housingModel.clickcount];
+                _imageArray = [Util toArray:_housingModel.image];
+                if (_imageArray.count > 0) {
+                    [_mainImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:_imageArray[0]]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+                } else {
+                    _mainImageView.image = [UIImage imageNamed:@"default_housing_image"];
+                }
+                _priceLabel.text = [NSString stringWithFormat:@"￥%@/月", _housingModel.price];
+            }
             if (_imageArray.count > 0) {
                 _mainImageView.userInteractionEnabled = YES;
                 [_mainImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageRecognizer:)]];
@@ -117,6 +127,20 @@
         }
     }];
 }
+//- (void)fetchHousingImages {
+//    [[FetchHousingImagesRequest new] request:^BOOL(FetchHousingImagesRequest *request) {
+//        request.houseId = _housingId;
+//        return YES;
+//    } result:^(id object, NSString *msg) {
+//        if (!msg) {
+//            _imageArray = [object copy];
+//            if (_imageArray.count > 0) {
+//                _mainImageView.userInteractionEnabled = YES;
+//                [_mainImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageRecognizer:)]];
+//            }
+//        }
+//    }];
+//}
 
 
 #pragma mark - UITableView Delegate DataSource
@@ -196,7 +220,6 @@
         } else {
             [cell setLayoutMargins:UIEdgeInsetsMake(0, 35, 0, 35)];
         }
-        
     }
 }
 
@@ -233,11 +256,10 @@
 */
 - (void)collectButtonClick {
     if ([_housingModel.iscollect integerValue] == 1) {
-//        [[HousingCancelCollectRequest new] request:^BOOL(id request) {
-//            <#code#>
-//        } result:^(id object, NSString *msg) {
-//            <#code#>
-//        }];
+        [[HousingCancelCollectRequest new] request:^BOOL(HousingCancelCollectRequest *request) {
+            request.houseingId = _housingId;
+            return YES;
+        } result:nil];
         self.collectButton.selected = NO;
         _housingModel.iscollect = @(0);
     } else {
@@ -250,14 +272,22 @@
     }
 }
 - (IBAction)zhengzuButtonClick:(id)sender {
+    if (![Util isEmpty:_housingModel.userid]) {
+        UserCardViewController *viewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"UserCardView"];
+        viewController.userId = _housingModel.userid;
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 - (IBAction)hezuButtonClick:(id)sender {
+    MatchingViewController *matchingViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"MatchingView"];
+    matchingViewController.model = _housingModel;
+    [self.navigationController pushViewController:matchingViewController animated:YES];
 }
 - (void)imageRecognizer:(UITapGestureRecognizer *)gesture {
     NSInteger photoCount = _imageArray.count;
     NSMutableArray *photosArray = [NSMutableArray arrayWithCapacity:photoCount];
     for (NSInteger i = 0; i < _imageArray.count; i ++) {
-        NSString *urlString = _imageArray[i][@"url"];
+        NSString *urlString = _imageArray[i];
         MJPhoto *photo = [[MJPhoto alloc] init];
         photo.url = [NSURL URLWithString:[Util urlPhoto:urlString]];
         photo.srcImageView = self.mainImageView;

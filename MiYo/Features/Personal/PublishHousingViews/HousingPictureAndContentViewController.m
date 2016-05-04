@@ -12,9 +12,12 @@
 #import "UploadImageRequest.h"
 #import "CommonsDefines.h"
 #import "Util.h"
+#import "MBProgressHUD+Add.h"
+#import "HousingModel.h"
 
 @interface HousingPictureAndContentViewController ()<UITextViewDelegate, CTAssetsPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewOfPicture;
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewOfPictureHeightConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
@@ -31,7 +34,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"添加图片";
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     _contentTextView.layer.masksToBounds = YES;
     _contentTextView.layer.cornerRadius = 5.0;
     _contentTextView.layer.borderWidth = 0.5;
@@ -70,6 +72,14 @@
             imageView.clipsToBounds = YES;
             imageView.contentMode = UIViewContentModeScaleAspectFill;
             [_viewOfPicture addSubview:imageView];
+            CGFloat imageWidth = CGRectGetWidth(imageView.frame);
+            UIButton *deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(imageWidth - 16, 0, 16, 16)];
+            deleteButton.tag = i;
+            [deleteButton setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+            [deleteButton setBackgroundColor:kRGBColor(255, 255, 255, 0.5)];
+            [deleteButton addTarget:self action:@selector(imageDelete:) forControlEvents:UIControlEventTouchUpInside];
+            [imageView addSubview:deleteButton];
+            
         }
         NSInteger pictureNumber = _picturesArray.count;
         if (pictureNumber < 9) {
@@ -78,7 +88,6 @@
             [addPictureButton setImage:[UIImage imageNamed:@"add_picture"] forState:UIControlStateNormal];
             [addPictureButton addTarget:self action:@selector(addPictureClick) forControlEvents:UIControlEventTouchUpInside];
             [_viewOfPicture addSubview:addPictureButton];
-            
         }
         _viewOfPictureHeightConstraint.constant = ((pictureNumber / 4) + 1) * ((viewWidth - 70) / 4.0 + 10) + 10;
     }
@@ -104,20 +113,14 @@
     return YES;
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    CGFloat viewHeight = CGRectGetHeight(self.view.frame);
-    CGFloat viewWidth = CGRectGetWidth(self.view.frame);
     NSInteger offset;
     if (SCREEN_HEIGHT <= 480) {
         offset = 150;
     } else {
         offset = 190;
     }
-    [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
-    [UIView setAnimationDuration:0.2f];
-    if (offset > 0) {
-        self.view.frame = CGRectMake(0, - offset, viewWidth, viewHeight);
-    }
-    [UIView commitAnimations];
+
+    [self.mainTableView setContentOffset:CGPointMake(0, offset) animated:YES];
 }
 #pragma mark - CTAssetsPickerController Delegate
 - (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(PHAsset *)asset {
@@ -165,17 +168,17 @@
                                 } else {
                                     _picturesArray = [tempPictureArray mutableCopy];
                                 }
-//                                [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
-//                                    request.keys = _keysArray;
-//                                    request.images = _picturesArray;
-//                                    return YES;
-//                                } result:^(id object, NSString *msg) {
-//                                    if (msg) {
-//                                        NSLog(@"图片上传失败");
-//                                    } else {
-//                                        NSLog(@"上传成功");
-//                                    }
-//                                }];
+                                [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
+                                    request.keys = _keysArray;
+                                    request.images = _picturesArray;
+                                    return YES;
+                                } result:^(id object, NSString *msg) {
+                                    if (msg) {
+                                        NSLog(@"图片上传失败");
+                                    } else {
+                                        NSLog(@"上传成功");
+                                    }
+                                }];
                                 [self setPictureView];
                             }
                         }];
@@ -210,18 +213,45 @@
         }];
     }
 }
-- (void)keyboardWillHide:(NSNotification *)notification {
-    CGFloat viewHeight = CGRectGetHeight(self.view.frame);
-    CGFloat viewWidth = CGRectGetWidth(self.view.frame);
-    [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
-    [UIView setAnimationDuration:0.2f];
-    self.view.frame = CGRectMake(0, 0, viewWidth, viewHeight);
-    [UIView commitAnimations];
-}
 - (IBAction)deleteButtonClick:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)sendButton:(id)sender {
+    if (_keysArray.count == 0) {
+        [MBProgressHUD showError:@"请给您的房子添加照片" toView:self.view];
+        return;
+    }
+    if ([Util isEmpty:_titleTextField.text]) {
+        [MBProgressHUD showError:@"请给您的房子添加一个醒目的标题" toView:self.view];
+        return;
+    }
+    if ([Util isEmpty:_contentTextView.text]) {
+        [MBProgressHUD showError:@"请简单描述一下您的房子" toView:self.view];
+        return;
+    }
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *imageString = [Util toJSONDataSting:_keysArray];
+    [_informationDictionary setObject:imageString forKey:@"image"];
+    [_informationDictionary setObject:_titleTextField.text forKey:@"title"];
+    [_informationDictionary setObject:_contentTextView.text forKey:@"description"];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
+    [_informationDictionary setObject:userId forKey:@"userid"];
+    [HousingModel sendHousingWith:_informationDictionary handler:^(id object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (!msg) {
+            [MBProgressHUD showSuccess:@"发布成功" toView:self.view];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {
+            [MBProgressHUD showError:@"发布失败" toView:self.view];
+        }
+    }];
+}
+- (void)imageDelete:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    NSInteger index = button.tag;
+    [_keysArray removeObjectAtIndex:index];
+    [_picturesArray removeObjectAtIndex:index];
+    [self setPictureView];
 }
 
 @end

@@ -19,7 +19,7 @@
 @property (copy, nonatomic) NSString *address_x;
 @property (copy, nonatomic) NSString *address_y;
 @property (strong, nonatomic) NSNumber<Optional> *headindex;
-@property (strong, nonatomic) NSNumber *isflatshare;
+@property (strong, nonatomic) NSNumber<Optional> *isflatshare;
 @property (strong, nonatomic) NSNumber<Optional> *orientation;
 @property (strong, nonatomic) NSNumber<Optional> *size;
 @property (strong, nonatomic) NSNumber *specification;
@@ -28,9 +28,9 @@
 @property (strong, nonatomic) NSNumber *pricetype;
 @property (strong, nonatomic) NSNumber *renovation;
 @property (copy, nonatomic) NSString *time;
-@property (strong, nonatomic) NSNumber *clickcount;
+@property (strong, nonatomic) NSNumber<Optional> *clickcount;
 @property (copy, nonatomic) NSNumber<Optional> *iscollect;
-@property (copy, nonatomic) NSString *image; //主图
+@property (copy, nonatomic) NSString *image; //图片
 @property (copy, nonatomic) NSString<Optional> *ico;
 @property (strong, nonatomic) NSNumber<Optional> *wifi;
 @property (strong, nonatomic) NSNumber<Optional> *heater;
@@ -49,5 +49,6 @@
 + (void)fetchHousingDetailWith:(NSString *)housingId handler:(RequestResultHandler)handler;
 + (void)fetchRecommendedHousingWith:(NSInteger)index handler:(RequestResultHandler)handler;
 + (void)deleteHousingWith:(NSString *)housingId handler:(RequestResultHandler)handler;
-
++ (void)searchHousingWith:(NSDictionary *)dictionary handler:(RequestResultHandler)handler;
++ (void)sendHousingWith:(NSDictionary *)dictionary handler:(RequestResultHandler)handler;
 @end

@@ -13,6 +13,8 @@
 #import "PersonalModel.h"
 #import <MJRefresh.h>
 #import "IndexReulstModel.h"
+#import "HousingDetailViewController.h"
+#import "MBProgressHUD+Add.h"
 
 @interface CollectionViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *collectionTableView;
@@ -34,16 +36,21 @@
     [_collectionTableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self fetchCollection];
     }]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _collectionTableView.mj_footer.hidden = YES;
+    
+    
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     _index = 0;
     [self fetchCollection];
-    
-    
 }
 - (void)fetchCollection {
     [PersonalModel fetchMyCollectionWith:_index handler:^(IndexReulstModel *object, NSString *msg) {
         [_collectionTableView.mj_header endRefreshing];
         [_collectionTableView.mj_footer endRefreshing];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!msg) {
             if (_index == 0) {
                 _collectionArray = [object.result mutableCopy];
@@ -86,6 +93,13 @@
     HousingModel *model = _collectionArray[indexPath.row];
     [cell setupDataWith:model];
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HousingModel *tempModel = _collectionArray[indexPath.row];
+    HousingDetailViewController *detailView = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingDetailView"];
+    detailView.simpleModel = tempModel;
+    detailView.housingId = tempModel.id;
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 /*

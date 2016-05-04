@@ -12,6 +12,7 @@
 #import <MJRefresh.h>
 #import "IndexReulstModel.h"
 #import "HousingModel.h"
+#import "HousingDetailViewController.h"
 
 @interface MyHousingViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
@@ -93,6 +94,13 @@
     [cell setupContentWith:_housingArray[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HousingModel *tempModel = _housingArray[indexPath.row];
+    HousingDetailViewController *detailView = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingDetailView"];
+    detailView.simpleModel = tempModel;
+    detailView.housingId = tempModel.id;
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;

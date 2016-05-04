@@ -25,7 +25,12 @@
         _ownerHeadImage.layer.cornerRadius = 20.0;
     }
     [_ownerHeadImage setImageWithURL:[NSURL URLWithString:[Util urlPhoto:model.headphoto]] placeholderImage:nil];
-    [_hosingSourseImage setImageWithURL:[NSURL URLWithString:[Util urlPhoto:model.image]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    NSArray *imageArray = [Util toArray:model.image];
+    if (imageArray.count > 0) {
+        [_hosingSourseImage setImageWithURL:[NSURL URLWithString:[Util urlPhoto:imageArray[0]]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    } else {
+        _hosingSourseImage.image = [UIImage imageNamed:@"default_housing_image"];
+    }
     _priceLabel.text = [NSString stringWithFormat:@"￥%@", model.price];
     _placeLabel.text = [NSString stringWithFormat:@"%@", model.title];
     

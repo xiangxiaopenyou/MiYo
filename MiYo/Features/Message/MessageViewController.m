@@ -13,6 +13,7 @@
 #import "IndexReulstModel.h"
 #import <MJRefresh.h>
 #import "MessageDetailViewController.h"
+#import "MBProgressHUD+Add.h"
 
 @interface MessageViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
@@ -26,12 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
-//    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-//    [self.navigationController.navigationBar setTitleTextAttributes: @{
-//                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
-//                                                                       NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
-//                                                                       }];
+
     self.navigationItem.title = @"消息";
     _messageTableView.tableFooterView = [UIView new];
     [_messageTableView setMj_header:[MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -42,26 +38,17 @@
         [self fetchMessageList];
     }]];
     _messageTableView.mj_footer.hidden = YES;
-//    _messageArray = [NSMutableArray array];
-//    for (NSInteger i = 0; i < 5; i ++) {
-//        MessageModel *model = [MessageModel new];
-//        model.id = [NSString stringWithFormat:@"%@", @(i)];
-//        model.type = i % 2 == 1 ? @(1) : @(2);
-//        model.state = @(0);
-//        model.time = @"2016-4-24 16:27:00";
-//        model.nickname = [NSString stringWithFormat:@"项小盆友%@", @(i)];
-//        [_messageArray addObject:model];
-//        
-//    }
     _limitIndex = 0;
     
     
     [self fetchMessageList];
 }
 - (void)fetchMessageList {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [MessageModel fetchMessageListWith:_limitIndex handler:^(IndexReulstModel *object, NSString *msg) {
         [_messageTableView.mj_header endRefreshing];
         [_messageTableView.mj_footer endRefreshing];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!msg) {
             if (_limitIndex == 0) {
                 _messageArray = [object.result mutableCopy];

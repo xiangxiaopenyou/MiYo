@@ -19,5 +19,7 @@
 + (NSString*)getDateString:(NSDate *)date;
 + (NSString *)compareDate:(NSDate *)date;
 + (NSDate *)getTimeDate:(NSString *)timeString;
++ (NSString *)toJSONDataSting:(id)theData;
++ (NSArray *)toArray:(NSString *)jsonString;
 
 @end

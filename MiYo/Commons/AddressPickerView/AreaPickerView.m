@@ -93,6 +93,7 @@
 #pragma  mark - function
 
 - (void)show{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AreaPickerShown" object:nil];
     UIWindow *win = [[UIApplication sharedApplication] keyWindow];
     UIView *topView = [win.subviews firstObject];
     [topView addSubview:self];
@@ -104,6 +105,7 @@
 }
 
 - (void)hide{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AreaPickerHiden" object:nil];
     [UIView animateWithDuration:0.3 animations:^{
         self.alpha = 0;
         self.contentViewHegithCons.constant = 0;

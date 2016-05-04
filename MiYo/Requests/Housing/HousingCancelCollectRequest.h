@@ -9,6 +9,6 @@
 #import "BaseRequest.h"
 
 @interface HousingCancelCollectRequest : BaseRequest
-@property (copy, nonatomic) NSString *collectId;
+@property (copy, nonatomic) NSString *houseingId;
 
 @end

@@ -16,6 +16,7 @@
 #import <MJRefresh.h>
 #import "IndexReulstModel.h"
 #import "HousingDetailViewController.h"
+#import "MBProgressHUD+Add.h"
 
 @interface HomepageViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *topScrollView;
@@ -97,8 +98,10 @@
     
 }
 - (void)fetchRecommendedHousing {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [HousingModel fetchRecommendedHousingWith:_index handler:^(IndexReulstModel *object, NSString *msg) {
         [_mainTableView.mj_footer endRefreshing];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!msg) {
             if (_index == 0) {
                 _recommendedArray = [object.result mutableCopy];

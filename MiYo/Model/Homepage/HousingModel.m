@@ -11,6 +11,8 @@
 #import "FetchRecommendedHousingRequest.h"
 #import "IndexReulstModel.h"
 #import "HousingDeleteRequest.h"
+#import "SearchHousingRequest.h"
+#import "SendHousingRequest.h"
 
 @implementation HousingModel
 + (JSONKeyMapper *)keyMapper {
@@ -45,6 +47,31 @@
 + (void)deleteHousingWith:(NSString *)housingId handler:(RequestResultHandler)handler {
     [[HousingDeleteRequest new] request:^BOOL(HousingDeleteRequest *request) {
         request.housingId = housingId;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(nil, msg);
+        } else {
+            !handler ?: handler(object, nil);
+        }
+    }];
+}
++ (void)searchHousingWith:(NSDictionary *)dictionary handler:(RequestResultHandler)handler {
+    [[SearchHousingRequest new] request:^BOOL(SearchHousingRequest *request) {
+        request.param = dictionary;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            !handler ?: handler(nil, msg);
+        } else {
+            IndexReulstModel *tempModel = [[IndexReulstModel alloc] initWithResultDictionary:object modelKey:@"data" modelClass:[HousingModel new]];
+            !handler ?: handler(tempModel, nil);
+        }
+    }];
+}
++ (void)sendHousingWith:(NSDictionary *)dictionary handler:(RequestResultHandler)handler {
+    [[SendHousingRequest new] request:^BOOL(SendHousingRequest *request) {
+        request.param = dictionary;
         return YES;
     } result:^(id object, NSString *msg) {
         if (msg) {

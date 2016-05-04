@@ -10,6 +10,8 @@
 #import "Util.h"
 #import <UIImageView+AFNetworking.h>
 #import "FetchMessageDetailRequest.h"
+#import "HousingDetailViewController.h"
+#import "UserCardViewController.h"
 
 @interface MessageDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
@@ -91,8 +93,18 @@
 }
 */
 - (IBAction)cardButtonClick:(id)sender {
+    if (![Util isEmpty:_model.senduserid]) {
+        UserCardViewController *cardViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"UserCardView"];
+        cardViewController.userId = _model.senduserid;
+        [self.navigationController pushViewController:cardViewController animated:YES];
+    }
 }
 - (IBAction)housingButton:(id)sender {
+    if (![Util isEmpty:_model.houseid]) {
+        HousingDetailViewController *detailViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingDetailView"];
+        detailViewController.housingId = _model.houseid;
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 @end

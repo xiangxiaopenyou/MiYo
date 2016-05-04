@@ -13,7 +13,9 @@
     if (!paramsBlock(self)) {
         return;
     }
-    NSDictionary *param = @{@"collectid" : _collectId};
+    NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
+    NSDictionary *param = @{@"houseid" : _houseingId,
+                            @"userid" : userId};
     [[RequestManager shareInstance] POST:@"deleteCollectAPI.aspx" parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
             !resultHandler ?: resultHandler(@"success", nil);

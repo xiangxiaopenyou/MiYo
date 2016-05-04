@@ -13,7 +13,7 @@
 
 - (void)setupContentWith:(HousingModel *)model {
     _housingStyle.text = [NSString stringWithFormat:@"房型：%@", model.specification_s];
-    _housingArea.text = [NSString stringWithFormat:@"面积：%@", model.size];
+    _housingArea.text = [NSString stringWithFormat:@"面积：%@㎡", model.size];
     NSString *decorationString = @"";
     switch ([model.renovation integerValue]) {
         case 1:

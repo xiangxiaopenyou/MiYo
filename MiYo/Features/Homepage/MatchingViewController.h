@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HousingModel.h"
 
 @interface MatchingViewController : UIViewController
+@property (strong, nonatomic) HousingModel *model;
 
 @end

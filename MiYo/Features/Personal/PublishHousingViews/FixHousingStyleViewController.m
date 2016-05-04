@@ -103,12 +103,12 @@
     } else {
         housingStyle = 4;
     }
-    NSDictionary *dictionary = @{@"housingtype" : @(_housingType),
+    NSDictionary *dictionary = @{@"isflatshare" : @(_housingType),
                                  @"size" : _areaString,
-                                 @"decoration" : @(_decorationType),
+                                 @"renovation" : @(_decorationType),
                                  @"orientation" : @(_orientationType),
                                  @"specification" : @(housingStyle),
-                                 @"specification" : housingStyleString};
+                                 @"specification_s" : housingStyleString};
     HousingFacilitiesViewController *viewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingFacilitiesView"];
     viewController.informationDictionary = [NSMutableDictionary dictionaryWithDictionary:dictionary];
     [self.navigationController pushViewController:viewController animated:YES];

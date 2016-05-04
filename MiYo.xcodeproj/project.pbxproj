@@ -100,6 +100,18 @@
 		3DED4FCC1CD4815E00B368C3 /* HousingCancelCollectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FCB1CD4815E00B368C3 /* HousingCancelCollectRequest.m */; };
 		3DED4FCF1CD4877E00B368C3 /* FetchMyCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FCE1CD4877E00B368C3 /* FetchMyCollectionRequest.m */; };
 		3DED4FD21CD4F78700B368C3 /* MatchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FD11CD4F78700B368C3 /* MatchingViewController.m */; };
+		3DED4FD51CD75CAD00B368C3 /* SearchHousingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FD41CD75CAD00B368C3 /* SearchHousingRequest.m */; };
+		3DED4FD81CD7648900B368C3 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FD71CD7648900B368C3 /* SearchResultCell.m */; };
+		3DED4FDC1CD8710D00B368C3 /* RBColorTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FDA1CD8710D00B368C3 /* RBColorTool.m */; };
+		3DED4FDF1CD8881C00B368C3 /* MatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FDE1CD8881C00B368C3 /* MatchRequest.m */; };
+		3DED4FE21CD88A2000B368C3 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FE11CD88A2000B368C3 /* UserModel.m */; };
+		3DED4FE51CD88C6500B368C3 /* FetchUserCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FE41CD88C6500B368C3 /* FetchUserCardRequest.m */; };
+		3DED4FE81CD88F5F00B368C3 /* MatchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FE71CD88F5F00B368C3 /* MatchResultViewController.m */; };
+		3DED4FEB1CD8939900B368C3 /* MatchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FEA1CD8939900B368C3 /* MatchResultCell.m */; };
+		3DED4FEE1CD8A0D300B368C3 /* SendHousingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FED1CD8A0D300B368C3 /* SendHousingRequest.m */; };
+		3DED4FF11CD995DF00B368C3 /* UserCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FF01CD995DF00B368C3 /* UserCardViewController.m */; };
+		3DED4FF41CD9DB5500B368C3 /* InviteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FF31CD9DB5500B368C3 /* InviteRequest.m */; };
+		3DED4FF71CD9DF6000B368C3 /* FetchBannerContentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FF61CD9DF6000B368C3 /* FetchBannerContentRequest.m */; };
 		3DEE325E1CCF690000B1F1A0 /* HousingExpectationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE325D1CCF690000B1F1A0 /* HousingExpectationsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -296,6 +308,30 @@
 		3DED4FCE1CD4877E00B368C3 /* FetchMyCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchMyCollectionRequest.m; sourceTree = "<group>"; };
 		3DED4FD01CD4F78700B368C3 /* MatchingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchingViewController.h; sourceTree = "<group>"; };
 		3DED4FD11CD4F78700B368C3 /* MatchingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchingViewController.m; sourceTree = "<group>"; };
+		3DED4FD31CD75CAD00B368C3 /* SearchHousingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHousingRequest.h; sourceTree = "<group>"; };
+		3DED4FD41CD75CAD00B368C3 /* SearchHousingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHousingRequest.m; sourceTree = "<group>"; };
+		3DED4FD61CD7648900B368C3 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		3DED4FD71CD7648900B368C3 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
+		3DED4FDA1CD8710D00B368C3 /* RBColorTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBColorTool.m; sourceTree = "<group>"; };
+		3DED4FDB1CD8710D00B368C3 /* RBColorTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBColorTool.h; sourceTree = "<group>"; };
+		3DED4FDD1CD8881C00B368C3 /* MatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchRequest.h; sourceTree = "<group>"; };
+		3DED4FDE1CD8881C00B368C3 /* MatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchRequest.m; sourceTree = "<group>"; };
+		3DED4FE01CD88A2000B368C3 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		3DED4FE11CD88A2000B368C3 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		3DED4FE31CD88C6500B368C3 /* FetchUserCardRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchUserCardRequest.h; sourceTree = "<group>"; };
+		3DED4FE41CD88C6500B368C3 /* FetchUserCardRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchUserCardRequest.m; sourceTree = "<group>"; };
+		3DED4FE61CD88F5F00B368C3 /* MatchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchResultViewController.h; sourceTree = "<group>"; };
+		3DED4FE71CD88F5F00B368C3 /* MatchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultViewController.m; sourceTree = "<group>"; };
+		3DED4FE91CD8939900B368C3 /* MatchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchResultCell.h; sourceTree = "<group>"; };
+		3DED4FEA1CD8939900B368C3 /* MatchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultCell.m; sourceTree = "<group>"; };
+		3DED4FEC1CD8A0D300B368C3 /* SendHousingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendHousingRequest.h; sourceTree = "<group>"; };
+		3DED4FED1CD8A0D300B368C3 /* SendHousingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendHousingRequest.m; sourceTree = "<group>"; };
+		3DED4FEF1CD995DF00B368C3 /* UserCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCardViewController.h; sourceTree = "<group>"; };
+		3DED4FF01CD995DF00B368C3 /* UserCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCardViewController.m; sourceTree = "<group>"; };
+		3DED4FF21CD9DB5500B368C3 /* InviteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteRequest.h; sourceTree = "<group>"; };
+		3DED4FF31CD9DB5500B368C3 /* InviteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteRequest.m; sourceTree = "<group>"; };
+		3DED4FF51CD9DF6000B368C3 /* FetchBannerContentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchBannerContentRequest.h; sourceTree = "<group>"; };
+		3DED4FF61CD9DF6000B368C3 /* FetchBannerContentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchBannerContentRequest.m; sourceTree = "<group>"; };
 		3DEE325C1CCF690000B1F1A0 /* HousingExpectationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingExpectationsViewController.h; sourceTree = "<group>"; };
 		3DEE325D1CCF690000B1F1A0 /* HousingExpectationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingExpectationsViewController.m; sourceTree = "<group>"; };
 		A7EDB2E5F18E711773AAE029 /* Pods-MiYo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiYo/Pods-MiYo.release.xcconfig"; sourceTree = "<group>"; };
@@ -409,6 +445,16 @@
 				3DED4FC81CD4810200B368C3 /* HousingCollectRequest.m */,
 				3DED4FCA1CD4815E00B368C3 /* HousingCancelCollectRequest.h */,
 				3DED4FCB1CD4815E00B368C3 /* HousingCancelCollectRequest.m */,
+				3DED4FD31CD75CAD00B368C3 /* SearchHousingRequest.h */,
+				3DED4FD41CD75CAD00B368C3 /* SearchHousingRequest.m */,
+				3DED4FDD1CD8881C00B368C3 /* MatchRequest.h */,
+				3DED4FDE1CD8881C00B368C3 /* MatchRequest.m */,
+				3DED4FEC1CD8A0D300B368C3 /* SendHousingRequest.h */,
+				3DED4FED1CD8A0D300B368C3 /* SendHousingRequest.m */,
+				3DED4FF21CD9DB5500B368C3 /* InviteRequest.h */,
+				3DED4FF31CD9DB5500B368C3 /* InviteRequest.m */,
+				3DED4FF51CD9DF6000B368C3 /* FetchBannerContentRequest.h */,
+				3DED4FF61CD9DF6000B368C3 /* FetchBannerContentRequest.m */,
 			);
 			path = Housing;
 			sourceTree = "<group>";
@@ -487,6 +533,7 @@
 		3D712B1C1C99B8EA00687ED9 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3DED4FD91CD8710200B368C3 /* ColorTool */,
 				3D38FE8B1CBCF523001AF04F /* AddressPickerView */,
 				3D712B901CA195E900687ED9 /* TabBarExtension */,
 				3D712B811C9E661000687ED9 /* XLKit */,
@@ -521,6 +568,8 @@
 				3DC7DC581CB0E0AD00D483B4 /* HousingDetailViewController.m */,
 				3DED4FD01CD4F78700B368C3 /* MatchingViewController.h */,
 				3DED4FD11CD4F78700B368C3 /* MatchingViewController.m */,
+				3DED4FE61CD88F5F00B368C3 /* MatchResultViewController.h */,
+				3DED4FE71CD88F5F00B368C3 /* MatchResultViewController.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -543,6 +592,8 @@
 				3D4C1D0E1CC0DD8100EF15B3 /* MyHousingViewController.m */,
 				3DEE325C1CCF690000B1F1A0 /* HousingExpectationsViewController.h */,
 				3DEE325D1CCF690000B1F1A0 /* HousingExpectationsViewController.m */,
+				3DED4FEF1CD995DF00B368C3 /* UserCardViewController.h */,
+				3DED4FF01CD995DF00B368C3 /* UserCardViewController.m */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -653,6 +704,8 @@
 		3D846D351CCDFA5000FC7F7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3DED4FD61CD7648900B368C3 /* SearchResultCell.h */,
+				3DED4FD71CD7648900B368C3 /* SearchResultCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -703,6 +756,8 @@
 			children = (
 				3D9162A51CBC85EF0032A28C /* PersonalModel.h */,
 				3D9162A61CBC85EF0032A28C /* PersonalModel.m */,
+				3DED4FE01CD88A2000B368C3 /* UserModel.h */,
+				3DED4FE11CD88A2000B368C3 /* UserModel.m */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -720,6 +775,8 @@
 				3DED4FC21CD44D9C00B368C3 /* FeedbackRequest.m */,
 				3DED4FCD1CD4877E00B368C3 /* FetchMyCollectionRequest.h */,
 				3DED4FCE1CD4877E00B368C3 /* FetchMyCollectionRequest.m */,
+				3DED4FE31CD88C6500B368C3 /* FetchUserCardRequest.h */,
+				3DED4FE41CD88C6500B368C3 /* FetchUserCardRequest.m */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -735,6 +792,8 @@
 				3D4C1D041CC08BB200EF15B3 /* HousingSituationCell.m */,
 				3D4C1D061CC08BDB00EF15B3 /* HousingFacilityCell.h */,
 				3D4C1D071CC08BDB00EF15B3 /* HousingFacilityCell.m */,
+				3DED4FE91CD8939900B368C3 /* MatchResultCell.h */,
+				3DED4FEA1CD8939900B368C3 /* MatchResultCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -793,10 +852,10 @@
 			isa = PBXGroup;
 			children = (
 				3D153D221CBE1916006A5313 /* PhotoBrowser */,
-				3D712B1C1C99B8EA00687ED9 /* Commons */,
-				3D712B1B1C99B8D200687ED9 /* Features */,
 				3D712B191C99B83600687ED9 /* Requests */,
 				3D9162971CBC85680032A28C /* Model */,
+				3D712B1C1C99B8EA00687ED9 /* Commons */,
+				3D712B1B1C99B8D200687ED9 /* Features */,
 				3DDD8BAC1C99258100C7296A /* AppDelegate.h */,
 				3DDD8BAD1C99258100C7296A /* AppDelegate.m */,
 				3DDD8BB51C99258100C7296A /* Assets.xcassets */,
@@ -831,6 +890,15 @@
 				3DDD8BD01C99258200C7296A /* Info.plist */,
 			);
 			path = MiYoUITests;
+			sourceTree = "<group>";
+		};
+		3DED4FD91CD8710200B368C3 /* ColorTool */ = {
+			isa = PBXGroup;
+			children = (
+				3DED4FDA1CD8710D00B368C3 /* RBColorTool.m */,
+				3DED4FDB1CD8710D00B368C3 /* RBColorTool.h */,
+			);
+			path = ColorTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1031,8 +1099,10 @@
 				3D153D321CBE193A006A5313 /* MBProgressHUD+Add.m in Sources */,
 				3DC7DC5F1CB4E9E100D483B4 /* XLBlockAlertView.m in Sources */,
 				3D38FE921CBCF533001AF04F /* AddressChoicePickerView.m in Sources */,
+				3DED4FE51CD88C6500B368C3 /* FetchUserCardRequest.m in Sources */,
 				3DEE325E1CCF690000B1F1A0 /* HousingExpectationsViewController.m in Sources */,
 				3D153D391CBE193A006A5313 /* MJPhotoView.m in Sources */,
+				3DED4FD51CD75CAD00B368C3 /* SearchHousingRequest.m in Sources */,
 				3DC7DC4A1CAE19D900D483B4 /* HousingResourceCell.m in Sources */,
 				3DDA2B6F1CD0AB8500EB581F /* MessageDetailViewController.m in Sources */,
 				3DC7DC701CBA383B00D483B4 /* FixHousingStyleViewController.m in Sources */,
@@ -1041,12 +1111,15 @@
 				3D153D361CBE193A006A5313 /* MJPhotoLoadingView.m in Sources */,
 				3D4C1D0C1CC097C900EF15B3 /* FetchHousingDetailRequest.m in Sources */,
 				3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */,
+				3DED4FEB1CD8939900B368C3 /* MatchResultCell.m in Sources */,
+				3DED4FF41CD9DB5500B368C3 /* InviteRequest.m in Sources */,
 				3D38FE911CBCF533001AF04F /* AreaObject.m in Sources */,
 				3D4C1D021CC08B6E00EF15B3 /* HousingTitleCell.m in Sources */,
 				3D4C1D281CC4BDE400EF15B3 /* SearchViewController.m in Sources */,
 				3D4C1D051CC08BB200EF15B3 /* HousingSituationCell.m in Sources */,
 				3D712B4F1C9A7F8B00687ED9 /* PersonalViewController.m in Sources */,
 				3D9162A31CBC85A30032A28C /* LoginModel.m in Sources */,
+				3DED4FD81CD7648900B368C3 /* SearchResultCell.m in Sources */,
 				3DED4FC91CD4810200B368C3 /* HousingCollectRequest.m in Sources */,
 				3D153D4A1CBF665B006A5313 /* HousingPictureAndContentViewController.m in Sources */,
 				3DED4FCF1CD4877E00B368C3 /* FetchMyCollectionRequest.m in Sources */,
@@ -1064,6 +1137,7 @@
 				3D153D1B1CBDF7E0006A5313 /* ModifyInformationRequest.m in Sources */,
 				3D4C1D0F1CC0DD8100EF15B3 /* MyHousingViewController.m in Sources */,
 				3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */,
+				3DED4FF11CD995DF00B368C3 /* UserCardViewController.m in Sources */,
 				3D712B891C9FA82200687ED9 /* RegisterRequest.m in Sources */,
 				3DED4FC01CD35CDE00B368C3 /* FetchHousingImagesRequest.m in Sources */,
 				3D153D181CBDF0DE006A5313 /* UIImage+ResizeMagick.m in Sources */,
@@ -1072,6 +1146,8 @@
 				3D846D261CCDA48100FC7F7D /* FetchMessageDetailRequest.m in Sources */,
 				3DC7DC691CB8C1EC00D483B4 /* SystemMessageCell.m in Sources */,
 				3D4C1D131CC0E29300EF15B3 /* MyHousingCell.m in Sources */,
+				3DED4FDF1CD8881C00B368C3 /* MatchRequest.m in Sources */,
+				3DED4FEE1CD8A0D300B368C3 /* SendHousingRequest.m in Sources */,
 				3DC7DC5C1CB4D17A00D483B4 /* SettingViewController.m in Sources */,
 				3D153D331CBE193A006A5313 /* MJPhoto.m in Sources */,
 				3D712B851C9E66CB00687ED9 /* XLNoticeHelper.m in Sources */,
@@ -1083,20 +1159,24 @@
 				3D712B7C1C9DBBF000687ED9 /* LoginRequest.m in Sources */,
 				3DC7DC651CB75A2F00D483B4 /* InformationEditViewController.m in Sources */,
 				3D9162A11CBC85A30032A28C /* BaseModel.m in Sources */,
+				3DED4FE81CD88F5F00B368C3 /* MatchResultViewController.m in Sources */,
 				3D153D211CBE1710006A5313 /* FindPasswordRequest.m in Sources */,
 				3D4C1D211CC4AAC500EF15B3 /* IndexReulstModel.m in Sources */,
 				3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */,
 				3DDD8BAB1C99258100C7296A /* main.m in Sources */,
+				3DED4FF71CD9DF6000B368C3 /* FetchBannerContentRequest.m in Sources */,
 				3D4C1D1B1CC4706500EF15B3 /* MessageModel.m in Sources */,
 				3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */,
 				3DED4FCC1CD4815E00B368C3 /* HousingCancelCollectRequest.m in Sources */,
 				3D712B8C1C9FACD900687ED9 /* Util.m in Sources */,
 				3D9162A21CBC85A30032A28C /* HousingModel.m in Sources */,
 				3D153D3C1CBE23F0006A5313 /* HousingFacilitiesViewController.m in Sources */,
+				3DED4FE21CD88A2000B368C3 /* UserModel.m in Sources */,
 				3D712B531C9A8BD500687ED9 /* RequestManager.m in Sources */,
 				3D4C1D081CC08BDB00EF15B3 /* HousingFacilityCell.m in Sources */,
 				3D4C1D171CC46DB000EF15B3 /* FetchUnreadMessageQualityRequest.m in Sources */,
 				3D4C1D1E1CC486BA00EF15B3 /* FetchMessageListRequest.m in Sources */,
+				3DED4FDC1CD8710D00B368C3 /* RBColorTool.m in Sources */,
 				3DC334261CD2EE28007E483A /* FetchRecommendedHousingRequest.m in Sources */,
 				3D153D3F1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m in Sources */,
 				3D153D351CBE193A006A5313 /* MJPhotoBrowser.m in Sources */,
@@ -1242,6 +1322,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miyo.MiYo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1257,6 +1338,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miyo.MiYo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
