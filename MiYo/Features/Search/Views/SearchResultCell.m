@@ -25,7 +25,12 @@
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:priceString];
     [attributedString addAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kSystemFont(15), NSFontAttributeName, [Util turnToRGBColor:@"f47712"], NSForegroundColorAttributeName, nil] range:NSMakeRange(1, [model.price stringValue].length)];
     self.housingPriceLabel.attributedText = attributedString;
-    [self.housingImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:model.image]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    NSArray *imageArray = [Util toArray:model.image];
+    if (imageArray.count > 0) {
+        [self.housingImageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:imageArray[0]]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+    } else {
+        self.housingImageView.image = [UIImage imageNamed:@"default_housing_image"];
+    }
 }
 
 - (void)awakeFromNib {

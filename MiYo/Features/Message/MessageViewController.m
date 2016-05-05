@@ -116,6 +116,10 @@
     MessageDetailViewController *viewController = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateViewControllerWithIdentifier:@"MessageDetailView"];
     viewController.model = tempModel;
     [self.navigationController pushViewController:viewController animated:YES];
+    MessageModel *selectedModel = tempModel;
+    selectedModel.state = [NSNumber numberWithInteger:1];
+    [_messageArray replaceObjectAtIndex:indexPath.row withObject:selectedModel];
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -276,9 +276,8 @@
         if (searchBar.text.length > 0) {
             _keyword = searchBar.text;
             [self housingSearch];
-        } else {
-            [searchBar resignFirstResponder];
         }
+        [searchBar resignFirstResponder];
     }
     return YES;
 }

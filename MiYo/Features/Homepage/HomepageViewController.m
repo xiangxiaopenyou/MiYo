@@ -17,6 +17,9 @@
 #import "IndexReulstModel.h"
 #import "HousingDetailViewController.h"
 #import "MBProgressHUD+Add.h"
+#import "FetchBannerContentRequest.h"
+#import <UIImageView+AFNetworking.h>
+#import "Util.h"
 
 @interface HomepageViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *topScrollView;
@@ -25,6 +28,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSMutableArray *recommendedArray;
 @property (assign, nonatomic) NSInteger index;
+@property (copy, nonatomic) NSArray *bannerArray;
 
 @end
 
@@ -33,17 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self.navigationController.navigationBar setBarTintColor:[Util turnToRGBColor:@"12c1e8"]];
-//    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-//    [self.navigationController.navigationBar setTitleTextAttributes: @{
-//                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
-//                                                                       NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]
-//                                                                       }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needLogin) name:@"HaveNotLogin" object:nil];
     
     _topScrollView.delegate = self;
-    _pageControl.numberOfPages = 5;
-    _pageControl.currentPage = 0;
     _index = 0;
     [self fetchRecommendedHousing];
     [_mainTableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -64,20 +60,8 @@
     self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidAppear:(BOOL)animated {
-    if (_topScrollView.subviews.count == 0) {
-        for (NSInteger i = 0; i < 5; i ++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_topScrollView.frame) * i, 0, CGRectGetWidth(_topScrollView.frame), CGRectGetHeight(_topScrollView.frame))];
-            if (i % 2 == 0) {
-                imageView.backgroundColor = [UIColor redColor];
-            } else {
-                imageView.backgroundColor = [UIColor greenColor];
-            }
-            imageView.clipsToBounds = YES;
-            [_topScrollView addSubview:imageView];
-            
-        }
-        _topScrollView.contentSize = CGSizeMake(CGRectGetWidth(_topScrollView.frame) * 5, 0);
-        [self addTimer];
+    if (_bannerArray.count == 0) {
+        [self fetchBannerContent];
     }
     
 }
@@ -88,7 +72,7 @@
 }
 - (void)nextPage {
     NSInteger page = (NSInteger)_pageControl.currentPage;
-    if (page == 4) {
+    if (page == _bannerArray.count - 1) {
         page = 0;
     } else {
         page ++;
@@ -119,6 +103,34 @@
                 [_mainTableView.mj_footer endRefreshingWithNoMoreData];
                 _mainTableView.mj_footer.hidden = YES;
             }
+        }
+    }];
+}
+- (void)fetchBannerContent {
+    [[FetchBannerContentRequest new] request:^BOOL(id request) {
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (!msg) {
+            _bannerArray = [object copy];
+            _pageControl.numberOfPages = _bannerArray.count;
+            _pageControl.currentPage = 0;
+            if (_topScrollView.subviews.count == 0) {
+                for (NSInteger i = 0; i < _bannerArray.count; i ++) {
+                    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_topScrollView.frame) * i, 0, CGRectGetWidth(_topScrollView.frame), CGRectGetHeight(_topScrollView.frame))];
+                    [imageView setImageWithURL:[NSURL URLWithString:[Util urlPhoto:_bannerArray[i][@"url"]]] placeholderImage:[UIImage imageNamed:@"default_housing_image"]];
+                    imageView.contentMode = UIViewContentModeScaleAspectFill;
+                    imageView.clipsToBounds = YES;
+                    [_topScrollView addSubview:imageView];
+                    
+                }
+                _topScrollView.contentSize = CGSizeMake(CGRectGetWidth(_topScrollView.frame) * _bannerArray.count, 0);
+                if (_bannerArray.count > 1) {
+                    [self addTimer];
+                }
+            }
+            
+        } else {
+            
         }
     }];
 }

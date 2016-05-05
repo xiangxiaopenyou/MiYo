@@ -90,7 +90,6 @@
 		3DDD8BAB1C99258100C7296A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAA1C99258100C7296A /* main.m */; };
 		3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAD1C99258100C7296A /* AppDelegate.m */; };
 		3DDD8BB61C99258100C7296A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD8BB51C99258100C7296A /* Assets.xcassets */; };
-		3DDD8BB91C99258100C7296A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD8BB71C99258100C7296A /* LaunchScreen.storyboard */; };
 		3DDD8BC41C99258100C7296A /* MiYoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BC31C99258100C7296A /* MiYoTests.m */; };
 		3DDD8BCF1C99258200C7296A /* MiYoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BCE1C99258200C7296A /* MiYoUITests.m */; };
 		3DED4FC01CD35CDE00B368C3 /* FetchHousingImagesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED4FBF1CD35CDE00B368C3 /* FetchHousingImagesRequest.m */; };
@@ -286,7 +285,6 @@
 		3DDD8BAC1C99258100C7296A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3DDD8BAD1C99258100C7296A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3DDD8BB51C99258100C7296A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3DDD8BB81C99258100C7296A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DDD8BBA1C99258100C7296A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DDD8BBF1C99258100C7296A /* MiYoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiYoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDD8BC31C99258100C7296A /* MiYoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiYoTests.m; sourceTree = "<group>"; };
@@ -860,7 +858,6 @@
 				3DDD8BAD1C99258100C7296A /* AppDelegate.m */,
 				3DDD8BB51C99258100C7296A /* Assets.xcassets */,
 				3DDD8BBA1C99258100C7296A /* Info.plist */,
-				3DDD8BB71C99258100C7296A /* LaunchScreen.storyboard */,
 				3DDD8BA91C99258100C7296A /* Supporting Files */,
 			);
 			path = MiYo;
@@ -1016,7 +1013,6 @@
 				3D153D341CBE193A006A5313 /* MJPhotoBrowser.bundle in Resources */,
 				3D846D2B1CCDB1AD00FC7F7D /* area.plist in Resources */,
 				3D712B981CA1A6E600687ED9 /* Main.storyboard in Resources */,
-				3DDD8BB91C99258100C7296A /* LaunchScreen.storyboard in Resources */,
 				3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */,
 				3DDD8BB61C99258100C7296A /* Assets.xcassets in Resources */,
 				3D712B431C9A7DE400687ED9 /* Homepage.storyboard in Resources */,
@@ -1217,17 +1213,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		3DDD8BB71C99258100C7296A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DDD8BB81C99258100C7296A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		3DDD8BD11C99258200C7296A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1316,12 +1301,15 @@
 			baseConfigurationReference = 0A85385FF1E9EE51935FA343 /* Pods-MiYo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
 				CODE_SIGN_IDENTITY = "iPhone Developer: tao zheng (TWYUAHQ9GJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MiYo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miyo.MiYo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuKe.SuKe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "643d74de-a58b-4421-b3c0-1b99c66e46eb";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1331,13 +1319,15 @@
 			baseConfigurationReference = A7EDB2E5F18E711773AAE029 /* Pods-MiYo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
 				CODE_SIGN_IDENTITY = "iPhone Developer: tao zheng (TWYUAHQ9GJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: tao zheng (TWYUAHQ9GJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MiYo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miyo.MiYo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuKe.SuKe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "643d74de-a58b-4421-b3c0-1b99c66e46eb";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

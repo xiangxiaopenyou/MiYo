@@ -11,4 +11,4 @@
 NSString *const USERID = @"UserId";
 NSString *const NICKNAME = @"NickName";
 NSString *const PORTRAIT = @"Portrait";
-NSString *const MAPKEY = @"68610a2d2a1a665943154b1394cda086";
+NSString *const MAPKEY = @"3e0ec09e3c08c7a9ac58b3f405e9c4f7";

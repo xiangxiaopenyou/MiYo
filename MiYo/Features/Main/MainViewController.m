@@ -86,12 +86,14 @@
     [self.tabBar addSubview:_dashboardButton];
     
     if ([[NSUserDefaults standardUserDefaults] stringForKey:USERID]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchUnreadMessage) name:@"FetchUnreadMessage" object:nil];
         _messageTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(fetchUnreadMessage) userInfo:nil repeats:YES];
     }
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"NewView" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"LogoutSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FetchUnreadMessage" object:nil];
     
 }
 

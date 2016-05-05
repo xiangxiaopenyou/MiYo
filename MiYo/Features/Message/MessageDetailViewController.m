@@ -80,7 +80,9 @@
     [[FetchMessageDetailRequest new] request:^BOOL(FetchMessageDetailRequest *request) {
         request.messageId = _model.id;
         return YES;
-    } result:nil];
+    } result:^(id object, NSString *msg) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FetchUnreadMessage" object:nil];
+    }];
 }
 
 /*

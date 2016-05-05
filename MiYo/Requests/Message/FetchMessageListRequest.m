@@ -15,7 +15,7 @@
     }
     NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
     NSDictionary *param = @{@"userid" : userId,
-                            @"limit" : @(self.limit)};
+                            @"index" : @(self.limit)};
     [[RequestManager shareInstance] POST:@"getMsgListAPI.Aspx" parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
             !resultHandler ?: resultHandler(responseObject[@"data"], nil);
