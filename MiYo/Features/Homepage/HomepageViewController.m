@@ -78,7 +78,7 @@
         page ++;
     }
     CGFloat x = page * CGRectGetWidth(_topScrollView.frame);
-    _topScrollView.contentOffset = CGPointMake(x, 0);
+    [_topScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
     
 }
 - (void)fetchRecommendedHousing {

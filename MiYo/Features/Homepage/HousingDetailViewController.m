@@ -35,6 +35,10 @@
 @property (strong, nonatomic) UIButton *collectButton;
 @property (copy, nonatomic) NSArray *imageArray;
 
+@property (strong, nonatomic) UIView *mapBackgrundView;
+@property (strong, nonatomic) MKMapView *bigMapView;
+@property (strong, nonatomic) UILabel *bigMapAddressLabel;
+
 @end
 
 @implementation HousingDetailViewController
@@ -48,6 +52,28 @@
     }
     [self fetchHousingDetail];
     //[self fetchHousingImages];
+    _mapBackgrundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    _mapBackgrundView.backgroundColor = [UIColor whiteColor];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:_mapBackgrundView];
+    _mapBackgrundView.hidden = YES;
+    
+    self.bigMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 200, SCREEN_WIDTH, 150)];
+    self.bigMapView.delegate = self;
+    self.bigMapView.showsUserLocation = YES;
+    [_mapBackgrundView addSubview:self.bigMapView];
+    
+    self.bigMapAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, SCREEN_HEIGHT - 90, SCREEN_WIDTH - 20, 35)];
+    self.bigMapAddressLabel.layer.masksToBounds = YES;
+    self.bigMapAddressLabel.layer.cornerRadius = 4.0;
+    self.bigMapAddressLabel.textAlignment = NSTextAlignmentCenter;
+    self.bigMapAddressLabel.font = kSystemFont(13);
+    self.bigMapAddressLabel.textColor = [UIColor whiteColor];
+    self.bigMapAddressLabel.backgroundColor = kRGBColor(0, 0, 0, 0.5);
+    [_mapBackgrundView addSubview:self.bigMapAddressLabel];
+    
+    
+    [self.mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(smallMapViewPress)]];
+    [self.bigMapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bigMapViewPress)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +107,10 @@
     annotation.coordinate = CLLocationCoordinate2DMake([_housingModel.address_y floatValue], [_housingModel.address_x floatValue]);
     annotation.title = _housingModel.addressname;
     [self.mapView addAnnotation:annotation];
+    
+    [self.bigMapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake([_housingModel.address_y floatValue], [_housingModel.address_x floatValue]), MKCoordinateSpanMake(0.02, 0.02))];
+    [self.bigMapView addAnnotation:annotation];
+    self.bigMapAddressLabel.text = [NSString stringWithFormat:@"%@", _housingModel.address];
 
     
 }
@@ -127,20 +157,6 @@
         }
     }];
 }
-//- (void)fetchHousingImages {
-//    [[FetchHousingImagesRequest new] request:^BOOL(FetchHousingImagesRequest *request) {
-//        request.houseId = _housingId;
-//        return YES;
-//    } result:^(id object, NSString *msg) {
-//        if (!msg) {
-//            _imageArray = [object copy];
-//            if (_imageArray.count > 0) {
-//                _mainImageView.userInteractionEnabled = YES;
-//                [_mainImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageRecognizer:)]];
-//            }
-//        }
-//    }];
-//}
 
 
 #pragma mark - UITableView Delegate DataSource
@@ -298,6 +314,22 @@
     browser.currentPhotoIndex = 0;
     browser.photos = photosArray;
     [browser show];
+}
+- (void)smallMapViewPress {
+    _mapBackgrundView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        _bigMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        _bigMapAddressLabel.frame = CGRectMake(10, SCREEN_HEIGHT - 40, SCREEN_WIDTH - 20, 35);
+    }];
+}
+- (void)bigMapViewPress {
+    [UIView animateWithDuration:0.3 animations:^{
+        _bigMapView.frame = CGRectMake(0, SCREEN_HEIGHT - 200, SCREEN_WIDTH, 150);
+        _bigMapAddressLabel.frame = CGRectMake(10, SCREEN_HEIGHT - 90, SCREEN_WIDTH - 20, 35);
+    } completion:^(BOOL finished) {
+        _mapBackgrundView.hidden = YES;
+    }];
+    
 }
 
 @end

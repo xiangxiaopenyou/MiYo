@@ -95,7 +95,8 @@
 }
 */
 - (void)phoneClick {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_phoneButton.titleLabel.text]];
+    NSString *phoneString = [_phoneButton.titleLabel.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneString]]];
 }
 
 @end

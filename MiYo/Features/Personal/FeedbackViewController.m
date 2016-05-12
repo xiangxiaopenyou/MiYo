@@ -79,6 +79,7 @@
     } result:^(id object, NSString *msg) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!msg) {
+            [MBProgressHUD showSuccess:@"反馈成功" toView:self.view];
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             [MBProgressHUD showError:@"反馈失败" toView:self.view];

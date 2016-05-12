@@ -13,6 +13,7 @@ typedef void (^AreaPickerViewBlock)(AreaPickerView *view,UIButton *btn,AreaObjec
 
 @interface AreaPickerView : UIView
 @property (copy, nonatomic) AreaPickerViewBlock block;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickView;
 
 - (void)show;
 

@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "XZMTabbarExtension.h"
 #import "CommonsDefines.h"
 #import "MessageModel.h"
 #import "SearchViewController.h"
@@ -52,6 +51,11 @@
     personalImage = [personalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     personalImageSelected = [personalImageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
+    UIImage *searchImage = [UIImage imageNamed:@"tab_search"];
+    UIImage *searchImageSelected = [UIImage imageNamed:@"tab_search"];
+    searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    searchImageSelected = [searchImageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     
     /*首页*/
     UIViewController *homepageViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"HomepageView"];
@@ -60,6 +64,12 @@
     /*收藏*/
     UIViewController *collectionViewController = [[UIStoryboard storyboardWithName:@"Collection" bundle:nil] instantiateViewControllerWithIdentifier:@"CollectionView"];
     [self setupChildControllerWith:collectionViewController normalImage:collectionImage selectedImage:collectionImageSelected title:@""];
+    
+    /**
+     *  搜索
+     */
+    UIViewController *searchViewController = [[UIStoryboard storyboardWithName:@"Search" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchView"];
+    [self setupChildControllerWith:searchViewController normalImage:searchImage selectedImage:searchImageSelected title:@""];
     
     /*消息*/
     UIViewController *messageViewController = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateViewControllerWithIdentifier:@"MessageView"];
@@ -78,12 +88,12 @@
 //        
 //        [centerButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
 //    }];
-    _dashboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _dashboardButton.frame = CGRectMake(CGRectGetWidth([UIScreen mainScreen].bounds) / 2 - 22.5, 2, 43.5, 43.5);
-    _dashboardButton.backgroundColor = [UIColor clearColor];
-    [_dashboardButton setBackgroundImage:[UIImage imageNamed:@"tab_search"] forState:UIControlStateNormal];
-    [_dashboardButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
-    [self.tabBar addSubview:_dashboardButton];
+//    _dashboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _dashboardButton.frame = CGRectMake(CGRectGetWidth([UIScreen mainScreen].bounds) / 2 - 22.5, 2, 43.5, 43.5);
+//    _dashboardButton.backgroundColor = [UIColor clearColor];
+//    [_dashboardButton setBackgroundImage:[UIImage imageNamed:@"tab_search"] forState:UIControlStateNormal];
+//    [_dashboardButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
+//    [self.tabBar addSubview:_dashboardButton];
     
     if ([[NSUserDefaults standardUserDefaults] stringForKey:USERID]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchUnreadMessage) name:@"FetchUnreadMessage" object:nil];

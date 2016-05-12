@@ -90,8 +90,8 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="西湖文化广场，精装修" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSa-O3-yJA">
-                                                            <rect key="frame" x="305" y="130" width="170" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="西湖文化广场，精装修" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSa-O3-yJA">
+                                                            <rect key="frame" x="15" y="130" width="460" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="c4x-zv-fNa"/>
                                                             </constraints>
@@ -103,6 +103,7 @@
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20364029255319149" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="jSa-O3-yJA" secondAttribute="bottom" constant="10" id="KKz-7i-uAD"/>
+                                                        <constraint firstItem="jSa-O3-yJA" firstAttribute="leading" secondItem="Iyh-vr-bfi" secondAttribute="leading" constant="15" id="WUI-T9-mp6"/>
                                                         <constraint firstAttribute="bottom" secondItem="46C-vT-lbV" secondAttribute="bottom" constant="10" id="b2A-bS-9F9"/>
                                                         <constraint firstAttribute="trailing" secondItem="46C-vT-lbV" secondAttribute="trailing" id="iNC-Tm-exk"/>
                                                         <constraint firstItem="chq-Ik-HNd" firstAttribute="centerY" secondItem="Iyh-vr-bfi" secondAttribute="centerY" id="kZl-MF-dGQ"/>
@@ -998,21 +999,30 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项小盆友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-O8-Inp">
                                                     <rect key="frame" x="71" y="10" width="68" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBM-Ub-s88">
+                                                    <rect key="frame" x="90" y="38" width="9" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="fBM-Ub-s88" firstAttribute="leading" secondItem="GZg-fN-PTo" secondAttribute="trailing" constant="8" id="16x-cN-PPD"/>
                                                 <constraint firstItem="nyt-O8-Inp" firstAttribute="top" secondItem="HFo-x1-DI2" secondAttribute="top" constant="10" id="F7g-qb-nuz"/>
                                                 <constraint firstItem="T7N-tU-MgY" firstAttribute="leading" secondItem="HFo-x1-DI2" secondAttribute="leading" constant="15" id="Ok5-NP-olC"/>
                                                 <constraint firstItem="GZg-fN-PTo" firstAttribute="top" secondItem="nyt-O8-Inp" secondAttribute="bottom" constant="8" id="UQE-iX-IqR"/>
                                                 <constraint firstItem="nyt-O8-Inp" firstAttribute="leading" secondItem="T7N-tU-MgY" secondAttribute="trailing" constant="12" id="fc9-TV-gtb"/>
                                                 <constraint firstItem="GZg-fN-PTo" firstAttribute="leading" secondItem="T7N-tU-MgY" secondAttribute="trailing" constant="12" id="qic-9Q-Jci"/>
                                                 <constraint firstItem="T7N-tU-MgY" firstAttribute="centerY" secondItem="HFo-x1-DI2" secondAttribute="centerY" id="vrr-EJ-uHT"/>
+                                                <constraint firstItem="fBM-Ub-s88" firstAttribute="top" secondItem="nyt-O8-Inp" secondAttribute="bottom" constant="7" id="wWB-YU-h7E"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="ageLabel" destination="fBM-Ub-s88" id="jYI-pI-X7x"/>
                                             <outlet property="nicknameLabel" destination="nyt-O8-Inp" id="YDN-xR-1Ag"/>
                                             <outlet property="portraitImageView" destination="T7N-tU-MgY" id="r2d-rM-J27"/>
                                             <outlet property="sexImage" destination="GZg-fN-PTo" id="EqR-yy-UsN"/>

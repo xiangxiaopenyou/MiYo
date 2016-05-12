@@ -15,7 +15,7 @@
 #import "MBProgressHUD+Add.h"
 #import "HousingModel.h"
 
-@interface HousingPictureAndContentViewController ()<UITextViewDelegate, CTAssetsPickerControllerDelegate>
+@interface HousingPictureAndContentViewController ()<UITextViewDelegate, CTAssetsPickerControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewOfPicture;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewOfPictureHeightConstraint;
@@ -38,6 +38,9 @@
     _contentTextView.layer.cornerRadius = 5.0;
     _contentTextView.layer.borderWidth = 0.5;
     _contentTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _titleTextField.returnKeyType = UIReturnKeyDone;
+    
+    _titleTextField.delegate  = self;
     
 }
 - (void)viewDidAppear:(BOOL)animated {
@@ -114,13 +117,51 @@
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     NSInteger offset;
+    CGFloat viewWidth = CGRectGetWidth(_viewOfPicture.bounds);
     if (SCREEN_HEIGHT <= 480) {
-        offset = 150;
+        if (_picturesArray.count <= 0) {
+            offset = 190;
+        } else {
+            offset = 120 + ((_picturesArray.count / 4) + 1) * ((viewWidth - 70) / 4.0 + 10);
+            
+        }
     } else {
-        offset = 190;
+        if (_picturesArray.count <= 0) {
+            offset = 150;
+        } else {
+            offset = 80 + ((_picturesArray.count / 4) + 1) * ((viewWidth - 70) / 4.0 + 10);
+        }
     }
-
     [self.mainTableView setContentOffset:CGPointMake(0, offset) animated:YES];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [self.mainTableView setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    NSInteger offset;
+    CGFloat viewWidth = CGRectGetWidth(_viewOfPicture.bounds);
+    if (SCREEN_HEIGHT <= 480) {
+        if (_picturesArray <= 0) {
+            offset = 100;
+        } else {
+            offset = 30 + ((_picturesArray.count / 4) + 1) * ((viewWidth - 70) / 4.0 + 10);
+        }
+    } else {
+        if (_picturesArray.count <= 0) {
+            offset = 60;
+        } else {
+            offset = ((_picturesArray.count / 4) + 1) * ((viewWidth - 70) / 4.0 + 10);
+        }
+    }
+    [self.mainTableView setContentOffset:CGPointMake(0, offset) animated:YES];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.mainTableView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 #pragma mark - CTAssetsPickerController Delegate
 - (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(PHAsset *)asset {

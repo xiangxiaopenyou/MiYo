@@ -41,18 +41,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait_background" translatesAutoresizingMaskIntoConstraints="NO" id="oMe-AQ-KrG">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait_background" translatesAutoresizingMaskIntoConstraints="NO" id="oMe-AQ-KrG">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="239"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90p-j5-Ty1">
-                                            <rect key="frame" x="271" y="96" width="58" height="58"/>
+                                            <rect key="frame" x="260" y="85" width="80" height="80"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="58" id="0LZ-mg-hqK"/>
-                                                <constraint firstAttribute="width" constant="58" id="w97-5m-pRa"/>
+                                                <constraint firstAttribute="height" constant="80" id="0LZ-mg-hqK"/>
+                                                <constraint firstAttribute="width" constant="80" id="w97-5m-pRa"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d5-4r-5j0">
-                                            <rect key="frame" x="300" y="164" width="0.0" height="0.0"/>
+                                            <rect key="frame" x="300" y="175" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -177,7 +177,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="西湖文化广场地铁旁，精装修" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2f-LM-AFz">
-                                                    <rect key="frame" x="15" y="50" width="195" height="18"/>
+                                                    <rect key="frame" x="15" y="50" width="570" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -230,6 +230,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="bBF-gh-Wmf" secondAttribute="trailing" constant="15" id="d3p-j9-5uU"/>
                                                 <constraint firstAttribute="trailing" secondItem="hm9-3B-wGj" secondAttribute="trailing" id="dgS-FT-A4H"/>
                                                 <constraint firstItem="xpt-v3-xl7" firstAttribute="top" secondItem="zeu-Z7-45J" secondAttribute="top" id="eCn-9t-EtL"/>
+                                                <constraint firstAttribute="trailing" secondItem="J2f-LM-AFz" secondAttribute="trailing" constant="15" id="ebS-DO-NgS"/>
                                                 <constraint firstAttribute="trailing" secondItem="xpt-v3-xl7" secondAttribute="trailing" id="gnY-Vh-sbm"/>
                                                 <constraint firstItem="gCk-KH-0RJ" firstAttribute="top" secondItem="88q-o5-qoc" secondAttribute="bottom" constant="10" id="mNM-Sz-4J3"/>
                                                 <constraint firstItem="88q-o5-qoc" firstAttribute="top" secondItem="46W-ie-Z5K" secondAttribute="bottom" constant="10" id="sLC-IL-rgU"/>
@@ -325,7 +326,7 @@
                                     <outlet property="delegate" destination="fGU-m8-w1n" id="F8X-pe-Sla"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="send_housing_back" translatesAutoresizingMaskIntoConstraints="NO" id="Up1-dz-Ebv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="send_housing_back" translatesAutoresizingMaskIntoConstraints="NO" id="Up1-dz-Ebv">
                                 <rect key="frame" x="0.0" y="64" width="600" height="406"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你要发布房源的类型？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbj-nL-FMe">

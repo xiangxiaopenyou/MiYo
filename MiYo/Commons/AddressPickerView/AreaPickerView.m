@@ -10,7 +10,7 @@
 
 @interface AreaPickerView()<UIPickerViewDataSource,UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHegithCons;
-@property (weak, nonatomic) IBOutlet UIPickerView *pickView;
+//@property (weak, nonatomic) IBOutlet UIPickerView *pickView;
 @property (strong, nonatomic) AreaObject *locate;
 //区域 数组
 //@property (strong, nonatomic) NSArray *regionArr;
@@ -51,10 +51,12 @@
         } else {
             self.locate.area = @"";
         }
-        self.backgroundButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.backgroundButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 250);
-        [self.backgroundButton addTarget:self action:@selector(backgroundButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.backgroundButton];
+//        self.backgroundButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        self.backgroundButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 250);
+//        [self.backgroundButton addTarget:self action:@selector(backgroundButtonClick) forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:self.backgroundButton];
+        self.userInteractionEnabled = YES;
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundButtonClick)]];
         [self customView];
     }
     return self;
@@ -97,16 +99,18 @@
     UIWindow *win = [[UIApplication sharedApplication] keyWindow];
     UIView *topView = [win.subviews firstObject];
     [topView addSubview:self];
-    
     [UIView animateWithDuration:0.3 animations:^{
         self.contentViewHegithCons.constant = 250;
         [self layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.pickView setHidden:NO];
     }];
 }
 
 - (void)hide{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AreaPickerHiden" object:nil];
     [UIView animateWithDuration:0.3 animations:^{
+        [self.pickView setHidden:YES];
         self.alpha = 0;
         self.contentViewHegithCons.constant = 0;
         [self layoutIfNeeded];

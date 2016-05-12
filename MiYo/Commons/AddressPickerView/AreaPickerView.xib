@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RlE-Jp-Uci">
-                    <rect key="frame" x="0.0" y="350" width="600" height="250"/>
+                    <rect key="frame" x="0.0" y="102" width="600" height="250"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFf-Sp-oEF">
                             <rect key="frame" x="8" y="8" width="67" height="40"/>
@@ -44,7 +44,7 @@
                                 <action selector="finishBtnPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="KYh-v5-oxK"/>
                             </connections>
                         </button>
-                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-Ku-LYx">
+                        <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-Ku-LYx">
                             <rect key="frame" x="0.0" y="40" width="600" height="210"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="210" id="M1s-dw-zBW"/>
@@ -70,15 +70,21 @@
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="RlE-Jp-Uci" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="102" id="1pc-n9-Rit"/>
                 <constraint firstAttribute="trailing" secondItem="RlE-Jp-Uci" secondAttribute="trailing" id="Mhz-YM-sTP"/>
                 <constraint firstAttribute="bottom" secondItem="RlE-Jp-Uci" secondAttribute="bottom" id="QkE-n6-lwE"/>
                 <constraint firstItem="RlE-Jp-Uci" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WDk-sQ-bjH"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="QkE-n6-lwE"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="contentViewHegithCons" destination="p5K-mx-MK9" id="U3u-dl-6TJ"/>
-                <outlet property="pickView" destination="MQZ-Ku-LYx" id="qRg-Qu-YyH"/>
+                <outlet property="pickView" destination="MQZ-Ku-LYx" id="ttZ-zI-iWk"/>
             </connections>
         </view>
     </objects>

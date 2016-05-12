@@ -38,6 +38,10 @@
         self.locate.province = self.provinceArr[0][@"province"];
         self.locate.city = self.cityArr[0][@"city"];
         [self customView];
+        
+        self.userInteractionEnabled = YES;
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
+        
     }
     return self;
 }

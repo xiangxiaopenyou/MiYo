@@ -84,7 +84,7 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:NICKNAME];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:PORTRAIT];
                 [self.navigationController popViewControllerAnimated:YES];
-                [self performSelector:@selector(postInformation) withObject:nil afterDelay:0.5];
+                [self performSelector:@selector(postInformation) withObject:nil afterDelay:0.2];
             }
         }
     } cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil] show];

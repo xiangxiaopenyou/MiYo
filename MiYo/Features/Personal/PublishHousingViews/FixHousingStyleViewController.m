@@ -186,6 +186,7 @@
     }
 }
 - (IBAction)decorationButtonClick:(id)sender {
+    [_areaTextField resignFirstResponder];
     UIButton *button = (UIButton *)sender;
     switch (button.tag) {
         case 11: {
@@ -234,6 +235,7 @@
     }
 }
 - (IBAction)orientationButtonClick:(id)sender {
+    [_areaTextField resignFirstResponder];
     UIButton *button = (UIButton *)sender;
     switch (button.tag) {
         case 21: {

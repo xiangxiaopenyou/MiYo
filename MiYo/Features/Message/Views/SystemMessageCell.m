@@ -33,18 +33,19 @@
         self.timeLabel.font = kSystemFont(12);
         self.timeLabel.textColor = [Util turnToRGBColor:@"646464"];
         self.timeLabel.textAlignment = NSTextAlignmentRight;
-        NSString *timeString = model.time;
-        timeString = [timeString stringByReplacingOccurrencesOfString:@"T" withString:@" "];
-        NSDate *timeDate = [Util getTimeDate:timeString];
-        if ([[Util compareDate:timeDate] isEqualToString:@"今天"]) {
-            timeString = [timeString substringWithRange:NSMakeRange(11, 5)];
-        } else if ([[Util compareDate:timeDate] isEqualToString:@"昨天"]) {
-            timeString = [NSString stringWithFormat:@"昨天%@", [timeString substringWithRange:NSMakeRange(11, 5)]];
-        } else {
-            timeString = [timeString substringWithRange:NSMakeRange(5, 11)];
-        }
-        self.timeLabel.text = timeString;
+        
     }
+    NSString *timeString = model.time;
+    timeString = [timeString stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    NSDate *timeDate = [Util getTimeDate:timeString];
+    if ([[Util compareDate:timeDate] isEqualToString:@"今天"]) {
+        timeString = [timeString substringWithRange:NSMakeRange(11, 5)];
+    } else if ([[Util compareDate:timeDate] isEqualToString:@"昨天"]) {
+        timeString = [NSString stringWithFormat:@"昨天%@", [timeString substringWithRange:NSMakeRange(11, 5)]];
+    } else {
+        timeString = [timeString substringWithRange:NSMakeRange(5, 11)];
+    }
+    self.timeLabel.text = timeString;
     [self.contentView addSubview:self.timeLabel];
 }
 - (void)awakeFromNib {

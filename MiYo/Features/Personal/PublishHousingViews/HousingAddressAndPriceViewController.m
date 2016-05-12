@@ -52,6 +52,7 @@
 }
 */
 - (IBAction)payStyleButtonClick:(id)sender {
+    [_priceTextField resignFirstResponder];
     [[[XLBlockActionSheet alloc] initWithTitle:nil clickedBlock:^(NSInteger buttonIndex) {
         if (buttonIndex == 0) {
             _payStyle = 0;

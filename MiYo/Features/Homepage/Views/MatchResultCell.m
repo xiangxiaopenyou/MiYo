@@ -24,6 +24,12 @@
             _sexImage.image = [UIImage imageNamed:@"icon_female"];
         }
     }
+    if ([Util isEmpty:model.age]) {
+        _ageLabel.hidden = YES;
+    } else {
+        _ageLabel.hidden = NO;
+        _ageLabel.text = [NSString stringWithFormat:@"%@", model.age];
+    }
     _nicknameLabel.text = [NSString stringWithFormat:@"%@", model.nickname];
 }
 

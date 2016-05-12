@@ -42,6 +42,7 @@
 		3D4C1D211CC4AAC500EF15B3 /* IndexReulstModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D201CC4AAC500EF15B3 /* IndexReulstModel.m */; };
 		3D4C1D281CC4BDE400EF15B3 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D271CC4BDE400EF15B3 /* SearchViewController.m */; };
 		3D4C1D2A1CC4BDF400EF15B3 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4C1D291CC4BDF400EF15B3 /* Search.storyboard */; };
+		3D6FA2EA1CE05A6A007D78EB /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6FA2E91CE05A6A007D78EB /* UIImage+ImageEffects.m */; };
 		3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B321C9A7CC800687ED9 /* MainViewController.m */; };
 		3D712B3D1C9A7DB200687ED9 /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */; };
 		3D712B3F1C9A7DBF00687ED9 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B3E1C9A7DBF00687ED9 /* Message.storyboard */; };
@@ -64,7 +65,6 @@
 		3D712B8C1C9FACD900687ED9 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B8B1C9FACD900687ED9 /* Util.m */; };
 		3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */; };
 		3D712B981CA1A6E600687ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B971CA1A6E600687ED9 /* Main.storyboard */; };
-		3D712BE01CA1AE4900687ED9 /* XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */; };
 		3D846D261CCDA48100FC7F7D /* FetchMessageDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D846D251CCDA48100FC7F7D /* FetchMessageDetailRequest.m */; };
 		3D846D291CCDA66F00FC7F7D /* MessageDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D846D281CCDA66F00FC7F7D /* MessageDeleteRequest.m */; };
 		3D846D2B1CCDB1AD00FC7F7D /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D846D2A1CCDB1AD00FC7F7D /* area.plist */; };
@@ -135,8 +135,8 @@
 		0A85385FF1E9EE51935FA343 /* Pods-MiYo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYo/Pods-MiYo.debug.xcconfig"; sourceTree = "<group>"; };
 		3D153D131CBDE6F6006A5313 /* UploadImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImageRequest.h; sourceTree = "<group>"; };
 		3D153D141CBDE6F6006A5313 /* UploadImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImageRequest.m; sourceTree = "<group>"; };
-		3D153D161CBDF0DE006A5313 /* UIImage+ResizeMagick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeMagick.m"; sourceTree = "<group>"; };
-		3D153D171CBDF0DE006A5313 /* UIImage+ResizeMagick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeMagick.h"; sourceTree = "<group>"; };
+		3D153D161CBDF0DE006A5313 /* UIImage+ResizeMagick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ResizeMagick.m"; path = "../UIImage+ResizeMagick.m"; sourceTree = "<group>"; };
+		3D153D171CBDF0DE006A5313 /* UIImage+ResizeMagick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ResizeMagick.h"; path = "../UIImage+ResizeMagick.h"; sourceTree = "<group>"; };
 		3D153D191CBDF7E0006A5313 /* ModifyInformationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyInformationRequest.h; sourceTree = "<group>"; };
 		3D153D1A1CBDF7E0006A5313 /* ModifyInformationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyInformationRequest.m; sourceTree = "<group>"; };
 		3D153D1C1CBE111B006A5313 /* FindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordViewController.h; sourceTree = "<group>"; };
@@ -198,6 +198,8 @@
 		3D4C1D261CC4BDE400EF15B3 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		3D4C1D271CC4BDE400EF15B3 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		3D4C1D291CC4BDF400EF15B3 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		3D6FA2E81CE05A6A007D78EB /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		3D6FA2E91CE05A6A007D78EB /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		3D712B311C9A7CC800687ED9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		3D712B321C9A7CC800687ED9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3D712B3C1C9A7DB200687ED9 /* Collection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
@@ -236,8 +238,6 @@
 		3D712B8D1CA03D3F00687ED9 /* GetCodeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCodeRequest.h; sourceTree = "<group>"; };
 		3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCodeRequest.m; sourceTree = "<group>"; };
 		3D712B971CA1A6E600687ED9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		3D712BDE1CA1AE4900687ED9 /* XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMTabbarExtension.h; sourceTree = "<group>"; };
-		3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMTabbarExtension.m; sourceTree = "<group>"; };
 		3D846D241CCDA48000FC7F7D /* FetchMessageDetailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchMessageDetailRequest.h; sourceTree = "<group>"; };
 		3D846D251CCDA48100FC7F7D /* FetchMessageDetailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchMessageDetailRequest.m; sourceTree = "<group>"; };
 		3D846D271CCDA66F00FC7F7D /* MessageDeleteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDeleteRequest.h; sourceTree = "<group>"; };
@@ -501,6 +501,17 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		3D6FA2E71CE05A55007D78EB /* XLCategories */ = {
+			isa = PBXGroup;
+			children = (
+				3D6FA2E81CE05A6A007D78EB /* UIImage+ImageEffects.h */,
+				3D6FA2E91CE05A6A007D78EB /* UIImage+ImageEffects.m */,
+				3D153D161CBDF0DE006A5313 /* UIImage+ResizeMagick.m */,
+				3D153D171CBDF0DE006A5313 /* UIImage+ResizeMagick.h */,
+			);
+			path = XLCategories;
+			sourceTree = "<group>";
+		};
 		3D712B191C99B83600687ED9 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,14 +542,13 @@
 		3D712B1C1C99B8EA00687ED9 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3D6FA2E71CE05A55007D78EB /* XLCategories */,
 				3DED4FD91CD8710200B368C3 /* ColorTool */,
 				3D38FE8B1CBCF523001AF04F /* AddressPickerView */,
 				3D712B901CA195E900687ED9 /* TabBarExtension */,
 				3D712B811C9E661000687ED9 /* XLKit */,
 				3D712B681C9C3A7400687ED9 /* CommonsDefines.h */,
 				3D712B691C9C3A7400687ED9 /* CommonsDefines.m */,
-				3D153D161CBDF0DE006A5313 /* UIImage+ResizeMagick.m */,
-				3D153D171CBDF0DE006A5313 /* UIImage+ResizeMagick.h */,
 				3D712B8A1C9FACD900687ED9 /* Util.h */,
 				3D712B8B1C9FACD900687ED9 /* Util.m */,
 			);
@@ -693,8 +703,6 @@
 		3D712B901CA195E900687ED9 /* TabBarExtension */ = {
 			isa = PBXGroup;
 			children = (
-				3D712BDE1CA1AE4900687ED9 /* XZMTabbarExtension.h */,
-				3D712BDF1CA1AE4900687ED9 /* XZMTabbarExtension.m */,
 			);
 			path = TabBarExtension;
 			sourceTree = "<group>";
@@ -1129,10 +1137,10 @@
 				3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */,
 				3D153D371CBE193A006A5313 /* MJPhotoProgressView.m in Sources */,
 				3D38FE8A1CBCE8BB001AF04F /* XLBlockActionSheet.m in Sources */,
-				3D712BE01CA1AE4900687ED9 /* XZMTabbarExtension.m in Sources */,
 				3D153D1B1CBDF7E0006A5313 /* ModifyInformationRequest.m in Sources */,
 				3D4C1D0F1CC0DD8100EF15B3 /* MyHousingViewController.m in Sources */,
 				3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */,
+				3D6FA2EA1CE05A6A007D78EB /* UIImage+ImageEffects.m in Sources */,
 				3DED4FF11CD995DF00B368C3 /* UserCardViewController.m in Sources */,
 				3D712B891C9FA82200687ED9 /* RegisterRequest.m in Sources */,
 				3DED4FC01CD35CDE00B368C3 /* FetchHousingImagesRequest.m in Sources */,

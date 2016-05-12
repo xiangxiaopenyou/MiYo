@@ -12,6 +12,7 @@
 #import "XLNoticeHelper.h"
 #import "LoginModel.h"
 #import "CommonsDefines.h"
+#import "MBProgressHUD+Add.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
@@ -88,7 +89,7 @@
         return YES;
     } result:^(id object, NSString *msg) {
         if (msg) {
-            [XLNoticeHelper showNoticeAtViewController:self message:@"发送验证码失败"];
+            [XLNoticeHelper showNoticeAtViewController:self message:msg];
         } else {
             NSLog(@"发送验证码成功");
             _receivedCode = object[@"vcode"];
@@ -141,6 +142,7 @@
             [XLNoticeHelper showNoticeAtViewController:self message:msg];
         } else {
             NSLog(@"注册成功");
+            [MBProgressHUD showSuccess:@"注册成功" toView:self.view];
             [[NSUserDefaults standardUserDefaults] setValue:object[@"userid"] forKey:USERID];
             [[NSUserDefaults standardUserDefaults] setValue:object[@"nickname"] forKey:NICKNAME];
             [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%@", object[@"headphoto"]] forKey:PORTRAIT];

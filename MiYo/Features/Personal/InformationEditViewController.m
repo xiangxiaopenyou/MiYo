@@ -272,6 +272,7 @@
                     _jobTextField.textAlignment = NSTextAlignmentRight;
                     _jobTextField.textColor = [Util turnToRGBColor:@"909090"];
                     _jobTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+                    _jobTextField.returnKeyType = UIReturnKeyDone;
                     _jobTextField.font = kSystemFont(13);
                 }
                 if ([Util isEmpty:_model.job]) {
@@ -512,6 +513,27 @@
         }
     }
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _nicknameTextField) {
+        [_nicknameTextField resignFirstResponder];
+        [_wechatTextField becomeFirstResponder];
+    } else if (textField == _wechatTextField) {
+        [_wechatTextField resignFirstResponder];
+        [_qqTextField becomeFirstResponder];
+    } else if (textField == _qqTextField) {
+        [_qqTextField resignFirstResponder];
+        [_nameTextField becomeFirstResponder];
+    } else if (textField == _nameTextField) {
+        [_nameTextField resignFirstResponder];
+        [_ageTextField becomeFirstResponder];
+    } else if (textField == _ageTextField) {
+        [_ageTextField resignFirstResponder];
+        [_jobTextField becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
 /*
 #pragma mark - Navigation
 
@@ -606,6 +628,7 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (!msg) {
                 NSLog(@"修改成功");
+                [MBProgressHUD showSuccess:@"修改成功" toView:self.view];
                 [[NSUserDefaults standardUserDefaults] setValue:_model.nickname forKey:NICKNAME];
                 [[NSUserDefaults standardUserDefaults] setValue:_model.headphoto forKey:PORTRAIT];
                 [[NSUserDefaults standardUserDefaults] synchronize];
@@ -614,6 +637,7 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"EditInformationSuccess" object:nil];
             } else {
                 NSLog(@"修改失败");
+                [MBProgressHUD showError:@"修改失败" toView:self.view];
             }
         }];
     }

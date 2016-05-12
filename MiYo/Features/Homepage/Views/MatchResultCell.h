@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *sexImage;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 
 - (void)setupContentWith:(UserModel *)model;
 

@@ -12,6 +12,7 @@
 #import "SettingViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import "MyHousingViewController.h"
+#import "UIImage+ImageEffects.h"
 
 @interface PersonalViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headBackgroundImage;
@@ -41,20 +42,35 @@
     _becomeOwnerButton.layer.cornerRadius = 2.0;
     
     _headImage.layer.masksToBounds = YES;
-    _headImage.layer.cornerRadius = 29.0;
+    _headImage.layer.cornerRadius = 40.0;
     _headImage.layer.borderWidth = 2.0;
     _headImage.layer.borderColor = kRGBColor(255, 255, 255, 0.4).CGColor;
+    _headImage.userInteractionEnabled = YES;
+    [_headImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(portraitPressd)]];
     
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"EditInformationSuccess" object:nil];
 }
 - (void)setupContent {
-    NSString *nicknameString = [[NSUserDefaults standardUserDefaults] stringForKey:NICKNAME];
-    self.nicknameLabel.text = [NSString stringWithFormat:@"%@", nicknameString];
-    
-    NSString *portraitString = [[NSUserDefaults standardUserDefaults] stringForKey:PORTRAIT];
-    [self.headImage setImageWithURL:[NSURL URLWithString:[Util urlZoomPhoto:portraitString]] placeholderImage:[UIImage imageNamed:@"default_portrait"]];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:USERID]) {
+        NSString *nicknameString = [[NSUserDefaults standardUserDefaults] stringForKey:NICKNAME];
+        self.nicknameLabel.text = [NSString stringWithFormat:@"%@", nicknameString];
+        
+        NSString *portraitString = [[NSUserDefaults standardUserDefaults] stringForKey:PORTRAIT];
+        [self.headImage setImageWithURL:[NSURL URLWithString:[Util urlZoomPhoto:portraitString]] placeholderImage:[UIImage imageNamed:@"default_portrait"]];
+        if (portraitString) {
+            __weak PersonalViewController *weakSelf = self;
+            [_headBackgroundImage setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[Util urlPhoto:portraitString]]] placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                __strong PersonalViewController *strongSelf = weakSelf;
+                UIImage *effectImage = [image applyLightEffect];
+                strongSelf.headBackgroundImage.image = effectImage;
+            } failure:nil];
+        } else {
+            UIImage *defaultImage = [UIImage imageNamed:@"default_portrait"];
+            _headBackgroundImage.image = [defaultImage applyLightEffect];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -128,6 +144,10 @@
     [self setupContent];
 }
 - (IBAction)becomeOwnerClick:(id)sender {
+}
+- (void)portraitPressd {
+    UIViewController *informationEditViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];
+    [self.navigationController pushViewController:informationEditViewController animated:YES];
 }
 
 @end

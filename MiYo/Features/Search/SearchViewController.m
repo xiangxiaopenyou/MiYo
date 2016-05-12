@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sortViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *sortDownIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *choiceDownIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *areaDownIcon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectionViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *clearSelectionButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectionSubmitButton;
@@ -67,7 +68,7 @@
     _selectedSortType = 1001;
     _minPrice = 0;
     _maxPrice = 99999999;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back"] style:UIBarButtonItemStylePlain target:self action:@selector(backClick)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back"] style:UIBarButtonItemStylePlain target:self action:@selector(backClick)];
     self.navigationItem.titleView = self.searchBar;
     self.navigationItem.title = @"";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(areaPickerShown) name:@"AreaPickerShown" object:nil];
@@ -291,9 +292,9 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (void)backClick {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)backClick {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 - (IBAction)sortButtonClick:(id)sender {
     [_searchBar resignFirstResponder];
     if (_sortButton.selected) {
@@ -306,6 +307,12 @@
 }
 - (IBAction)areaButtonClick:(id)sender {
     [_searchBar resignFirstResponder];
+    if (_sortButton.selected) {
+        [self hideSortView];
+    }
+    if (_choiceButton.selected) {
+        [self hideSelectionView];
+    }
     AreaPickerView *pickerView = [[AreaPickerView alloc] init];
     pickerView.block = ^(AreaPickerView *view, UIButton *button, AreaObject *locate) {
         _areaString = @"";
@@ -326,6 +333,9 @@
         [self housingSearch];
     };
     [pickerView show];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        _areaDownIcon.transform = CGAffineTransformMakeRotation(M_PI);
+    } completion:nil];
 }
 - (IBAction)choiceButtonClick:(id)sender {
     [_searchBar resignFirstResponder];
@@ -448,6 +458,9 @@
 }
 - (void)areaPickerHiden {
     _areaLabel.textColor = [Util turnToRGBColor:@"323232"];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        _areaDownIcon.transform = CGAffineTransformMakeRotation(0);
+    } completion:nil];
 }
 
 @end
