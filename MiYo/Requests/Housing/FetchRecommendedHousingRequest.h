@@ -10,6 +10,7 @@
 
 @interface FetchRecommendedHousingRequest : BaseRequest
 @property (assign, nonatomic) NSInteger index;
+@property (copy, nonatomic) NSString *city;
 
 
 @end

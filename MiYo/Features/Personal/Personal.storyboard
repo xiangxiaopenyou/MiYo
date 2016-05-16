@@ -34,6 +34,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMe-AQ-KrG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="239"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="239" id="YHh-FA-OGx"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8L0-4v-HJc">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -41,9 +47,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait_background" translatesAutoresizingMaskIntoConstraints="NO" id="oMe-AQ-KrG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="239"/>
-                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90p-j5-Ty1">
                                             <rect key="frame" x="260" y="85" width="80" height="80"/>
                                             <constraints>
@@ -60,12 +63,8 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="oMe-AQ-KrG" secondAttribute="bottom" constant="10" id="NfF-4Y-Sms"/>
                                         <constraint firstItem="90p-j5-Ty1" firstAttribute="centerY" secondItem="JrJ-Zd-TTe" secondAttribute="centerY" id="QB5-Z9-1Dg"/>
-                                        <constraint firstItem="oMe-AQ-KrG" firstAttribute="top" secondItem="JrJ-Zd-TTe" secondAttribute="top" id="SLz-X4-x7a"/>
                                         <constraint firstItem="90p-j5-Ty1" firstAttribute="centerX" secondItem="JrJ-Zd-TTe" secondAttribute="centerX" id="Ulr-8b-Obq"/>
-                                        <constraint firstAttribute="trailing" secondItem="oMe-AQ-KrG" secondAttribute="trailing" id="ZNg-hx-arq"/>
-                                        <constraint firstItem="oMe-AQ-KrG" firstAttribute="leading" secondItem="JrJ-Zd-TTe" secondAttribute="leading" id="d2a-fG-GUI"/>
                                         <constraint firstItem="1d5-4r-5j0" firstAttribute="centerX" secondItem="JrJ-Zd-TTe" secondAttribute="centerX" id="dhJ-Wa-aaR"/>
                                         <constraint firstItem="1d5-4r-5j0" firstAttribute="top" secondItem="90p-j5-Ty1" secondAttribute="bottom" constant="10" id="hoZ-SB-XSw"/>
                                     </constraints>
@@ -117,15 +116,20 @@
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8L0-4v-HJc" secondAttribute="trailing" id="APO-ih-LtP"/>
+                            <constraint firstItem="oMe-AQ-KrG" firstAttribute="leading" secondItem="H00-dS-6Fy" secondAttribute="leading" id="Ie3-Ow-iuS"/>
                             <constraint firstItem="8L0-4v-HJc" firstAttribute="top" secondItem="H00-dS-6Fy" secondAttribute="top" id="LIV-fg-jPs"/>
                             <constraint firstItem="8L0-4v-HJc" firstAttribute="leading" secondItem="H00-dS-6Fy" secondAttribute="leading" id="OSt-2l-q6v"/>
                             <constraint firstItem="UXJ-ti-3AG" firstAttribute="top" secondItem="8L0-4v-HJc" secondAttribute="bottom" id="Rk8-QH-d4F"/>
+                            <constraint firstAttribute="trailing" secondItem="oMe-AQ-KrG" secondAttribute="trailing" id="lDP-rK-EgB"/>
+                            <constraint firstItem="oMe-AQ-KrG" firstAttribute="top" secondItem="H00-dS-6Fy" secondAttribute="top" id="lKZ-ur-mVx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jDd-nS-fZq"/>
                     <connections>
                         <outlet property="becomeOwnerButton" destination="zNb-9i-S4O" id="OpL-ce-MmC"/>
+                        <outlet property="headBackgroundHeightConstraint" destination="YHh-FA-OGx" id="3WN-CI-D3Z"/>
                         <outlet property="headBackgroundImage" destination="oMe-AQ-KrG" id="wKV-U3-bID"/>
+                        <outlet property="headBackgroundTopConstraint" destination="lKZ-ur-mVx" id="1ZM-Q6-52D"/>
                         <outlet property="headImage" destination="90p-j5-Ty1" id="Nl9-lp-MAp"/>
                         <outlet property="nicknameLabel" destination="1d5-4r-5j0" id="Lgk-Au-VlX"/>
                     </connections>
@@ -3057,7 +3061,6 @@
         <image name="icon_plus" width="16" height="16"/>
         <image name="icon_unchecked" width="16" height="16"/>
         <image name="login_background" width="320" height="136"/>
-        <image name="portrait_background" width="320" height="150"/>
         <image name="send_housing_back" width="320" height="372"/>
     </resources>
 </document>

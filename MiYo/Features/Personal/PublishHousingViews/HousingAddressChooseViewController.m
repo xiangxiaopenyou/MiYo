@@ -8,7 +8,6 @@
 
 #import "HousingAddressChooseViewController.h"
 #import "CommonsDefines.h"
-
 #import "Util.h"
 #import "XLBlockAlertView.h"
 

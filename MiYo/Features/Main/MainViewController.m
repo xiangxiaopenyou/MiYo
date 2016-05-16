@@ -10,6 +10,7 @@
 #import "CommonsDefines.h"
 #import "MessageModel.h"
 #import "SearchViewController.h"
+#import "Util.h"
 
 @interface MainViewController ()<UITabBarControllerDelegate>
 @property (strong, nonatomic) UIButton *dashboardButton;
@@ -52,7 +53,7 @@
     personalImageSelected = [personalImageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     UIImage *searchImage = [UIImage imageNamed:@"tab_search"];
-    UIImage *searchImageSelected = [UIImage imageNamed:@"tab_search"];
+    UIImage *searchImageSelected = [UIImage imageNamed:@"tab_search_selected"];
     searchImage = [searchImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     searchImageSelected = [searchImageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
@@ -95,7 +96,7 @@
 //    [_dashboardButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
 //    [self.tabBar addSubview:_dashboardButton];
     
-    if ([[NSUserDefaults standardUserDefaults] stringForKey:USERID]) {
+    if ([Util isLogin]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchUnreadMessage) name:@"FetchUnreadMessage" object:nil];
         _messageTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(fetchUnreadMessage) userInfo:nil repeats:YES];
     }
@@ -128,9 +129,13 @@
     _newIndex = index;
 }
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:USERID]) {
-        if (viewController != [tabBarController.viewControllers objectAtIndex:0]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"HaveNotLogin" object:nil];
+    if (![Util isLogin]) {
+        if ((viewController != [tabBarController.viewControllers objectAtIndex:0]) && (viewController != [tabBarController.viewControllers objectAtIndex:2])) {
+            if (tabBarController.selectedIndex == 0) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"HomepageHaveNotLogin" object:nil];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"SearchHaveNotLogin" object:nil];
+            }
             return NO;
         } else {
             return YES;
@@ -170,7 +175,7 @@
         if (!msg) {
             NSInteger quality = [object[@"count"] integerValue];
             if (quality > 0) {
-                self.tabBar.items[2].badgeValue = [NSString stringWithFormat:@"%@", @(quality)];
+                self.tabBar.items[3].badgeValue = [NSString stringWithFormat:@"%@", @(quality)];
             }
         }
     }];

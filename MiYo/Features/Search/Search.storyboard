@@ -283,7 +283,10 @@
                                                                 <constraint firstAttribute="width" constant="85" id="uC4-q3-eOK"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="Qio-r9-Qu0" id="fUd-lD-SoL"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X0i-PS-qM1">
                                                             <rect key="frame" x="328" y="40" width="85" height="35"/>
@@ -293,7 +296,10 @@
                                                                 <constraint firstAttribute="width" constant="85" id="OnQ-9j-k1m"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="Qio-r9-Qu0" id="RPl-dS-H77"/>
+                                                            </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGh-hn-foU">
                                                             <rect key="frame" x="0.0" y="89" width="600" height="1"/>

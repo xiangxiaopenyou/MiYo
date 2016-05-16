@@ -49,6 +49,9 @@
     
     _informationTableView.tableFooterView = [UIView new];
     
+    UITapGestureRecognizer *tableViewGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignCurrentFirstResponder)];
+    tableViewGestureRecognizer.cancelsTouchesInView = NO;
+    [_informationTableView addGestureRecognizer:tableViewGestureRecognizer];
     
     [self fetchUserInformation];
     
@@ -125,6 +128,7 @@
                     _nicknameTextField.textAlignment = NSTextAlignmentRight;
                     _nicknameTextField.textColor = [Util turnToRGBColor:@"909090"];
                     _nicknameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+                    _nicknameTextField.returnKeyType = UIReturnKeyNext;
                     _nicknameTextField.font = kSystemFont(13);
                 }
                 if ([Util isEmpty:_model.nickname]) {
@@ -141,6 +145,7 @@
                     _wechatTextField.textAlignment = NSTextAlignmentRight;
                     _wechatTextField.textColor = [Util turnToRGBColor:@"909090"];
                     _wechatTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+                    _wechatTextField.returnKeyType = UIReturnKeyNext;
                     _wechatTextField.font = kSystemFont(13);
                 }
                 if ([Util isEmpty:_model.weichat]) {
@@ -160,6 +165,7 @@
                     _qqTextField.textColor = [Util turnToRGBColor:@"909090"];
                     _qqTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
                     _qqTextField.keyboardType = UIKeyboardTypeNumberPad;
+                    _qqTextField.returnKeyType = UIReturnKeyNext;
                     _qqTextField.font = kSystemFont(13);
                 }
                 
@@ -191,6 +197,7 @@
                     _nameTextField.textAlignment = NSTextAlignmentRight;
                     _nameTextField.textColor = [Util turnToRGBColor:@"909090"];
                     _nameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+                    _nameTextField.returnKeyType = UIReturnKeyNext;
                     _nameTextField.font = kSystemFont(13);
                 }
                 if ([Util isEmpty:_model.name]) {
@@ -228,6 +235,7 @@
                     _ageTextField.textColor = [Util turnToRGBColor:@"909090"];
                     _ageTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
                     _ageTextField.keyboardType = UIKeyboardTypeNumberPad;
+                    _ageTextField.returnKeyType = UIReturnKeyNext;
                     _ageTextField.font = kSystemFont(13);
                 }
                 _ageTextField.text = [NSString stringWithFormat:@"%@", @([_model.age integerValue])];
@@ -531,6 +539,7 @@
         [_jobTextField becomeFirstResponder];
     } else {
         [textField resignFirstResponder];
+        [_informationTableView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
     return YES;
 }
@@ -651,5 +660,8 @@
     [_ageTextField resignFirstResponder];
     [_jobTextField resignFirstResponder];
 }
-
+- (void)resignCurrentFirstResponder {
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    [keyWindow endEditing:YES];
+}
 @end

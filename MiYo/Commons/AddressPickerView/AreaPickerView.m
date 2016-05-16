@@ -12,14 +12,12 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHegithCons;
 //@property (weak, nonatomic) IBOutlet UIPickerView *pickView;
 @property (strong, nonatomic) AreaObject *locate;
-//区域 数组
-//@property (strong, nonatomic) NSArray *regionArr;
 //省 数组
-@property (copy, nonatomic) NSArray *provinceArray;
+@property (strong, nonatomic) NSMutableArray *provinceArray;
 //城市 数组
-@property (copy, nonatomic) NSArray *cityArray;
+@property (strong, nonatomic) NSMutableArray *cityArray;
 ////区县 数组
-@property (copy, nonatomic) NSArray *areaArray;
+@property (strong, nonatomic) NSMutableArray *areaArray;
 
 @property (strong, nonatomic) UIButton *backgroundButton;
 
@@ -41,16 +39,19 @@
         self.frame = [UIScreen mainScreen].bounds;
         self.pickView.delegate = self;
         self.pickView.dataSource = self;
-        self.provinceArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area.plist" ofType:nil]];
-        self.cityArray = self.provinceArray[0][@"cities"];
-        self.areaArray = self.cityArray[0][@"areas"];
-        self.locate.province = self.provinceArray[0][@"province"];
-        self.locate.city = self.cityArray[0][@"city"];
-        if (self.areaArray.count > 0) {
-            self.locate.area = self.areaArray[0];
-        } else {
-            self.locate.area = @"";
-        }
+        self.provinceArray = [[NSMutableArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area.plist" ofType:nil]];
+        [self.provinceArray insertObject:@"全部" atIndex:0];
+//        self.cityArray = self.provinceArray[0][@"cities"];
+//        self.areaArray = self.cityArray[0][@"areas"];
+        self.cityArray = [NSMutableArray arrayWithObject:@"全部"];
+        self.areaArray = [NSMutableArray arrayWithObject:@"全部"];
+        self.locate.province = @"";
+        self.locate.city = @"";
+//        if (self.areaArray.count > 0) {
+//            self.locate.area = self.areaArray[0];
+//        } else {
+        self.locate.area = @"";
+//        }
 //        self.backgroundButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //        self.backgroundButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 250);
 //        [self.backgroundButton addTarget:self action:@selector(backgroundButtonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -144,16 +145,23 @@
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     switch (component) {
-        case 0:
-            return [[self.provinceArray objectAtIndex:row] objectForKey:@"state"];
+        case 0:{
+            if (row == 0) {
+                return self.provinceArray[row];
+            } else {
+                return [[self.provinceArray objectAtIndex:row] objectForKey:@"state"];
+            }
+        }
             break;
-        case 1:
-            return [[self.cityArray objectAtIndex:row] objectForKey:@"city"];
+        case 1:{
+            if (row == 0) {
+                return self.cityArray[row];
+            } else {
+                return [[self.cityArray objectAtIndex:row] objectForKey:@"city"];
+            }
+        }
             break;
         case 2:{
-            //            if (self.areaArr.count > 0) {
-            //
-            //            }
             return [self.areaArray objectAtIndex:row];
         }
             break;
@@ -182,56 +190,89 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     switch (component) {
         case 0:{
-            self.cityArray = self.provinceArray[row][@"cities"];
-            [self.pickView reloadComponent:1];
-            [self.pickView selectRow:0 inComponent:1 animated:YES];
-            self.areaArray = self.cityArray[0][@"areas"];
-            [self.pickView reloadComponent:2];
-            [self.pickView selectRow:0 inComponent:2 animated:YES];
-            if (row < 4) {
-                self.locate.province = [NSString stringWithFormat:@"%@市", self.provinceArray[row][@"state"]];
-            } else if (row > 26) {
-                self.locate.province = [NSString stringWithFormat:@"%@", self.provinceArray[row][@"state"]];
-            } else {
-                self.locate.province = [NSString stringWithFormat:@"%@省", self.provinceArray[row][@"state"]];
-            }
-            //self.locate.province = self.provinceArray[row][@"state"];
-            if (row < 4) {
-                self.locate.city = [NSString stringWithFormat:@"%@区", self.cityArray[0][@"city"]];
-            } else {
-                self.locate.city = [NSString stringWithFormat:@"%@市", self.cityArray[0][@"city"]];
-            }
-            if (self.areaArray.count > 0) {
-                self.locate.area = self.areaArray[0];
-            } else {
+            if (row == 0) {
+                self.cityArray = [NSMutableArray arrayWithObject:@"全部"];
+                [self.pickView reloadComponent:1];
+                [self.pickView selectRow:0 inComponent:1 animated:YES];
+                self.areaArray = [NSMutableArray arrayWithObject:@"全部"];
+                [self.pickView reloadComponent:2];
+                [self.pickView selectRow:0 inComponent:2 animated:YES];
+                self.locate.province = @"";
+                self.locate.city = @"";
                 self.locate.area = @"";
+            } else {
+                self.cityArray = [self.provinceArray[row][@"cities"] mutableCopy];
+                [self.cityArray insertObject:@"全部" atIndex:0];
+                [self.pickView reloadComponent:1];
+                [self.pickView selectRow:0 inComponent:1 animated:YES];
+                self.areaArray = [self.cityArray[1][@"areas"] mutableCopy];
+                [self.areaArray insertObject:@"全部" atIndex:0];
+                [self.pickView reloadComponent:2];
+                [self.pickView selectRow:0 inComponent:2 animated:YES];
+                if (row < 5) {
+                    self.locate.province = [NSString stringWithFormat:@"%@市", self.provinceArray[row][@"state"]];
+                } else if (row > 27) {
+                    self.locate.province = [NSString stringWithFormat:@"%@", self.provinceArray[row][@"state"]];
+                } else {
+                    self.locate.province = [NSString stringWithFormat:@"%@省", self.provinceArray[row][@"state"]];
+                }
+                //self.locate.province = self.provinceArray[row][@"state"];
+//                if (row < 5) {
+//                    self.locate.city = [NSString stringWithFormat:@"%@区", self.cityArray[0][@"city"]];
+//                } else {
+//                    self.locate.city = [NSString stringWithFormat:@"%@市", self.cityArray[0][@"city"]];
+//                }
+                self.locate.city = @"";
+//                if (self.areaArray.count > 0) {
+//                    self.locate.area = self.areaArray[0];
+//                } else {
+                self.locate.area = @"";
+//                }
             }
+            
             
             break;
         }
         case 1:
         {
             NSInteger componentRow = [pickerView selectedRowInComponent:0];
-            self.areaArray = [self.cityArray objectAtIndex:row][@"areas"];
-            [self.pickView reloadComponent:2];
-            [self.pickView selectRow:0 inComponent:2 animated:YES];
-            if (componentRow < 4) {
-                self.locate.city = [NSString stringWithFormat:@"%@区", self.cityArray[row][@"city"]];
+            if (row == 0) {
+                self.areaArray = [NSMutableArray arrayWithObject:@"全部"];
+                [self.pickView reloadComponent:2];
+                [self.pickView selectRow:0 inComponent:2 animated:YES];
             } else {
-                self.locate.city = [NSString stringWithFormat:@"%@市", self.cityArray[row][@"city"]];
+                self.areaArray = [self.cityArray objectAtIndex:row][@"areas"];
+                [self.areaArray insertObject:@"全部" atIndex:0];
+                [self.pickView reloadComponent:2];
+                [self.pickView selectRow:0 inComponent:2 animated:YES];
             }
-            if (self.areaArray.count > 0) {
-                self.locate.area = self.areaArray[0];
+            if (componentRow < 5) {
+                if (row == 0) {
+                    self.locate.city = @"";
+                } else {
+                    self.locate.city = [NSString stringWithFormat:@"%@区", self.cityArray[row][@"city"]];
+                }
             } else {
-                self.locate.area = @"";
+                if (row == 0) {
+                    self.locate.city = @"";
+                } else {
+                    self.locate.city = [NSString stringWithFormat:@"%@市", self.cityArray[row][@"city"]];
+                }
             }
+//            if (self.areaArray.count > 1) {
+//                self.locate.area = self.areaArray[0];
+//            } else {
+            self.locate.area = @"";
+//            }
             
             break;
         }
         case 2:{
-            
-            self.locate.area = self.areaArray[row];
-            
+            if (row == 0) {
+                self.locate.area = @"";
+            } else {
+                self.locate.area = self.areaArray[row];
+            }
             break;
         }
             

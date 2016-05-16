@@ -46,7 +46,11 @@
     }];
 }
 - (void)setupContentWith:(UserModel *)model {
-    _nicknameLabel.text = [NSString stringWithFormat:@"%@", model.nickname];
+    if ([Util isEmpty:model.nickname]) {
+        _nicknameLabel.text = @"";
+    } else {
+        _nicknameLabel.text = [NSString stringWithFormat:@"%@", model.nickname];
+    }
     [_portraitImage setImageWithURL:[NSURL URLWithString:[Util urlZoomPhoto:model.headphoto]] placeholderImage:[UIImage imageNamed:@"default_portrait"]];
     _nameLabel.text = [Util isEmpty:model.name] ? @"姓名：未知" : [NSString stringWithFormat:@"姓名：%@", model.name];
     _ageLabel.text = [Util isEmpty:model.age] ? @"年龄：未知" : [NSString stringWithFormat:@"年龄：%@", model.age];

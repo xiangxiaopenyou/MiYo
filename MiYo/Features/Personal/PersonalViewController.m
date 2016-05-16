@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UIButton *becomeOwnerButton;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headBackgroundHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headBackgroundTopConstraint;
 
 @property (copy, nonatomic) NSArray *informationArray;
 
@@ -53,7 +55,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"EditInformationSuccess" object:nil];
 }
 - (void)setupContent {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:USERID]) {
+    if ([Util isLogin]) {
         NSString *nicknameString = [[NSUserDefaults standardUserDefaults] stringForKey:NICKNAME];
         self.nicknameLabel.text = [NSString stringWithFormat:@"%@", nicknameString];
         
@@ -128,6 +130,16 @@
             break;
         default:
             break;
+    }
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat y = scrollView.contentOffset.y;
+    if (y < 0) {
+        _headBackgroundTopConstraint.constant = 0;
+        _headBackgroundHeightConstraint.constant = 239 - y;
+    } else {
+        _headBackgroundTopConstraint.constant = - y;
+        _headBackgroundHeightConstraint.constant = 239;
     }
 }
 

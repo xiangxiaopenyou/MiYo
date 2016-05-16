@@ -47,7 +47,7 @@
 @property (strong, nonatomic) NSNumber<Optional> *paty;       //聚会
 
 + (void)fetchHousingDetailWith:(NSString *)housingId handler:(RequestResultHandler)handler;
-+ (void)fetchRecommendedHousingWith:(NSInteger)index handler:(RequestResultHandler)handler;
++ (void)fetchRecommendedHousingWith:(NSInteger)index city:(NSString *)city handler:(RequestResultHandler)handler;
 + (void)deleteHousingWith:(NSString *)housingId handler:(RequestResultHandler)handler;
 + (void)searchHousingWith:(NSDictionary *)dictionary handler:(RequestResultHandler)handler;
 + (void)sendHousingWith:(NSDictionary *)dictionary handler:(RequestResultHandler)handler;

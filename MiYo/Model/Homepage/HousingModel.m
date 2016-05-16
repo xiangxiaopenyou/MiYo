@@ -31,9 +31,10 @@
         }
     }];
 }
-+ (void)fetchRecommendedHousingWith:(NSInteger)index handler:(RequestResultHandler)handler {
++ (void)fetchRecommendedHousingWith:(NSInteger)index city:(NSString *)city handler:(RequestResultHandler)handler {
     [[FetchRecommendedHousingRequest new] request:^BOOL(FetchRecommendedHousingRequest *request) {
         request.index = index;
+        request.city = city;
         return YES;
     } result:^(id object, NSString *msg) {
         if (msg) {

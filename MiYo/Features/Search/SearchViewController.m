@@ -17,8 +17,9 @@
 #import "IndexReulstModel.h"
 #import "SearchResultCell.h"
 #import "HousingDetailViewController.h"
+#import "LoginViewController.h"
 
-@interface SearchViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SearchViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (weak, nonatomic) IBOutlet UITableView *sortTableView;
@@ -64,6 +65,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needLogin) name:@"SearchHaveNotLogin" object:nil];
     self.sortArray = @[@"时间排序", @"点击率排序", @"价格从低到高", @"价格从高到低"];
     _selectedSortType = 1001;
     _minPrice = 0;
@@ -89,6 +91,9 @@
     }]];
     _mainTableView.tableFooterView = [UIView new];
     _mainTableView.mj_footer.hidden = YES;
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"HaveNotLogin" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,7 +141,7 @@
     [self hideSortView];
     _selectionLabel.textColor = [Util turnToRGBColor:@"12c1e8"];
     _choiceButton.selected = YES;
-    _selectionViewHeightConstraint.constant = SCREEN_HEIGHT - 102;
+    _selectionViewHeightConstraint.constant = SCREEN_HEIGHT - 151;
     [UIView animateWithDuration:0.2 delay:0.1 usingSpringWithDamping:0.9 initialSpringVelocity:20.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -198,6 +203,17 @@
         }
     }];
 }
+#pragma mark - UITextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _minPriceTextField) {
+        [_minPriceTextField resignFirstResponder];
+        [_maxPriceTextField becomeFirstResponder];
+    } else if (textField == _maxPriceTextField) {
+        [_maxPriceTextField resignFirstResponder];
+    }
+    return YES;
+}
+
 #pragma mark - UITableView Delegate DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return tableView == _mainTableView ? _housingArray.count : 4;
@@ -239,11 +255,16 @@
         [_sortTableView reloadData];
         [self housingSearch];
     } else {
-        HousingModel *tempModel = _housingArray[indexPath.row];
-        HousingDetailViewController *viewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingDetailView"];
-        viewController.housingId = tempModel.id;
-        viewController.simpleModel = tempModel;
-        [self.navigationController pushViewController:viewController animated:YES];
+        if ([Util isLogin]) {
+            HousingModel *tempModel = _housingArray[indexPath.row];
+            HousingDetailViewController *viewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingDetailView"];
+            viewController.housingId = tempModel.id;
+            viewController.simpleModel = tempModel;
+            [self.navigationController pushViewController:viewController animated:YES];
+        } else {
+            [self needLogin];
+        }
+        
     }
 }
 #pragma mark - UISearchBar Delegate
@@ -327,8 +348,12 @@
         }
         if (![Util isEmpty:locate.area]) {
             _areaLabel.text = locate.area;
-        } else {
+        } else if (![Util isEmpty:locate.city]) {
             _areaLabel.text = locate.city;
+        } else if (![Util isEmpty:locate.province]) {
+            _areaLabel.text = locate.province;
+        } else {
+            _areaLabel.text = @"位置区域";
         }
         [self housingSearch];
     };
@@ -461,6 +486,12 @@
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         _areaDownIcon.transform = CGAffineTransformMakeRotation(0);
     } completion:nil];
+}
+
+- (void)needLogin {
+    LoginViewController *loginView = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginView"];
+    loginView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:loginView animated:YES];
 }
 
 @end

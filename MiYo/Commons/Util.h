@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface Util : NSObject
++ (BOOL)isLogin;
 + (BOOL)isEmpty:(id)sender;
 + (BOOL)validatePhone:(NSString *)phone;
 + (UIColor *)turnToRGBColor:(NSString *)hexColor;

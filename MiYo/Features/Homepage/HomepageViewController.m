@@ -20,8 +20,10 @@
 #import "FetchBannerContentRequest.h"
 #import <UIImageView+AFNetworking.h>
 #import "Util.h"
+#import <CoreLocation/CoreLocation.h>
+#import "XLBlockAlertView.h"
 
-@interface HomepageViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface HomepageViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *topScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
@@ -30,6 +32,11 @@
 @property (assign, nonatomic) NSInteger index;
 @property (copy, nonatomic) NSArray *bannerArray;
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *location;
+@property (copy, nonatomic) NSString *cityString;
+@property (assign, nonatomic) BOOL isFirstAppear;
+
 @end
 
 @implementation HomepageViewController
@@ -37,11 +44,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needLogin) name:@"HaveNotLogin" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needLogin) name:@"HomepageHaveNotLogin" object:nil];
+    _locationManager = [[CLLocationManager alloc] init];
+    if ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0) {
+        [_locationManager requestWhenInUseAuthorization];
+    }
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    _locationManager.distanceFilter = 10;
+    _locationManager.delegate = self;
+    [_locationManager startUpdatingLocation];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     _topScrollView.delegate = self;
     _index = 0;
-    [self fetchRecommendedHousing];
     [_mainTableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self fetchRecommendedHousing];
     }]];
@@ -54,6 +69,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    if (_isFirstAppear) {
+        [self fetchRecommendedHousing];
+    }
+    _isFirstAppear = YES;
+    
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -66,9 +86,7 @@
     
 }
 - (void)addTimer {
-    //if (!_timer) {
     _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
-    //}
 }
 - (void)nextPage {
     NSInteger page = (NSInteger)_pageControl.currentPage;
@@ -82,8 +100,7 @@
     
 }
 - (void)fetchRecommendedHousing {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [HousingModel fetchRecommendedHousingWith:_index handler:^(IndexReulstModel *object, NSString *msg) {
+    [HousingModel fetchRecommendedHousingWith:_index city:_cityString handler:^(IndexReulstModel *object, NSString *msg) {
         [_mainTableView.mj_footer endRefreshing];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!msg) {
@@ -140,6 +157,58 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - CLLocationManager Delegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    _location = [locations lastObject];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:_location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (!error && [placemarks count] > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            NSDictionary *information = placemark.addressDictionary;
+            _cityString = @"";
+            if (![Util isEmpty:information[@"State"]]) {
+                _cityString = [NSString stringWithFormat:@"%@%@", _cityString, information[@"State"]];
+            }
+            if (![Util isEmpty:information[@"City"]]) {
+                _cityString = [NSString stringWithFormat:@"%@%@", _cityString, information[@"City"]];
+            }
+        } else {
+            _cityString = nil;
+        }
+        [self fetchRecommendedHousing];
+    }];
+
+    [_locationManager stopUpdatingLocation];
+}
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    switch (status) {
+        case kCLAuthorizationStatusNotDetermined:{
+            if([_locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+                [_locationManager requestWhenInUseAuthorization];
+            }
+        }
+            break;
+            
+        case kCLAuthorizationStatusDenied:{
+            [[[XLBlockAlertView alloc] initWithTitle:@"提示" message:@"请在设置-隐私-定位服务中开启定位功能！" block:^(NSInteger buttonIndex) {
+            } cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+            [self fetchRecommendedHousing];
+        }
+            break;
+            
+        case kCLAuthorizationStatusRestricted:{
+            [[[XLBlockAlertView alloc] initWithTitle:@"提示" message:@"定位服务无法使用！" block:^(NSInteger buttonIndex) {
+            } cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+            [self fetchRecommendedHousing];
+        }
+            
+        default:
+            [self fetchRecommendedHousing];
+            break;
+            
+    }
+}
+
 #pragma mark - UIScrollView Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == _topScrollView) {
@@ -194,7 +263,7 @@
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:USERID]) {
+    if (![Util isLogin]) {
         [self needLogin];
     } else {
         HousingModel *temp = _recommendedArray[indexPath.row];

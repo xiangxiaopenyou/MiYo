@@ -7,14 +7,18 @@
 //
 
 #import "FetchRecommendedHousingRequest.h"
+#import "Util.h"
 
 @implementation FetchRecommendedHousingRequest
 - (void)request:(ParamsBlock)paramsBlock result:(RequestResultHandler)resultHandler {
     if (!paramsBlock(self)) {
         return;
     }
-    NSDictionary *param = @{@"index" : @(_index),
-                            @"count" : @(20)};
+    NSMutableDictionary *param = [@{@"index" : @(_index),
+                            @"count" : @(20)} mutableCopy];
+    if (![Util isEmpty:_city]) {
+        [param setObject:_city forKey:@"city"];
+    }
     [[RequestManager shareInstance] POST:@"getHeadPage.aspx" parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject[@"resultCode"] isEqual:@"0000"]) {
             !resultHandler ?: resultHandler(responseObject[@"data"], nil);

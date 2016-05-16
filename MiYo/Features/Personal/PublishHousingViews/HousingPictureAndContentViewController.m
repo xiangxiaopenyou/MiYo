@@ -272,6 +272,7 @@
     }
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSString *imageString = [Util toJSONDataSting:_keysArray];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     [_informationDictionary setObject:imageString forKey:@"image"];
     [_informationDictionary setObject:_titleTextField.text forKey:@"title"];
     [_informationDictionary setObject:_contentTextView.text forKey:@"description"];

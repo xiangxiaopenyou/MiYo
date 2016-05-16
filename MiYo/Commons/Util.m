@@ -8,8 +8,20 @@
 
 #import "Util.h"
 #import "RequestManager.h"
+#import "CommonsDefines.h"
 
 @implementation Util
+/**
+ *  是否已登录
+ */
++ (BOOL)isLogin {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:USERID] && [[NSUserDefaults standardUserDefaults] objectForKey:NICKNAME]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 /*
  空值判断
  */

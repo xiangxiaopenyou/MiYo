@@ -20,6 +20,7 @@
 #import "HousingCancelCollectRequest.h"
 #import "MatchingViewController.h"
 #import "UserCardViewController.h"
+#import "MBProgressHUD+Add.h"
 
 
 @interface HousingDetailViewController ()<UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate>
@@ -46,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"房源";
+    self.navigationItem.title = @"";
     if (self.simpleModel) {
         [self setupHeaderView];
     }
@@ -80,6 +81,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.bigMapView removeFromSuperview];
+    [self.mapView removeFromSuperview];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
@@ -98,7 +104,7 @@
 }
 - (void)showLocation {
     self.mapView.showsUserLocation = YES;
-//    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake([_housingModel.address_y floatValue], [_housingModel.address_x floatValue])];
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake([_housingModel.address_y floatValue], [_housingModel.address_x floatValue])];
     MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake([_housingModel.address_y floatValue], [_housingModel.address_x floatValue]), span)];
     self.mapView.delegate = self;
@@ -132,11 +138,7 @@
         if (!msg) {
             _housingModel = [object copy];
             _zhengzuButton.enabled = YES;
-            if ([_housingModel.isflatshare integerValue] == 1) {
-                _hezuButton.enabled = NO;
-            } else {
-                _hezuButton.enabled = YES;
-            }
+            _hezuButton.enabled = YES;
             [_mainTableView reloadData];
             [self addCollectButton];
             [self showLocation];
@@ -295,9 +297,13 @@
     }
 }
 - (IBAction)hezuButtonClick:(id)sender {
-    MatchingViewController *matchingViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"MatchingView"];
-    matchingViewController.model = _housingModel;
-    [self.navigationController pushViewController:matchingViewController animated:YES];
+    if ([_housingModel.isflatshare integerValue] == 1) {
+        [MBProgressHUD showError:@"该房源为整租房源" toView:self.view];
+    } else {
+        MatchingViewController *matchingViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"MatchingView"];
+        matchingViewController.model = _housingModel;
+        [self.navigationController pushViewController:matchingViewController animated:YES];
+    }
 }
 - (void)imageRecognizer:(UITapGestureRecognizer *)gesture {
     NSInteger photoCount = _imageArray.count;
