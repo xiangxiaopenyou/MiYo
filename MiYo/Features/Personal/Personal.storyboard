@@ -81,12 +81,11 @@
                                                 <constraint firstAttribute="height" constant="45" id="o3a-x8-MRK"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <state key="normal" title="我要成为房东">
+                                            <state key="normal" title=" 寻找合租小伙伴">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="becomeOwnerClick:" destination="7IT-XX-NVH" eventType="touchUpInside" id="hcM-LC-tKa"/>
-                                                <segue destination="fGU-m8-w1n" kind="show" id="F7f-Xh-vDv"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -282,7 +281,7 @@
         <!--Choose Housing Type View Controller-->
         <scene sceneID="kk7-98-DvY">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="fGU-m8-w1n" customClass="ChooseHousingTypeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HousingTypeView" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="fGU-m8-w1n" customClass="ChooseHousingTypeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nvZ-tl-TJ1"/>
                         <viewControllerLayoutGuide type="bottom" id="Mzu-M8-goj"/>
@@ -353,6 +352,7 @@
                             <constraint firstItem="TTz-DC-rde" firstAttribute="leading" secondItem="dFC-8o-t0t" secondAttribute="leading" id="lQA-i2-7TA"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QzD-fN-fYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

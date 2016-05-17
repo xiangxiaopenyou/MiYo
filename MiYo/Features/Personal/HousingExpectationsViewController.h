@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PersonalModel.h"
-typedef void (^EditFinishedBlock) (PersonalModel *model);
+//typedef void (^EditFinishedBlock) (PersonalModel *model);
 
 @interface HousingExpectationsViewController : UIViewController
-@property (strong, nonatomic) PersonalModel *personalModel;
 
-- (void)editFinished:(EditFinishedBlock)block;
+//- (void)editFinished:(EditFinishedBlock)block;
 
 @end

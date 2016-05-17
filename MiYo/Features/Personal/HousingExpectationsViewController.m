@@ -35,8 +35,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *decorationButton3;
 @property (weak, nonatomic) IBOutlet UIButton *decorationButton4;
 @property (strong, nonatomic) AMapPOI *mapPoint;
+@property (strong, nonatomic) PersonalModel *personalModel;
 
-@property (copy, nonatomic) EditFinishedBlock block;
+//@property (copy, nonatomic) EditFinishedBlock block;
 @end
 
 @implementation HousingExpectationsViewController
@@ -44,14 +45,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"租房期望";
+    self.navigationItem.title = @"租房简历";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveClick)];
-    [self resetView];
+    [self fetchUserInformation];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 - (void)resetView {
     if (![Util isEmpty:_personalModel.hopeaddress]) {
@@ -141,6 +146,17 @@
 - (void)hideKeyboard {
     [_minPriceText resignFirstResponder];
     [_maxPriceText resignFirstResponder];
+}
+
+#pragma mark - Request
+- (void)fetchUserInformation {
+    NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
+    [PersonalModel fetchUserInformationWith:userId handler:^(id object, NSString *msg) {
+        if (!msg) {
+            _personalModel = object;
+            [self resetView];
+        }
+    }];
 }
 
 /*
@@ -248,7 +264,6 @@
     _personalModel.keepingpets = _facilityButton11.selected ? @(1) : @(0);
     _personalModel.smoking = _facilityButton12.selected ? @(1) : (0);
     _personalModel.paty = _facilityButton13.selected ? @(1) : @(0);
-    
     _personalModel.hoperenovation = @(0);
     if (_decorationButton1.selected) {
         _personalModel.hoperenovation = @(1);
@@ -262,14 +277,83 @@
     if (_decorationButton4.selected) {
         _personalModel.hoperenovation = @(4);
     }
-    if (self.block) {
-        self.block(_personalModel);
+    NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
+    NSMutableDictionary *param = [@{@"userid" : userId} mutableCopy];
+    if (![Util isEmpty:_personalModel.headphoto]) {
+        [param setObject:_personalModel.headphoto forKey:@"headphoto"];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    [param setObject:_personalModel.nickname forKey:@"nickname"];
+    if ([Util isEmpty:_personalModel.weichat]) {
+        [param setObject:@"" forKey:@"weichat"];
+    } else {
+        [param setObject:_personalModel.weichat forKey:@"weichat"];
+    }
+    if ([Util isEmpty:_personalModel.qq]) {
+        [param setObject:@"" forKey:@"qq"];
+    } else {
+        [param setObject:_personalModel.qq forKey:@"qq"];
+    }
+    if ([Util isEmpty:_personalModel.name]) {
+        [param setObject:@"" forKey:@"name"];
+    } else {
+        [param setObject:_personalModel.name forKey:@"name"];
+    }
+    [param setObject:_personalModel.sex forKey:@"sex"];
+    [param setObject:_personalModel.age forKey:@"age"];
+    if ([Util isEmpty:_personalModel.nativeplace]) {
+        [param setObject:@"" forKey:@"nativeplace"];
+    } else {
+        [param setObject:_personalModel.nativeplace forKey:@"nativeplace"];
+    }
+    if ([Util isEmpty:_personalModel.liveplace]) {
+        [param setObject:@"" forKey:@"liveplace"];
+    } else {
+        [param setObject:_personalModel.liveplace forKey:@"liveplace"];
+    }
+    if ([Util isEmpty:_personalModel.job]) {
+        [param setObject:@"" forKey:@"job"];
+    } else {
+        [param setObject:_personalModel.job forKey:@"job"];
+    }
+    [param setObject:_personalModel.isallowsharehouse forKey:@"isallowsharehouse"];
+    if (![Util isEmpty:_personalModel.hopeaddress]) {
+        [param setObject:_personalModel.hopeaddress forKey:@"hopeaddress"];
+    }
+    [param setObject:_personalModel.hopepricemin forKey:@"hopepricemin"];
+    [param setObject:_personalModel.hoppricemax forKey:@"hoppricemax"];
+    [param setObject:_personalModel.hoperenovation forKey:@"hoperenovation"];
+    [param setObject:_personalModel.wifi forKey:@"wifi"];
+    [param setObject:_personalModel.washingmachine forKey:@"washingmachine"];
+    [param setObject:_personalModel.television forKey:@"television"];
+    [param setObject:_personalModel.refrigerator forKey:@"refrigerator"];
+    [param setObject:_personalModel.heater forKey:@"heater"];
+    [param setObject:_personalModel.airconditioner forKey:@"airconditioner"];
+    [param setObject:_personalModel.accesscontrol forKey:@"accesscontrol"];
+    [param setObject:_personalModel.elevator forKey:@"elevator"];
+    [param setObject:_personalModel.parkingspace forKey:@"parkingspace"];
+    [param setObject:_personalModel.bathtub forKey:@"bathtub"];
+    [param setObject:_personalModel.keepingpets forKey:@"keepingpets"];
+    [param setObject:_personalModel.smoking forKey:@"smoking"];
+    [param setObject:_personalModel.paty forKey:@"paty"];
+    [param setObject:_personalModel.hoperenovation forKey:@"hoperenovation"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [PersonalModel modifyInformationWith:param handler:^(id object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (!msg) {
+            NSLog(@"修改成功");
+            [MBProgressHUD showSuccess:@"保存成功" toView:self.view];
+            [self.navigationController popViewControllerAnimated:YES];
+            //NSDictionary *tempDictionary = @{@""}
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"EditInformationSuccess" object:nil];
+        } else {
+            NSLog(@"修改失败");
+            [MBProgressHUD showError:@"保存失败" toView:self.view];
+        }
+    }];
     
 }
-- (void)editFinished:(EditFinishedBlock)block {
-    self.block = block;
-}
+//- (void)editFinished:(EditFinishedBlock)block {
+//    self.block = block;
+//}
 
 @end

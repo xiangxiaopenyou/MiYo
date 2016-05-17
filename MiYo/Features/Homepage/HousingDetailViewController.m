@@ -228,7 +228,7 @@
         if (indexPath.row == 2) {
             [cell setSeparatorInset:UIEdgeInsetsMake(0, SCREEN_WIDTH, 0, 0)];
         } else {
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 35, 0, 35)];
+            [cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
         }
         
     }
@@ -236,7 +236,7 @@
         if (indexPath.row == 2) {
             [cell setLayoutMargins:UIEdgeInsetsMake(0, SCREEN_WIDTH, 0, 0)];
         } else {
-            [cell setLayoutMargins:UIEdgeInsetsMake(0, 35, 0, 35)];
+            [cell setLayoutMargins:UIEdgeInsetsMake(0, 15, 0, 15)];
         }
     }
 }

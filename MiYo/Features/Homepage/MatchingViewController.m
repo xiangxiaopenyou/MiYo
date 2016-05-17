@@ -46,7 +46,6 @@
     [_matchButton setBackgroundImage:[RBColorTool imageWithColor:[Util turnToRGBColor:@"12c1e8"]] forState:UIControlStateNormal];
     [_backgroundView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundViewPress)]];
     
-    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -60,7 +59,7 @@
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.shadowImage = _shadowImage;
-    [_waveContentView removeFromSuperview];
+    [_waveView removeFromSuperview];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -74,7 +73,7 @@
 - (void)setWaveView {
     CGFloat widthOfWaveContentView = CGRectGetWidth(self.waveContentView.frame);
     CGFloat heightOfWaveContentView = CGRectGetHeight(self.waveContentView.frame);
-    _waveView = [[UIView alloc] initWithFrame:CGRectMake(- widthOfWaveContentView / 2, heightOfWaveContentView - widthOfWaveContentView, widthOfWaveContentView * 2, widthOfWaveContentView * 2)];
+    _waveView = [[UIView alloc] initWithFrame:CGRectMake(- widthOfWaveContentView / 2, heightOfWaveContentView - widthOfWaveContentView * 1.3, widthOfWaveContentView * 2, widthOfWaveContentView * 2.6)];
     _waveView.layer.backgroundColor = [UIColor clearColor].CGColor;
     [_waveContentView addSubview:_waveView];
 }
@@ -124,22 +123,28 @@
     groupAnimation.repeatCount = HUGE;
     [shapeLayer addAnimation:groupAnimation forKey:@"groupAnimation"];
     
-//    [UserModel matchUsersWith:_model.id sex:_sex index:0 handler:^(IndexReulstModel *object, NSString *msg) {
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        if (!msg) {
-//            NSArray *tempArray = [object.result copy];
-//            if (tempArray.count > 0) {
-//                MatchResultViewController *resultViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"MatchResultView"];
-//                resultViewController.indexModel = object;
-//                resultViewController.housingModel = _model;
-//                [self.navigationController pushViewController:resultViewController animated:YES];
-//            } else {
-//                [MBProgressHUD showError:@"暂无匹配结果" toView:self.view];
-//            }
-//        } else {
-//            [MBProgressHUD showError:@"匹配错误" toView:self.view];
-//        }
-//    }];
+    [self performSelector:@selector(matchingSelector) withObject:nil afterDelay:2.5];
+    
+
+}
+- (void)matchingSelector {
+    [UserModel matchUsersWith:_model.id sex:_sex index:0 handler:^(IndexReulstModel *object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        _isMatching = NO;
+        if (!msg) {
+            NSArray *tempArray = [object.result copy];
+            if (tempArray.count > 0) {
+                MatchResultViewController *resultViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"MatchResultView"];
+                resultViewController.indexModel = object;
+                resultViewController.housingModel = _model;
+                [self.navigationController pushViewController:resultViewController animated:YES];
+            } else {
+                [MBProgressHUD showError:@"暂无匹配结果" toView:self.view];
+            }
+        } else {
+            [MBProgressHUD showError:@"匹配错误" toView:self.view];
+        }
+    }];
 }
 
 #pragma mark - UITableView Delegate DataSource

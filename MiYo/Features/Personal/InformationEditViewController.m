@@ -80,7 +80,7 @@
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? 4 : 7;
+    return section == 0 ? 4 : 6;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -308,9 +308,6 @@
                     _shareSwitch.on = NO;
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 }
-//                if (!_shareSwitch.on) {
-//                    
-//                }
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
                 break;
@@ -354,6 +351,10 @@
                 break;
             case 2: {
                 [_wechatTextField becomeFirstResponder];
+            }
+                break;
+            case 3: {
+                [_qqTextField becomeFirstResponder];
             }
                 break;
                 
@@ -417,11 +418,10 @@
             case 6: {
                 if (_shareSwitch.on) {
                     HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
-                    housingExpectaionController.personalModel = _model;
-                    [housingExpectaionController editFinished:^(PersonalModel *model) {
-                        _model = model;
-                        
-                    }];
+//                    [housingExpectaionController editFinished:^(PersonalModel *model) {
+//                        _model = model;
+//                        
+//                    }];
                     [self.navigationController pushViewController:housingExpectaionController animated:YES];
                 }
             }
@@ -464,7 +464,18 @@
 #pragma mark - UITextField Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     NSInteger offsetY = 0;
-    if (textField == _nameTextField) {
+    if (textField == _wechatTextField) {
+        if ([Util isEmpty:_model.weichat]) {
+            _wechatTextField.text = nil;
+        }
+    } else if (textField == _qqTextField) {
+        if ([Util isEmpty:_model.qq]) {
+            _qqTextField.text = nil;
+        }
+    } else if (textField == _nameTextField) {
+        if ([Util isEmpty:_model.name]) {
+            _nameTextField.text = nil;
+        }
         if (SCREEN_HEIGHT <= 480) {
             offsetY = 100;
         } else {
@@ -477,6 +488,9 @@
             offsetY = 120;
         }
     } else if (textField == _jobTextField) {
+        if ([Util isEmpty:_model.job]) {
+            _jobTextField.text = nil;
+        }
         if (SCREEN_HEIGHT <= 480) {
             offsetY = 300;
         } else {
@@ -557,11 +571,10 @@
     if (tempSwitch.on) {
         _model.isallowsharehouse = @(1);
         HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
-        housingExpectaionController.personalModel = _model;
-        [housingExpectaionController editFinished:^(PersonalModel *model) {
-            _model = model;
-            
-        }];
+//        [housingExpectaionController editFinished:^(PersonalModel *model) {
+//            _model = model;
+//            
+//        }];
         [self.navigationController pushViewController:housingExpectaionController animated:YES];
     } else {
         _model.isallowsharehouse = @(0);

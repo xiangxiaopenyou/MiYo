@@ -244,7 +244,6 @@
         cell.backgroundColor = [UIColor clearColor];
         return cell;
     }
-    
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _sortTableView) {
@@ -320,10 +319,8 @@
     [_searchBar resignFirstResponder];
     if (_sortButton.selected) {
         [self hideSortView];
-        
     } else {
         [self showSortView];
-        
     }
 }
 - (IBAction)areaButtonClick:(id)sender {

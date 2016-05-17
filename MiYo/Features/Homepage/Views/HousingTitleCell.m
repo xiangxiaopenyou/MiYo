@@ -15,7 +15,7 @@
 }
 - (CGFloat)heightOfCell:(HousingModel *)model {
     CGFloat height = 96;
-    CGSize descriptionSize = [model.descirption boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 84, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:kSystemFont(13), NSFontAttributeName, nil] context:nil].size;
+    CGSize descriptionSize = [model.descirption boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 30, MAXFLOAT) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:kSystemFont(13), NSFontAttributeName, nil] context:nil].size;
     height += descriptionSize.height;
     return height;
 }

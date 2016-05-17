@@ -347,15 +347,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2g-4D-Eay">
-                                                    <rect key="frame" x="50" y="76" width="500" height="16"/>
+                                                    <rect key="frame" x="15" y="76" width="570" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="A2g-4D-Eay" secondAttribute="trailing" constant="50" id="1sT-3i-hxb"/>
-                                                <constraint firstItem="A2g-4D-Eay" firstAttribute="leading" secondItem="QUo-sS-VXL" secondAttribute="leading" constant="50" id="JWv-Wg-mng"/>
+                                                <constraint firstAttribute="trailing" secondItem="A2g-4D-Eay" secondAttribute="trailing" constant="15" id="1sT-3i-hxb"/>
+                                                <constraint firstItem="A2g-4D-Eay" firstAttribute="leading" secondItem="QUo-sS-VXL" secondAttribute="leading" constant="15" id="JWv-Wg-mng"/>
                                                 <constraint firstAttribute="trailing" secondItem="pvk-za-IDo" secondAttribute="trailing" constant="42" id="Rc2-iU-COK"/>
                                                 <constraint firstItem="A2g-4D-Eay" firstAttribute="top" secondItem="pvk-za-IDo" secondAttribute="bottom" constant="10" id="g2X-Vg-fPO"/>
                                                 <constraint firstItem="pvk-za-IDo" firstAttribute="top" secondItem="QUo-sS-VXL" secondAttribute="top" constant="20" id="toh-2b-ecL"/>
@@ -388,36 +388,36 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="房型：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-lH-5LQ">
-                                                    <rect key="frame" x="42" y="55" width="45" height="18"/>
+                                                    <rect key="frame" x="15" y="55" width="45" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装修：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shY-TF-Hb9">
-                                                    <rect key="frame" x="42" y="83" width="45" height="18"/>
+                                                    <rect key="frame" x="15" y="83" width="45" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面积：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dum-gh-Qgb">
-                                                    <rect key="frame" x="458" y="55" width="100" height="18"/>
+                                                    <rect key="frame" x="465" y="55" width="120" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="IEb-WB-end"/>
+                                                        <constraint firstAttribute="width" constant="120" id="IEb-WB-end"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVK-FO-s1W">
-                                                    <rect key="frame" x="42" y="111" width="75" height="18"/>
+                                                    <rect key="frame" x="15" y="111" width="75" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朝向：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FN-DH-bjt">
-                                                    <rect key="frame" x="458" y="83" width="100" height="18"/>
+                                                    <rect key="frame" x="465" y="83" width="120" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="FrX-oY-YX1"/>
+                                                        <constraint firstAttribute="width" constant="120" id="FrX-oY-YX1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -428,13 +428,13 @@
                                                 <constraint firstItem="SGl-L7-ikk" firstAttribute="top" secondItem="Hk1-aL-0u0" secondAttribute="top" constant="20" id="26V-ip-6aZ"/>
                                                 <constraint firstItem="dum-gh-Qgb" firstAttribute="top" secondItem="Hk1-aL-0u0" secondAttribute="top" constant="55" id="DIh-dm-HFV"/>
                                                 <constraint firstItem="DIN-lH-5LQ" firstAttribute="top" secondItem="Hk1-aL-0u0" secondAttribute="top" constant="55" id="FX6-Or-kHm"/>
-                                                <constraint firstItem="PVK-FO-s1W" firstAttribute="leading" secondItem="Hk1-aL-0u0" secondAttribute="leading" constant="42" id="KPT-UW-ksd"/>
-                                                <constraint firstAttribute="trailing" secondItem="4FN-DH-bjt" secondAttribute="trailing" constant="42" id="P00-36-Xod"/>
+                                                <constraint firstItem="PVK-FO-s1W" firstAttribute="leading" secondItem="Hk1-aL-0u0" secondAttribute="leading" constant="15" id="KPT-UW-ksd"/>
+                                                <constraint firstAttribute="trailing" secondItem="4FN-DH-bjt" secondAttribute="trailing" constant="15" id="P00-36-Xod"/>
                                                 <constraint firstItem="PVK-FO-s1W" firstAttribute="top" secondItem="shY-TF-Hb9" secondAttribute="bottom" constant="10" id="UZH-4r-GxW"/>
                                                 <constraint firstItem="SGl-L7-ikk" firstAttribute="centerX" secondItem="Hk1-aL-0u0" secondAttribute="centerX" id="Z0B-Qh-vy2"/>
-                                                <constraint firstItem="shY-TF-Hb9" firstAttribute="leading" secondItem="Hk1-aL-0u0" secondAttribute="leading" constant="42" id="bSb-d6-fQN"/>
-                                                <constraint firstItem="DIN-lH-5LQ" firstAttribute="leading" secondItem="Hk1-aL-0u0" secondAttribute="leading" constant="42" id="eCR-aP-tYA"/>
-                                                <constraint firstAttribute="trailing" secondItem="dum-gh-Qgb" secondAttribute="trailing" constant="42" id="m9p-LC-CAQ"/>
+                                                <constraint firstItem="shY-TF-Hb9" firstAttribute="leading" secondItem="Hk1-aL-0u0" secondAttribute="leading" constant="15" id="bSb-d6-fQN"/>
+                                                <constraint firstItem="DIN-lH-5LQ" firstAttribute="leading" secondItem="Hk1-aL-0u0" secondAttribute="leading" constant="15" id="eCR-aP-tYA"/>
+                                                <constraint firstAttribute="trailing" secondItem="dum-gh-Qgb" secondAttribute="trailing" constant="15" id="m9p-LC-CAQ"/>
                                                 <constraint firstItem="4FN-DH-bjt" firstAttribute="top" secondItem="dum-gh-Qgb" secondAttribute="bottom" constant="10" id="nWF-6k-gNq"/>
                                                 <constraint firstItem="shY-TF-Hb9" firstAttribute="top" secondItem="DIN-lH-5LQ" secondAttribute="bottom" constant="10" id="t8N-gk-6YR"/>
                                             </constraints>
@@ -944,7 +944,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2j-eg-D6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000" y="-163"/>
+            <point key="canvasLocation" x="596" y="377"/>
         </scene>
         <!--Match Result View Controller-->
         <scene sceneID="i1H-oe-nr8">
@@ -1066,7 +1066,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TpF-AV-XyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1465" y="-257"/>
+            <point key="canvasLocation" x="1273" y="-549"/>
         </scene>
     </scenes>
     <resources>

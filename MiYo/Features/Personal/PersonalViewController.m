@@ -13,6 +13,9 @@
 #import <UIImageView+AFNetworking.h>
 #import "MyHousingViewController.h"
 #import "UIImage+ImageEffects.h"
+#import "PopupView.h"
+#import "HousingExpectationsViewController.h"
+#import "ChooseHousingTypeViewController.h"
 
 @interface PersonalViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headBackgroundImage;
@@ -21,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headBackgroundHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headBackgroundTopConstraint;
+
+@property (strong, nonatomic) PopupView *popupView;
 
 @property (copy, nonatomic) NSArray *informationArray;
 
@@ -50,6 +55,7 @@
     _headImage.userInteractionEnabled = YES;
     [_headImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(portraitPressd)]];
     
+    [self addPopupView];
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"EditInformationSuccess" object:nil];
@@ -89,32 +95,73 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (void)addPopupView {
+    _popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [_popupView clickType:^(NSInteger index) {
+        if (index == 1) {
+            ChooseHousingTypeViewController *typeViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingTypeView"];
+            [self.navigationController pushViewController:typeViewController animated:YES];
+        } else {
+            
+        }
+    }];
+    [[UIApplication sharedApplication].keyWindow addSubview:_popupView];
+}
+
 #pragma mark - UITableView Delegate DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return section == 0 ? 3 : 1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section == 0 ? 0 : 10;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    return headerLabel;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"InformationCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    if (indexPath.section ==0) {
+        static NSString *cellIdentifier = @"InformationCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        cell.textLabel.text = _informationArray[indexPath.row];
+        cell.textLabel.font = kSystemFont(16);
+        cell.textLabel.textColor = [Util turnToRGBColor:@"323232"];
+        cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"personal0%@", @(indexPath.row + 1)]];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    } else {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 7, SCREEN_WIDTH, 30)];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = kSystemFont(16);
+        label.textColor = [Util turnToRGBColor:@"323232"];
+        label.text = @"租房简历";
+        [cell.contentView addSubview:label];
+        return cell;
     }
-    cell.textLabel.text = _informationArray[indexPath.row];
-    cell.textLabel.font = kSystemFont(16);
-    cell.textLabel.textColor = [Util turnToRGBColor:@"323232"];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"personal0%@", @(indexPath.row + 1)]];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:{
-            UIViewController *informationEditViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];
-            [self.navigationController pushViewController:informationEditViewController animated:YES];
+            if (indexPath.section == 0) {
+                UIViewController *informationEditViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];
+                [self.navigationController pushViewController:informationEditViewController animated:YES];
+            } else {
+                NSLog(@"添加租房简历");
+                HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
+                [self.navigationController pushViewController:housingExpectaionController animated:YES];
+            }
         }
 
             break;
@@ -156,6 +203,7 @@
     [self setupContent];
 }
 - (IBAction)becomeOwnerClick:(id)sender {
+    [_popupView show];
 }
 - (void)portraitPressd {
     UIViewController *informationEditViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];

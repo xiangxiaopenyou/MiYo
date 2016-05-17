@@ -75,6 +75,7 @@
 		3D9162A31CBC85A30032A28C /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9162A01CBC85A30032A28C /* LoginModel.m */; };
 		3D9162A71CBC85EF0032A28C /* PersonalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9162A61CBC85EF0032A28C /* PersonalModel.m */; };
 		3D9162AB1CBC8AFF0032A28C /* FetchUserInformationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9162AA1CBC8AFF0032A28C /* FetchUserInformationRequest.m */; };
+		3D93AB481CE9AA71003EB448 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D93AB471CE9AA71003EB448 /* PopupView.m */; };
 		3DC334261CD2EE28007E483A /* FetchRecommendedHousingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC334251CD2EE28007E483A /* FetchRecommendedHousingRequest.m */; };
 		3DC334291CD2F892007E483A /* FetchMyHousingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC334281CD2F892007E483A /* FetchMyHousingRequest.m */; };
 		3DC7DC4A1CAE19D900D483B4 /* HousingResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC491CAE19D900D483B4 /* HousingResourceCell.m */; };
@@ -256,6 +257,8 @@
 		3D9162A61CBC85EF0032A28C /* PersonalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalModel.m; sourceTree = "<group>"; };
 		3D9162A91CBC8AFF0032A28C /* FetchUserInformationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchUserInformationRequest.h; sourceTree = "<group>"; };
 		3D9162AA1CBC8AFF0032A28C /* FetchUserInformationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchUserInformationRequest.m; sourceTree = "<group>"; };
+		3D93AB461CE9AA71003EB448 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
+		3D93AB471CE9AA71003EB448 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		3DC334241CD2EE28007E483A /* FetchRecommendedHousingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchRecommendedHousingRequest.h; sourceTree = "<group>"; };
 		3DC334251CD2EE28007E483A /* FetchRecommendedHousingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchRecommendedHousingRequest.m; sourceTree = "<group>"; };
 		3DC334271CD2F892007E483A /* FetchMyHousingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchMyHousingRequest.h; sourceTree = "<group>"; };
@@ -462,6 +465,8 @@
 			children = (
 				3D4C1D111CC0E29300EF15B3 /* MyHousingCell.h */,
 				3D4C1D121CC0E29300EF15B3 /* MyHousingCell.m */,
+				3D93AB461CE9AA71003EB448 /* PopupView.h */,
+				3D93AB471CE9AA71003EB448 /* PopupView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -545,7 +550,6 @@
 				3D6FA2E71CE05A55007D78EB /* XLCategories */,
 				3DED4FD91CD8710200B368C3 /* ColorTool */,
 				3D38FE8B1CBCF523001AF04F /* AddressPickerView */,
-				3D712B901CA195E900687ED9 /* TabBarExtension */,
 				3D712B811C9E661000687ED9 /* XLKit */,
 				3D712B681C9C3A7400687ED9 /* CommonsDefines.h */,
 				3D712B691C9C3A7400687ED9 /* CommonsDefines.m */,
@@ -698,13 +702,6 @@
 				3D38FE891CBCE8BB001AF04F /* XLBlockActionSheet.m */,
 			);
 			path = "XLBlockAlert&ActionSheet";
-			sourceTree = "<group>";
-		};
-		3D712B901CA195E900687ED9 /* TabBarExtension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TabBarExtension;
 			sourceTree = "<group>";
 		};
 		3D846D351CCDFA5000FC7F7D /* Views */ = {
@@ -1167,6 +1164,7 @@
 				3D153D211CBE1710006A5313 /* FindPasswordRequest.m in Sources */,
 				3D4C1D211CC4AAC500EF15B3 /* IndexReulstModel.m in Sources */,
 				3D712B671C9BFF8C00687ED9 /* RegisterViewController.m in Sources */,
+				3D93AB481CE9AA71003EB448 /* PopupView.m in Sources */,
 				3DDD8BAB1C99258100C7296A /* main.m in Sources */,
 				3DED4FF71CD9DF6000B368C3 /* FetchBannerContentRequest.m in Sources */,
 				3D4C1D1B1CC4706500EF15B3 /* MessageModel.m in Sources */,
