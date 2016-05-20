@@ -63,6 +63,8 @@
 }
 */
 - (IBAction)submitButtonClick:(id)sender {
+    [_feedbackTextView resignFirstResponder];
+    [_phoneTextField resignFirstResponder];
     if ([Util isEmpty:_feedbackTextView.text]) {
         [XLNoticeHelper showNoticeAtViewController:self message:@"写点反馈内容吧"];
         return;
@@ -80,11 +82,15 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!msg) {
             [MBProgressHUD showSuccess:@"反馈成功" toView:self.view];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self performSelector:@selector(popView) withObject:nil afterDelay:0.6];
+            
         } else {
             [MBProgressHUD showError:@"反馈失败" toView:self.view];
         }
     }];
+}
+- (void)popView {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

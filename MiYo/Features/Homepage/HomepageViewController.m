@@ -22,11 +22,15 @@
 #import "Util.h"
 #import <CoreLocation/CoreLocation.h>
 #import "XLBlockAlertView.h"
+#import "VerifyInformationRequest.h"
+#import "HousingExpectationsViewController.h"
+#import "MatchingViewController.h"
 
 @interface HomepageViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *topScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+//@property (weak, nonatomic) IBOutlet UIButton *dateButton;
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSMutableArray *recommendedArray;
 @property (assign, nonatomic) NSInteger index;
@@ -36,6 +40,7 @@
 @property (strong, nonatomic) CLLocation *location;
 @property (copy, nonatomic) NSString *cityString;
 @property (assign, nonatomic) BOOL isFirstAppear;
+//@property (assign, nonatomic) NSInteger oldPositionY;
 
 @end
 
@@ -61,6 +66,8 @@
         [self fetchRecommendedHousing];
     }]];
     _mainTableView.mj_footer.hidden = YES;
+    
+   // _oldPositionY = 0;
     
 }
 - (void)dealloc {
@@ -217,6 +224,17 @@
         NSInteger page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         _pageControl.currentPage = page;
     }
+//    else {
+//        NSInteger currentPositionY = scrollView.contentOffset.y;
+//        if (currentPositionY > _oldPositionY && (currentPositionY - _oldPositionY) > 100) {
+//            _oldPositionY = currentPositionY;
+//            _dateButton.hidden = YES;
+//        } else if (currentPositionY < _oldPositionY) {
+//            _oldPositionY = currentPositionY;
+//            _dateButton.hidden = NO;
+//            
+//        }
+//    }
 }
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (scrollView == _topScrollView) {
@@ -293,5 +311,26 @@
     loginView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:loginView animated:YES];
 }
+//- (IBAction)dateClick:(id)sender {
+//    [[VerifyInformationRequest new] request:^BOOL(id request) {
+//        return YES;
+//    } result:^(id object, NSString *msg) {
+//        if (!msg) {
+//            if ([object isEqual:@"0102"] || [object isEqual:@"0103"]) {
+//                [[[XLBlockAlertView alloc] initWithTitle:@"提示" message:@"您的租房简历是不完善的，请先完善您的租房简历（期望居住地是一定要填写的）" block:^(NSInteger buttonIndex) {
+//                    if (buttonIndex == 1) {
+//                        HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
+//                        [self.navigationController pushViewController:housingExpectaionController animated:YES];
+//                    }
+//                } cancelButtonTitle:@"取消" otherButtonTitles:@"去完善", nil] show];
+//            } else {
+//                MatchingViewController *matchViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"MatchingView"];
+//                matchViewController.isMatchHousingsAndFriends = YES;
+//                [self.navigationController pushViewController:matchViewController animated:YES];
+//            }
+//        }
+//    }];
+//
+//}
 
 @end

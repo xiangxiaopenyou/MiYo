@@ -12,8 +12,8 @@
 #import "UploadImageRequest.h"
 #import "CommonsDefines.h"
 #import "Util.h"
-#import "MBProgressHUD+Add.h"
 #import "HousingModel.h"
+#import <SVProgressHUD.h>
 
 @interface HousingPictureAndContentViewController ()<UITextViewDelegate, CTAssetsPickerControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewOfPicture;
@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *textViewPlaceholderLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) NSMutableArray *picturesArray;
 @property (strong, nonatomic) NSMutableArray *keysArray;
 @property (strong, nonatomic) PHImageRequestOptions *requestOptions;
@@ -41,6 +43,10 @@
     _titleTextField.returnKeyType = UIReturnKeyDone;
     
     _titleTextField.delegate  = self;
+    
+    UITapGestureRecognizer *tableViewGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignCurrentFirstResponder)];
+    tableViewGestureRecognizer.cancelsTouchesInView = NO;
+    [_mainTableView addGestureRecognizer:tableViewGestureRecognizer];
     
 }
 - (void)viewDidAppear:(BOOL)animated {
@@ -209,17 +215,17 @@
                                 } else {
                                     _picturesArray = [tempPictureArray mutableCopy];
                                 }
-                                [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
-                                    request.keys = _keysArray;
-                                    request.images = _picturesArray;
-                                    return YES;
-                                } result:^(id object, NSString *msg) {
-                                    if (msg) {
-                                        NSLog(@"图片上传失败");
-                                    } else {
-                                        NSLog(@"上传成功");
-                                    }
-                                }];
+//                                [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
+//                                    request.keys = _keysArray;
+//                                    request.images = _picturesArray;
+//                                    return YES;
+//                                } result:^(id object, NSString *msg) {
+//                                    if (msg) {
+//                                        NSLog(@"图片上传失败");
+//                                    } else {
+//                                        NSLog(@"上传成功");
+//                                    }
+//                                }];
                                 [self setPictureView];
                             }
                         }];
@@ -259,41 +265,71 @@
 }
 - (IBAction)sendButton:(id)sender {
     if (_keysArray.count == 0) {
-        [MBProgressHUD showError:@"请给您的房子添加照片" toView:self.view];
+        [SVProgressHUD showErrorWithStatus:@"请给您的房子添加照片"];
         return;
     }
     if ([Util isEmpty:_titleTextField.text]) {
-        [MBProgressHUD showError:@"请给您的房子添加一个醒目的标题" toView:self.view];
+        [SVProgressHUD showErrorWithStatus:@"请给您的房子添加一个醒目的标题"];
         return;
     }
     if ([Util isEmpty:_contentTextView.text]) {
-        [MBProgressHUD showError:@"请简单描述一下您的房子" toView:self.view];
+        [SVProgressHUD showErrorWithStatus:@"请简单描述一下您的房子"];
         return;
     }
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSString *imageString = [Util toJSONDataSting:_keysArray];
-    imageString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    [_informationDictionary setObject:imageString forKey:@"image"];
-    [_informationDictionary setObject:_titleTextField.text forKey:@"title"];
-    [_informationDictionary setObject:_contentTextView.text forKey:@"description"];
-    NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
-    [_informationDictionary setObject:userId forKey:@"userid"];
-    [HousingModel sendHousingWith:_informationDictionary handler:^(id object, NSString *msg) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (!msg) {
-            [MBProgressHUD showSuccess:@"发布成功" toView:self.view];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+    //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [SVProgressHUD showProgress:0 status:@"正在发布房源"];
+    _sendButton.enabled = NO;
+    _deleteButton.enabled = NO;
+    [[UploadImageRequest new] request:^BOOL(UploadImageRequest *request) {
+        request.keys = _keysArray;
+        request.images = _picturesArray;
+        return YES;
+    } result:^(id object, NSString *msg) {
+        if (msg) {
+            NSLog(@"图片上传失败");
+            [SVProgressHUD showErrorWithStatus:@"上传图片失败，请重试"];
+            _sendButton.enabled = YES;
+            _deleteButton.enabled = YES;
         } else {
-            [MBProgressHUD showError:@"发布失败" toView:self.view];
+            NSLog(@"上传成功");
+            NSString *imageString = [Util toJSONDataSting:_keysArray];
+            imageString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            [_informationDictionary setObject:imageString forKey:@"image"];
+            [_informationDictionary setObject:_titleTextField.text forKey:@"title"];
+            [_informationDictionary setObject:_contentTextView.text forKey:@"description"];
+            NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:USERID];
+            [_informationDictionary setObject:userId forKey:@"userid"];
+            [HousingModel sendHousingWith:_informationDictionary handler:^(id object, NSString *msg) {
+                //[SVProgressHUD dismiss];
+                if (!msg) {
+                    [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+                    [self performSelector:@selector(popView) withObject:nil afterDelay:0.8];
+                    
+                } else {
+                    [SVProgressHUD showErrorWithStatus:@"发布失败"];
+                    _sendButton.enabled = YES;
+                    _deleteButton.enabled = YES;
+                }
+            }];
+
         }
     }];
-}
+    }
 - (void)imageDelete:(id)sender {
     UIButton *button = (UIButton *)sender;
     NSInteger index = button.tag;
     [_keysArray removeObjectAtIndex:index];
     [_picturesArray removeObjectAtIndex:index];
     [self setPictureView];
+}
+- (void)popView {
+    _sendButton.enabled = YES;
+    _deleteButton.enabled = YES;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+- (void)resignCurrentFirstResponder {
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    [keyWindow endEditing:YES];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "UploadImageRequest.h"
 #import <QiniuSdk.h>
 #import "UIImage+ResizeMagick.h"
+#import <SVProgressHUD.h>
 
 @implementation UploadImageRequest
 - (void)request:(ParamsBlock)paramsBlock result:(RequestResultHandler)resultHandler {
@@ -27,10 +28,13 @@
             NSMutableArray *keys = [NSMutableArray array];
             for (NSInteger i = 0; i < _images.count; i ++) {
                 NSData *data = [_images[i] rmk_resizedAndReturnData];
+                CGFloat progressValue = (CGFloat)i / (CGFloat)_images.count;
+                [SVProgressHUD showProgress:progressValue status:@"正在发布房源"];
                 [uploadManager putData:data key:_keys[i] token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
                     [keys addObject:key];
                     if (keys.count == _images.count) {
                         !resultHandler ?: resultHandler(keys, nil);
+                        [SVProgressHUD showProgress:1 status:@"正在发布房源"];
                     }
                 } option:nil];
             }

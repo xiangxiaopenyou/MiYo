@@ -16,6 +16,9 @@
 #import "PopupView.h"
 #import "HousingExpectationsViewController.h"
 #import "ChooseHousingTypeViewController.h"
+#import "MatchingViewController.h"
+#import "VerifyInformationRequest.h"
+#import "XLBlockAlertView.h"
 
 @interface PersonalViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headBackgroundImage;
@@ -55,7 +58,7 @@
     _headImage.userInteractionEnabled = YES;
     [_headImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(portraitPressd)]];
     
-    [self addPopupView];
+    //[self addPopupView];
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"EditInformationSuccess" object:nil];
@@ -95,18 +98,36 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (void)addPopupView {
-    _popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    [_popupView clickType:^(NSInteger index) {
-        if (index == 1) {
-            ChooseHousingTypeViewController *typeViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingTypeView"];
-            [self.navigationController pushViewController:typeViewController animated:YES];
-        } else {
-            
-        }
-    }];
-    [[UIApplication sharedApplication].keyWindow addSubview:_popupView];
-}
+//- (void)addPopupView {
+//    _popupView = [[PopupView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//    [_popupView clickType:^(NSInteger index) {
+//        if (index == 1) {
+//            ChooseHousingTypeViewController *typeViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingTypeView"];
+//            [self.navigationController pushViewController:typeViewController animated:YES];
+//        } else {
+//            [[VerifyInformationRequest new] request:^BOOL(id request) {
+//                return YES;
+//            } result:^(id object, NSString *msg) {
+//                if (!msg) {
+//                    if ([object isEqual:@"0102"] || [object isEqual:@"0103"]) {
+//                        [[[XLBlockAlertView alloc] initWithTitle:@"提示" message:@"您的租房简历是不完善的，请先完善您的租房简历（期望居住地是一定要填写的）" block:^(NSInteger buttonIndex) {
+//                            if (buttonIndex == 1) {
+//                                HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
+//                                [self.navigationController pushViewController:housingExpectaionController animated:YES];
+//                            }
+//                        } cancelButtonTitle:@"取消" otherButtonTitles:@"去完善", nil] show];
+//                    } else {
+//                        MatchingViewController *matchViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"MatchingView"];
+//                        matchViewController.isMatchHousingsAndFriends = YES;
+//                        [self.navigationController pushViewController:matchViewController animated:YES];
+//                    }
+//                }
+//            }];
+//            
+//        }
+//    }];
+//    [[UIApplication sharedApplication].keyWindow addSubview:_popupView];
+//}
 
 #pragma mark - UITableView Delegate DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -158,7 +179,6 @@
                 UIViewController *informationEditViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];
                 [self.navigationController pushViewController:informationEditViewController animated:YES];
             } else {
-                NSLog(@"添加租房简历");
                 HousingExpectationsViewController *housingExpectaionController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingExpectationsView"];
                 [self.navigationController pushViewController:housingExpectaionController animated:YES];
             }
@@ -203,7 +223,9 @@
     [self setupContent];
 }
 - (IBAction)becomeOwnerClick:(id)sender {
-    [_popupView show];
+    //[_popupView show];
+    ChooseHousingTypeViewController *typeViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"HousingTypeView"];
+    [self.navigationController pushViewController:typeViewController animated:YES];
 }
 - (void)portraitPressd {
     UIViewController *informationEditViewController = [[UIStoryboard storyboardWithName:@"Personal" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];

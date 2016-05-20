@@ -30,6 +30,9 @@
 		3D38FE921CBCF533001AF04F /* AddressChoicePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D38FE8F1CBCF533001AF04F /* AddressChoicePickerView.m */; };
 		3D38FE931CBCF533001AF04F /* AddressChoicePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D38FE901CBCF533001AF04F /* AddressChoicePickerView.xib */; };
 		3D38FE951CBCF547001AF04F /* AreaPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D38FE941CBCF547001AF04F /* AreaPlist.plist */; };
+		3D392DEB1CEEC0A600FCF184 /* MatchHousingUsersRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D392DEA1CEEC0A600FCF184 /* MatchHousingUsersRequest.m */; };
+		3D392DEE1CEEC0FE00FCF184 /* MatchNoHousingUsersRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D392DED1CEEC0FE00FCF184 /* MatchNoHousingUsersRequest.m */; };
+		3D392DF11CEEDB3200FCF184 /* VerifyInformationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D392DF01CEEDB3200FCF184 /* VerifyInformationRequest.m */; };
 		3D4C1D021CC08B6E00EF15B3 /* HousingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D011CC08B6E00EF15B3 /* HousingTitleCell.m */; };
 		3D4C1D051CC08BB200EF15B3 /* HousingSituationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D041CC08BB200EF15B3 /* HousingSituationCell.m */; };
 		3D4C1D081CC08BDB00EF15B3 /* HousingFacilityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C1D071CC08BDB00EF15B3 /* HousingFacilityCell.m */; };
@@ -65,6 +68,8 @@
 		3D712B8C1C9FACD900687ED9 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B8B1C9FACD900687ED9 /* Util.m */; };
 		3D712B8F1CA03D3F00687ED9 /* GetCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */; };
 		3D712B981CA1A6E600687ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D712B971CA1A6E600687ED9 /* Main.storyboard */; };
+		3D78978D1CEDA79600BDDF2F /* HousingResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D78978C1CEDA79600BDDF2F /* HousingResultViewController.m */; };
+		3D7897901CEDAC0600BDDF2F /* HousingResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D78978F1CEDAC0600BDDF2F /* HousingResultCell.m */; };
 		3D846D261CCDA48100FC7F7D /* FetchMessageDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D846D251CCDA48100FC7F7D /* FetchMessageDetailRequest.m */; };
 		3D846D291CCDA66F00FC7F7D /* MessageDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D846D281CCDA66F00FC7F7D /* MessageDeleteRequest.m */; };
 		3D846D2B1CCDB1AD00FC7F7D /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D846D2A1CCDB1AD00FC7F7D /* area.plist */; };
@@ -176,6 +181,12 @@
 		3D38FE8F1CBCF533001AF04F /* AddressChoicePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressChoicePickerView.m; sourceTree = "<group>"; };
 		3D38FE901CBCF533001AF04F /* AddressChoicePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressChoicePickerView.xib; sourceTree = "<group>"; };
 		3D38FE941CBCF547001AF04F /* AreaPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaPlist.plist; sourceTree = "<group>"; };
+		3D392DE91CEEC0A600FCF184 /* MatchHousingUsersRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchHousingUsersRequest.h; sourceTree = "<group>"; };
+		3D392DEA1CEEC0A600FCF184 /* MatchHousingUsersRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchHousingUsersRequest.m; sourceTree = "<group>"; };
+		3D392DEC1CEEC0FE00FCF184 /* MatchNoHousingUsersRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchNoHousingUsersRequest.h; sourceTree = "<group>"; };
+		3D392DED1CEEC0FE00FCF184 /* MatchNoHousingUsersRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNoHousingUsersRequest.m; sourceTree = "<group>"; };
+		3D392DEF1CEEDB3200FCF184 /* VerifyInformationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyInformationRequest.h; sourceTree = "<group>"; };
+		3D392DF01CEEDB3200FCF184 /* VerifyInformationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyInformationRequest.m; sourceTree = "<group>"; };
 		3D4C1D001CC08B6E00EF15B3 /* HousingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingTitleCell.h; sourceTree = "<group>"; };
 		3D4C1D011CC08B6E00EF15B3 /* HousingTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingTitleCell.m; sourceTree = "<group>"; };
 		3D4C1D031CC08BB200EF15B3 /* HousingSituationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingSituationCell.h; sourceTree = "<group>"; };
@@ -239,6 +250,10 @@
 		3D712B8D1CA03D3F00687ED9 /* GetCodeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCodeRequest.h; sourceTree = "<group>"; };
 		3D712B8E1CA03D3F00687ED9 /* GetCodeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCodeRequest.m; sourceTree = "<group>"; };
 		3D712B971CA1A6E600687ED9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3D78978B1CEDA79600BDDF2F /* HousingResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingResultViewController.h; sourceTree = "<group>"; };
+		3D78978C1CEDA79600BDDF2F /* HousingResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingResultViewController.m; sourceTree = "<group>"; };
+		3D78978E1CEDAC0600BDDF2F /* HousingResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousingResultCell.h; sourceTree = "<group>"; };
+		3D78978F1CEDAC0600BDDF2F /* HousingResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousingResultCell.m; sourceTree = "<group>"; };
 		3D846D241CCDA48000FC7F7D /* FetchMessageDetailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchMessageDetailRequest.h; sourceTree = "<group>"; };
 		3D846D251CCDA48100FC7F7D /* FetchMessageDetailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchMessageDetailRequest.m; sourceTree = "<group>"; };
 		3D846D271CCDA66F00FC7F7D /* MessageDeleteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDeleteRequest.h; sourceTree = "<group>"; };
@@ -456,6 +471,10 @@
 				3DED4FF31CD9DB5500B368C3 /* InviteRequest.m */,
 				3DED4FF51CD9DF6000B368C3 /* FetchBannerContentRequest.h */,
 				3DED4FF61CD9DF6000B368C3 /* FetchBannerContentRequest.m */,
+				3D392DE91CEEC0A600FCF184 /* MatchHousingUsersRequest.h */,
+				3D392DEA1CEEC0A600FCF184 /* MatchHousingUsersRequest.m */,
+				3D392DEC1CEEC0FE00FCF184 /* MatchNoHousingUsersRequest.h */,
+				3D392DED1CEEC0FE00FCF184 /* MatchNoHousingUsersRequest.m */,
 			);
 			path = Housing;
 			sourceTree = "<group>";
@@ -582,6 +601,8 @@
 				3DED4FD11CD4F78700B368C3 /* MatchingViewController.m */,
 				3DED4FE61CD88F5F00B368C3 /* MatchResultViewController.h */,
 				3DED4FE71CD88F5F00B368C3 /* MatchResultViewController.m */,
+				3D78978B1CEDA79600BDDF2F /* HousingResultViewController.h */,
+				3D78978C1CEDA79600BDDF2F /* HousingResultViewController.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -780,6 +801,8 @@
 				3DED4FCE1CD4877E00B368C3 /* FetchMyCollectionRequest.m */,
 				3DED4FE31CD88C6500B368C3 /* FetchUserCardRequest.h */,
 				3DED4FE41CD88C6500B368C3 /* FetchUserCardRequest.m */,
+				3D392DEF1CEEDB3200FCF184 /* VerifyInformationRequest.h */,
+				3D392DF01CEEDB3200FCF184 /* VerifyInformationRequest.m */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -797,6 +820,8 @@
 				3D4C1D071CC08BDB00EF15B3 /* HousingFacilityCell.m */,
 				3DED4FE91CD8939900B368C3 /* MatchResultCell.h */,
 				3DED4FEA1CD8939900B368C3 /* MatchResultCell.m */,
+				3D78978E1CEDAC0600BDDF2F /* HousingResultCell.h */,
+				3D78978F1CEDAC0600BDDF2F /* HousingResultCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1097,6 +1122,7 @@
 			files = (
 				3DED4FD21CD4F78700B368C3 /* MatchingViewController.m in Sources */,
 				3D712B4C1C9A7F7900687ED9 /* MessageViewController.m in Sources */,
+				3D7897901CEDAC0600BDDF2F /* HousingResultCell.m in Sources */,
 				3D153D321CBE193A006A5313 /* MBProgressHUD+Add.m in Sources */,
 				3DC7DC5F1CB4E9E100D483B4 /* XLBlockAlertView.m in Sources */,
 				3D38FE921CBCF533001AF04F /* AddressChoicePickerView.m in Sources */,
@@ -1115,6 +1141,7 @@
 				3DED4FEB1CD8939900B368C3 /* MatchResultCell.m in Sources */,
 				3DED4FF41CD9DB5500B368C3 /* InviteRequest.m in Sources */,
 				3D38FE911CBCF533001AF04F /* AreaObject.m in Sources */,
+				3D392DEE1CEEC0FE00FCF184 /* MatchNoHousingUsersRequest.m in Sources */,
 				3D4C1D021CC08B6E00EF15B3 /* HousingTitleCell.m in Sources */,
 				3D4C1D281CC4BDE400EF15B3 /* SearchViewController.m in Sources */,
 				3D4C1D051CC08BB200EF15B3 /* HousingSituationCell.m in Sources */,
@@ -1138,6 +1165,7 @@
 				3D4C1D0F1CC0DD8100EF15B3 /* MyHousingViewController.m in Sources */,
 				3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */,
 				3D6FA2EA1CE05A6A007D78EB /* UIImage+ImageEffects.m in Sources */,
+				3D392DF11CEEDB3200FCF184 /* VerifyInformationRequest.m in Sources */,
 				3DED4FF11CD995DF00B368C3 /* UserCardViewController.m in Sources */,
 				3D712B891C9FA82200687ED9 /* RegisterRequest.m in Sources */,
 				3DED4FC01CD35CDE00B368C3 /* FetchHousingImagesRequest.m in Sources */,
@@ -1153,6 +1181,7 @@
 				3D153D331CBE193A006A5313 /* MJPhoto.m in Sources */,
 				3D712B851C9E66CB00687ED9 /* XLNoticeHelper.m in Sources */,
 				3D712B641C9BFF7300687ED9 /* LoginViewController.m in Sources */,
+				3D78978D1CEDA79600BDDF2F /* HousingResultViewController.m in Sources */,
 				3D846D301CCDEABC00FC7F7D /* AreaPickerView.m in Sources */,
 				3D153D1E1CBE111B006A5313 /* FindPasswordViewController.m in Sources */,
 				3D712B6A1C9C3A7400687ED9 /* CommonsDefines.m in Sources */,
@@ -1171,6 +1200,7 @@
 				3D712B361C9A7CC800687ED9 /* MainViewController.m in Sources */,
 				3DED4FCC1CD4815E00B368C3 /* HousingCancelCollectRequest.m in Sources */,
 				3D712B8C1C9FACD900687ED9 /* Util.m in Sources */,
+				3D392DEB1CEEC0A600FCF184 /* MatchHousingUsersRequest.m in Sources */,
 				3D9162A21CBC85A30032A28C /* HousingModel.m in Sources */,
 				3D153D3C1CBE23F0006A5313 /* HousingFacilitiesViewController.m in Sources */,
 				3DED4FE21CD88A2000B368C3 /* UserModel.m in Sources */,

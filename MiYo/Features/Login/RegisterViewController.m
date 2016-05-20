@@ -54,11 +54,7 @@
     CGFloat viewHeight = CGRectGetHeight(self.view.frame);
     CGFloat viewWidth = CGRectGetWidth(self.view.frame);
     NSInteger offset;
-    //if (textField == _nicknameTextField) {
     offset = 345 - (viewHeight - 252);
-//    } else {
-//        offset = 345 - (viewHeight - 252);
-//    }
     [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
     [UIView setAnimationDuration:0.2f];
     if (offset > 0) {
@@ -147,8 +143,7 @@
             [[NSUserDefaults standardUserDefaults] setValue:object[@"nickname"] forKey:NICKNAME];
             [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%@", object[@"headphoto"]] forKey:PORTRAIT];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            [self.navigationController popToRootViewControllerAnimated:NO];
-            [self performSelector:@selector(turnToView) withObject:nil afterDelay:0.1];
+            [self performSelector:@selector(popView) withObject:nil afterDelay:0.3];
         }
     }];
 }
@@ -162,6 +157,10 @@
     [UIView setAnimationDuration:0.1f];
     self.view.frame = CGRectMake(0, 0, viewWidth, viewHeight);
     [UIView commitAnimations];
+}
+- (void)popView {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self performSelector:@selector(turnToView) withObject:nil afterDelay:0.1];
 }
 
 @end

@@ -139,7 +139,7 @@
         NSString *jsonString = [[NSString alloc] initWithData:jsonData
                                                      encoding:NSUTF8StringEncoding];
         return jsonString;
-    }else{
+    } else {
         return nil;
     }
 }

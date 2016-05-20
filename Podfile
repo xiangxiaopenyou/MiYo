@@ -11,5 +11,6 @@ pod 'TRWebImage', '~> 0.4'
 pod 'CTAssetsPickerController',  '~> 3.2.0'
 pod 'AMap2DMap'
 pod 'AMapSearch'
+pod 'SVProgressHUD'
 end
 

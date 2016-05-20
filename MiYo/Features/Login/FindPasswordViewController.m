@@ -121,11 +121,15 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!msg) {
             [MBProgressHUD showSuccess:@"成功" toView:self.view];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self performSelector:@selector(popView) withObject:nil afterDelay:0.5];
+            
         } else {
             [MBProgressHUD showError:@"失败" toView:self.view];
         }
     }];
+}
+- (void)popView {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

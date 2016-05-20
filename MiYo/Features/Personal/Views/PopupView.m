@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIView *contentView;
 @property (strong, nonatomic) UIButton *housingButton;
 @property (strong, nonatomic) UIButton *noHousingButton;
+@property (strong, nonatomic) UIButton *closeButton;
 
 @property (copy, nonatomic) ClickTypeBlock block;
 
@@ -32,20 +33,37 @@
             _contentView.backgroundColor = [UIColor whiteColor];
             if (!_housingButton) {
                 _housingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                _housingButton.frame = CGRectMake(30, 40, 80, 40);
+                _housingButton.frame = CGRectMake(30, 50, 80, 40);
                 [_housingButton setTitle:@"有房招租" forState:UIControlStateNormal];
                 [_housingButton setTitleColor:[Util turnToRGBColor:@"12c1e8"] forState:UIControlStateNormal];
+                _housingButton.titleLabel.font = [UIFont systemFontOfSize:16];
                 [_housingButton addTarget:self action:@selector(typeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
                 [_contentView addSubview:_housingButton];
+                _housingButton.layer.masksToBounds = YES;
+                _housingButton.layer.cornerRadius = 3.0;
+                _housingButton.layer.borderWidth = 1.0;
+                _housingButton.layer.borderColor = [Util turnToRGBColor:@"12c1e8"].CGColor;
             }
             
             if (!_noHousingButton) {
                 _noHousingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                _noHousingButton.frame = CGRectMake(130, 40, 80, 40);
+                _noHousingButton.frame = CGRectMake(130, 50, 80, 40);
                 [_noHousingButton setTitle:@"无房求租" forState:UIControlStateNormal];
                 [_noHousingButton setTitleColor:[Util turnToRGBColor:@"12c1e8"] forState:UIControlStateNormal];
+                _noHousingButton.titleLabel.font = [UIFont systemFontOfSize:16];
                 [_noHousingButton addTarget:self action:@selector(typeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
                 [_contentView addSubview:_noHousingButton];
+                _noHousingButton.layer.masksToBounds = YES;
+                _noHousingButton.layer.cornerRadius = 3.0;
+                _noHousingButton.layer.borderWidth = 1.0;
+                _noHousingButton.layer.borderColor = [Util turnToRGBColor:@"12c1e8"].CGColor;
+            }
+            if (!_closeButton) {
+                _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                _closeButton.frame = CGRectMake(CGRectGetWidth(_contentView.frame) - 32, 2, 30, 30);
+                [_closeButton setImage:[UIImage imageNamed:@"view_close"] forState:UIControlStateNormal];
+                [_closeButton addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchUpInside];
+                [_contentView addSubview:_closeButton];
             }
             
         }

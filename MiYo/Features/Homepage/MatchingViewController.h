@@ -11,5 +11,6 @@
 
 @interface MatchingViewController : UIViewController
 @property (strong, nonatomic) HousingModel *model;
+@property (assign, nonatomic) BOOL isMatchHousingsAndFriends;
 
 @end
