@@ -29,6 +29,7 @@ PODS:
   - Masonry (1.0.0)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.0)
+  - OpenShare (0.0.1)
   - PureLayout (3.0.1)
   - Qiniu (7.0.18):
     - AFNetworking (~> 2.0)
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
+  - OpenShare
   - Qiniu (~> 7.0)
   - SVProgressHUD
   - TRWebImage (~> 0.4)
@@ -62,6 +64,7 @@ SPEC CHECKSUMS:
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   Qiniu: 7a9c2a2bbdec02ae84b92051637e1e9ea3d182fb
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4

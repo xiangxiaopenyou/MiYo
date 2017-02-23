@@ -16,7 +16,6 @@
 		3D153D321CBE193A006A5313 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D241CBE193A006A5313 /* MBProgressHUD+Add.m */; };
 		3D153D331CBE193A006A5313 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D261CBE193A006A5313 /* MJPhoto.m */; };
 		3D153D341CBE193A006A5313 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3D153D271CBE193A006A5313 /* MJPhotoBrowser.bundle */; };
-		3D153D351CBE193A006A5313 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D291CBE193A006A5313 /* MJPhotoBrowser.m */; };
 		3D153D361CBE193A006A5313 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D2B1CBE193A006A5313 /* MJPhotoLoadingView.m */; };
 		3D153D371CBE193A006A5313 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D2D1CBE193A006A5313 /* MJPhotoProgressView.m */; };
 		3D153D381CBE193A006A5313 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D153D2F1CBE193A006A5313 /* MJPhotoToolbar.m */; };
@@ -92,6 +91,7 @@
 		3DC7DC691CB8C1EC00D483B4 /* SystemMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC681CB8C1EC00D483B4 /* SystemMessageCell.m */; };
 		3DC7DC6D1CBA255E00D483B4 /* ChooseHousingTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC6C1CBA255E00D483B4 /* ChooseHousingTypeViewController.m */; };
 		3DC7DC701CBA383B00D483B4 /* FixHousingStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC7DC6F1CBA383B00D483B4 /* FixHousingStyleViewController.m */; };
+		3DD72C0B1D583755002575EF /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD72C0A1D583755002575EF /* MJPhotoBrowser.m */; };
 		3DDA2B6F1CD0AB8500EB581F /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA2B6E1CD0AB8500EB581F /* MessageDetailViewController.m */; };
 		3DDD8BAB1C99258100C7296A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAA1C99258100C7296A /* main.m */; };
 		3DDD8BAE1C99258100C7296A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD8BAD1C99258100C7296A /* AppDelegate.m */; };
@@ -154,8 +154,6 @@
 		3D153D251CBE193A006A5313 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
 		3D153D261CBE193A006A5313 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
 		3D153D271CBE193A006A5313 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
-		3D153D281CBE193A006A5313 /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
-		3D153D291CBE193A006A5313 /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
 		3D153D2A1CBE193A006A5313 /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
 		3D153D2B1CBE193A006A5313 /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
 		3D153D2C1CBE193A006A5313 /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
@@ -296,6 +294,8 @@
 		3DC7DC6C1CBA255E00D483B4 /* ChooseHousingTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseHousingTypeViewController.m; sourceTree = "<group>"; };
 		3DC7DC6E1CBA383B00D483B4 /* FixHousingStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixHousingStyleViewController.h; sourceTree = "<group>"; };
 		3DC7DC6F1CBA383B00D483B4 /* FixHousingStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixHousingStyleViewController.m; sourceTree = "<group>"; };
+		3DD72C091D583755002575EF /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		3DD72C0A1D583755002575EF /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
 		3DDA2B6D1CD0AB8400EB581F /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
 		3DDA2B6E1CD0AB8500EB581F /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
 		3DDD8BA61C99258100C7296A /* MiYo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,9 +414,9 @@
 				3D153D241CBE193A006A5313 /* MBProgressHUD+Add.m */,
 				3D153D251CBE193A006A5313 /* MJPhoto.h */,
 				3D153D261CBE193A006A5313 /* MJPhoto.m */,
+				3DD72C091D583755002575EF /* MJPhotoBrowser.h */,
+				3DD72C0A1D583755002575EF /* MJPhotoBrowser.m */,
 				3D153D271CBE193A006A5313 /* MJPhotoBrowser.bundle */,
-				3D153D281CBE193A006A5313 /* MJPhotoBrowser.h */,
-				3D153D291CBE193A006A5313 /* MJPhotoBrowser.m */,
 				3D153D2A1CBE193A006A5313 /* MJPhotoLoadingView.h */,
 				3D153D2B1CBE193A006A5313 /* MJPhotoLoadingView.m */,
 				3D153D2C1CBE193A006A5313 /* MJPhotoProgressView.h */,
@@ -1135,6 +1135,7 @@
 				3DC7DC701CBA383B00D483B4 /* FixHousingStyleViewController.m in Sources */,
 				3D712B561C9A8E7100687ED9 /* RequestCacher.m in Sources */,
 				3D846D291CCDA66F00FC7F7D /* MessageDeleteRequest.m in Sources */,
+				3DD72C0B1D583755002575EF /* MJPhotoBrowser.m in Sources */,
 				3D153D361CBE193A006A5313 /* MJPhotoLoadingView.m in Sources */,
 				3D4C1D0C1CC097C900EF15B3 /* FetchHousingDetailRequest.m in Sources */,
 				3D712B591C9A8EA200687ED9 /* BaseRequest.m in Sources */,
@@ -1211,7 +1212,6 @@
 				3DED4FDC1CD8710D00B368C3 /* RBColorTool.m in Sources */,
 				3DC334261CD2EE28007E483A /* FetchRecommendedHousingRequest.m in Sources */,
 				3D153D3F1CBF2F92006A5313 /* HousingAddressAndPriceViewController.m in Sources */,
-				3D153D351CBE193A006A5313 /* MJPhotoBrowser.m in Sources */,
 				3DC7DC591CB0E0AD00D483B4 /* HousingDetailViewController.m in Sources */,
 				3D153D151CBDE6F6006A5313 /* UploadImageRequest.m in Sources */,
 				3D9162A71CBC85EF0032A28C /* PersonalModel.m in Sources */,

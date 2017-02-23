@@ -9,7 +9,8 @@
 #import "RequestManager.h"
 #import <AFURLResponseSerialization.h>
 //NSString *const BaseApiURL = @"http://120.26.233.80/API/";
-NSString *const BaseApiURL = @"http://120.26.233.80:8088/API";
+//NSString *const BaseApiURL = @"http://120.26.233.80:8088/API";
+NSString *const BaseApiURL = @"http://120.55.92.213/API";
 //NSString *const BaseImageURL = @"http://7xsnrf.com1.z0.glb.clouddn.com/";
 NSString *const BaseImageURL = @"http://o79izl3a1.bkt.clouddn.com/";
 

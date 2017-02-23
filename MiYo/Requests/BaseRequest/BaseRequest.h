@@ -19,6 +19,7 @@ typedef void(^RequestResultHandler)(id object, NSString *msg);
 @end
 
 @interface BaseRequest : NSObject <RequestProtocol>
+
 - (void)cacheRequest:(NSString *)request method:(NSString *)method param:(NSDictionary *)param;
 - (NSString *)handlerError:(NSError *)error;
 

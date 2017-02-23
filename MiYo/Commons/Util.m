@@ -77,7 +77,7 @@
 }
 
 + (NSString *)compareDate:(NSDate *)date {
-    
+
     NSTimeInterval secondsPerDay = 24 * 60 * 60;
     NSDate *today = [[NSDate alloc] init];
     NSDate *tomorrow, *yesterday, *aftertomorrow;

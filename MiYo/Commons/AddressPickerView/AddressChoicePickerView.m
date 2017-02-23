@@ -25,7 +25,6 @@
 @implementation AddressChoicePickerView
 
 - (instancetype)init{
-    
     if (self = [super init]) {
         self = [[[NSBundle mainBundle]loadNibNamed:@"AddressChoicePickerView" owner:nil options:nil]firstObject];
         self.frame = [UIScreen mainScreen].bounds;

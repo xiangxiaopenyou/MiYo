@@ -23,5 +23,4 @@
         !resultHandler ?: resultHandler(nil, error.description);
     }];
 }
-
 @end
